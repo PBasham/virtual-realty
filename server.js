@@ -43,3 +43,12 @@ app.use("/api/listings", require("./routes/api/listings"))
 app.get("/*", (req,res) => {
     res.sendFile([ath.join(__dirname, "build", "index.html")])
 })
+/*========================================
+        Port and Listener
+========================================*/
+const port = process.env.PORT || 3001
+
+app.listen(post, () => {
+    console.log(`Express app running on port ${port}`)
+    
+})
