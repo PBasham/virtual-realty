@@ -49,6 +49,5 @@ app.get("/*", (req,res) => {
 const port = process.env.PORT || 3001
 
 app.listen(post, () => {
-    console.log(`Express app running on port ${port}`)
-    
+    console.log(`Express app running on port ${port}`) 
 })
