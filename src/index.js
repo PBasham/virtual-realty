@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom/client';
 /*========================================
         import pages & components
 ========================================*/
-import App from './App';
+import App from './pages/App/App';
 /*========================================
         import styles
 ========================================*/
