@@ -33,6 +33,19 @@ async function login( req, res) {
     }
 }
 
+// create user function
+async function create(req, res) {
+    try {
+        const user = await User.create(req.body)
+        const token = createJWT(user)
+        res.json(token)
+    } catch (err) {
+        res.status(400).json(err)
+    }
+}
+
+// delete user function
+
 
 /*========================================
         Helper Functions
