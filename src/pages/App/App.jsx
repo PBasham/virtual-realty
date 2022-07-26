@@ -11,6 +11,7 @@ import { getUser } from "../../utilities/users-services.js"
         Import Pages & Components
 ========================================*/
 import NavBar from "../../components/NavBar/NavBar.jsx"
+import AuthPage from "../../pages/AuthPage/AuthPage.jsx"
 import HomePage from "../../pages/HomePage/HomePage.jsx"
 import AboutPage from "../../pages/AboutPage/AboutPage.jsx"
 import WatchListPage from "../../pages/WatchListPage/WatchListPage.jsx"
@@ -88,11 +89,23 @@ function App() {
     //==-- END FUNCTIONS--==//
     return (
         <div className="App">
-            <NavBar navBarLinks={navBarLinks}/>
-            Testing
-            <Routes>
-                <Route />
-            </Routes>
+            {user ?
+                <NavBar
+                    user={user}
+                    setUser={setUser}
+                    navBarLinks={navBarLinks}
+                    setNavBarLinks={setNavBarLinks}
+                />
+                :
+                null
+            }
+            {user ? 
+                <Routes>
+                    <Route />
+                </Routes>
+                :
+                <AuthPage />
+            }
         </div>
     );
 }
