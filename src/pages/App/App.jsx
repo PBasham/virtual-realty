@@ -6,13 +6,26 @@ import { Routes, Route, Navigate, Redirect } from "react-router-dom"
 import { getUser } from "../../utilities/users-services.js"
 
 // import logo from './logo.svg';
+
+/*========================================
+        Import Pages & Components
+========================================*/
+import NavBar from "../../components/NavBar/NavBar.jsx"
+import HomePage from "../../pages/HomePage/HomePage.jsx"
+import AboutPage from "../../pages/AboutPage/AboutPage.jsx"
+import WatchListPage from "../../pages/WatchListPage/WatchListPage.jsx"
+import ExplorePage from "../../pages/ExplorePage/ExplorePage.jsx"
+
+
+
+
 /*========================================
         Import Styling
 ========================================*/
 import './App.css'
 
 function App() {
-    const [user, setUset] = useState(getUser())
+    const [user, setUser] = useState(getUser())
     const [navBarLinks, setNavBarLinks] = useState({
         activeNavLink: null,
         navLinks: [
@@ -75,7 +88,11 @@ function App() {
     //==-- END FUNCTIONS--==//
     return (
         <div className="App">
+            <NavBar navBarLinks={navBarLinks}/>
             Testing
+            <Routes>
+                <Route />
+            </Routes>
         </div>
     );
 }
