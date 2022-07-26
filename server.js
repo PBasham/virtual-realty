@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, "build")))
 app.use("/api/users", require("./routes/api/users"))
 
 // require funcion ensure logged in that will run on certain routes
-const ensureLoggedIn = require("./config/ensureLoggedIn.js")
+// const ensureLoggedIn = require("./config/ensureLoggedIn.js")
 
 // base route for home
 app.use("/api/home", require("./routes/api/home"))
