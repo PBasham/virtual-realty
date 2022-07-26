@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 /*========================================
         SCHEMAS
 ========================================*/
-const itemsSchema = new Schema(
+const listingSchema = new Schema(
 	{
         // primary photo
         primary_photo: Object,
@@ -54,4 +54,4 @@ const itemsSchema = new Schema(
 /*========================================
 				EXPORTS
 ========================================*/
-module.exports = itemsSchema;
+module.exports = mongoose.model("Listing", listingSchema);

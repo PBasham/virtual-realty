@@ -21,6 +21,7 @@ const CONFIG = {
 }
 
 mongoose.connect(DATABASE_URL, CONFIG)
+
 db.on("connected", () => {
     console.log(`Connected to ${db.name} at ${db.host}: ${db.port}`)
 })
