@@ -45,7 +45,15 @@ async function create(req, res) {
 }
 
 // delete user function
-
+async function remove(req, res) {
+    try {
+        const user = await User.findOneAndDelete({ _id: req.body._id })
+        console.log(user)
+        res.json(user)
+    } catch (err){
+        res.status(400).json(err)
+    }
+}
 
 /*========================================
         Helper Functions
