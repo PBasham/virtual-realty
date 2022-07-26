@@ -10,3 +10,18 @@ const BASE_URL = "/api/users"
 /*========================================
         users-api funcitons
 ========================================*/
+export function signUp(newUserData) {
+    return sendRequest(BASE_URL, 'POST', newUserData);
+  }
+  
+  export function login(credentials) {
+    return sendRequest(`${BASE_URL}/login`, 'POST', credentials);
+  }
+  
+  export function remove(credentials) {
+    return sendRequest(`${BASE_URL}/delete`, 'DELETE', credentials)
+  }
+  
+  export function checkToken() {
+    return sendRequest(`${BASE_URL}/check-token`);
+  }
