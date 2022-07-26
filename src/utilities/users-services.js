@@ -1,13 +1,28 @@
 /*========================================
         Import everything from users-api
 ========================================*/
-import { parse } from "dotenv"
 import * as usersAPI from "./users-api.js"
 
 /*========================================
         user-api -> users-services functions
 ========================================*/
-
+export async function signUp(userData){
+    const token = await usersAPI.signUp(userData)
+    localStorage.setItem('token', token);
+    return getUser();
+  }
+  
+  export async function login(credentials){
+    const token = await usersAPI.login(credentials);
+    localStorage.setItem('token', token)
+    return getUser();
+  }
+  
+  export async function remove(credentials) {
+    const token = await usersAPI.remove(credentials);
+    localStorage.removeItem(token)
+  }
+  
 
 /*========================================
         users-services functions
