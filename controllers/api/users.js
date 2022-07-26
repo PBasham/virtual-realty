@@ -9,7 +9,10 @@ const bcrypt = require("bcrypt")
         Exports
 ========================================*/
 module.exports = {
-
+    checkToken,
+    login,
+    create,
+    remove,
 }
 
 /*========================================
