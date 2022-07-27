@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     position: sticky;
-    padding: 0 10px;
+    padding: 0 20px;
     min-height: 50px;
     width: 100vw;
     color: white;
@@ -14,13 +14,10 @@
 
 .nav-btn,
 .nav-logo {
-    border: 1px dotted pink;
     transition: 250ms ease-in-out;
 }
 .nav-btn:hover,
-.nav-logo:hover,
-.nav-btn:focus,
-.nav-logo:focus {
+.nav-logo:hover {
     color: blue;
 }
 

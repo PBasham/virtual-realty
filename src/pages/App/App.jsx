@@ -17,13 +17,11 @@ import AboutPage from "../../pages/AboutPage/AboutPage.jsx"
 import WatchListPage from "../../pages/WatchListPage/WatchListPage.jsx"
 import ExplorePage from "../../pages/ExplorePage/ExplorePage.jsx"
 
-
-
-
 /*========================================
         Import Styling
 ========================================*/
 import './App.css'
+import Footer from "../../components/Footer/Footer.jsx"
 
 function App() {
     const [user, setUser] = useState(getUser())
@@ -89,24 +87,25 @@ function App() {
     //==-- END FUNCTIONS--==//
     return (
         <div className="App">
-            {user ?
-                <NavBar
-                    user={user}
-                    setUser={setUser}
-                    navBarLinks={navBarLinks}
-                    setNavBarLinks={setNavBarLinks}
-                />
+            {/* {user ?
                 :
                 null
-            }
+            } */}
             {user ?
-                <Routes>
-                    <Route path="/*" element={<Navigate to="/home" />} />
-                    <Route
-                        path="/home"
-                        element={<HomePage
-                            setNavBarLinks={setNavBarLinks}
-                        />} />
+                <>
+                    <NavBar
+                        user={user}
+                        setUser={setUser}
+                        navBarLinks={navBarLinks}
+                        setNavBarLinks={setNavBarLinks}
+                    />
+                    <Routes>
+                        <Route path="/*" element={<Navigate to="/home" />} />
+                        <Route
+                            path="/home"
+                            element={<HomePage
+                                setNavBarLinks={setNavBarLinks}
+                            />} />
                         <Route
                             path="/about"
                             element={<AboutPage />}
@@ -119,13 +118,13 @@ function App() {
                             path="/explore"
                             element={<ExplorePage />}
                         />
-                        
-                        
-                        
-                </Routes>
+                    </Routes>
+                    <Footer />
+                </>
                 :
-                <AuthPage setUser={setUser}/>
+                <AuthPage setUser={setUser} />
             }
+            { }
         </div>
     );
 }

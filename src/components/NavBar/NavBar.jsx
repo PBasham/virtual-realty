@@ -12,7 +12,7 @@ export default function NavBar({ user, setUser, navBarLinks, setNavBarLinks }) {
     return (
         <div className="nav-bar">
             <div className="nav-logo">
-                Virtual Realty
+                VirtualRealty
             </div>
             <div className="nav-btns">
                 {navBarLinks.navLinks.map((link) => (
