@@ -26,7 +26,7 @@ import ExplorePage from "../../pages/ExplorePage/ExplorePage.jsx"
 import './App.css'
 
 function App() {
-    const [user, setUser] = useState(true)
+    const [user, setUser] = useState(getUser())
     const [navBarLinks, setNavBarLinks] = useState({
         activeNavLink: null,
         navLinks: [
@@ -109,7 +109,7 @@ function App() {
                         />} />
                 </Routes>
                 :
-                <AuthPage />
+                <AuthPage setUser={setUser}/>
             }
         </div>
     );

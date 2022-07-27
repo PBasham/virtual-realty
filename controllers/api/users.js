@@ -12,7 +12,7 @@ module.exports = {
     checkToken,
     login,
     create,
-    remove,
+    // remove
 }
 
 /*========================================
@@ -27,8 +27,12 @@ async function login( req, res) {
     try {
         const user = await User.findOne({ email: req.body.email })
         console.log("Req.Body: ", req.body)
+        
+        console.log("user :", user)
+        
         if (!user) throw new Error()
-        const match = await bcrypt.compate(req.body.password, user.password)
+        const match = await bcrypt.compare(req.body.password, user.password)
+        console.log("match :", match)
         if (!match) throw new Error()
         res.json(createJWT(user))
     } catch {
@@ -38,6 +42,8 @@ async function login( req, res) {
 
 // create user function
 async function create(req, res) {
+    console.log("I've made it this far!")
+    
     try {
         const user = await User.create(req.body)
         const token = createJWT(user)
@@ -47,16 +53,16 @@ async function create(req, res) {
     }
 }
 
-// delete user function
-async function remove(req, res) {
-    try {
-        const user = await User.findOneAndDelete({ _id: req.body._id })
-        console.log(user)
-        res.json(user)
-    } catch (err){
-        res.status(400).json(err)
-    }
-}
+// // delete user function
+// async function remove(req, res) {
+//     try {
+//         const user = await User.findOneAndDelete({ _id: req.body._id })
+//         console.log(user)
+//         res.json(user)
+//     } catch (err){
+//         res.status(400).json(err)
+//     }
+// }
 
 /*========================================
         Helper Functions

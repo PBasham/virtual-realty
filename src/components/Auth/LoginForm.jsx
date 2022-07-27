@@ -7,12 +7,10 @@ import * as usersService from "../../utilities/users-services.js"
 
 export default function LoginForm({ setUser, updateShowLogin }) {
     const [credentials, setCredentials] = useState({
-        name_First: "",
-        name_Last: "",
         email: "",
         password: "",
     });
-    const [error, setError] = useState('');
+    const [error, setError] = useState("");
 
     const handleFormChange = () => {
         updateShowLogin()
@@ -20,7 +18,7 @@ export default function LoginForm({ setUser, updateShowLogin }) {
 
     const handleChange = (evt) => {
         setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
-        // setError('');
+        setError("");
     }
 
     async function handleSubmit(evt) {
@@ -37,10 +35,6 @@ export default function LoginForm({ setUser, updateShowLogin }) {
         <div className='login-wrapper'>
             <div className="form-container" onSubmit={handleSubmit}>
                 <form autoComplete="off">
-                    <label>First Name</label>
-                    <input type="text" name="name_first" value={credentials.name_first} onChange={handleChange} required />
-                    <label>Last Name</label>
-                    <input type="text" name="name_last" value={credentials.name_last} onChange={handleChange} required />
                     <label>Email</label>
                     <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
                     <label>Password</label>

@@ -18,10 +18,10 @@ export async function signUp(userData){
     return getUser();
   }
   
-  export async function remove(credentials) {
-    const token = await usersAPI.remove(credentials);
-    localStorage.removeItem(token)
-  }
+//   export async function remove(credentials) {
+//     const token = await usersAPI.remove(credentials);
+//     localStorage.removeItem(token)
+//   }
   
 
 /*========================================

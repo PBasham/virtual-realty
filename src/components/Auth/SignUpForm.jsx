@@ -8,17 +8,18 @@ import * as usersService from "../../utilities/users-services.js"
 
 export default function SignUpForm({ setUser, updateShowLogin }) {
     const [credentials, setCredentials] = useState({
-        name: '',
-        email: '',
-        password: '',
-        confirm: ''
+        name_first: "",
+        name_last: "",
+        email: "",
+        password: "",
+        confirm: "",
     });
-    const [error, setError] = useState('');
+    const [error, setError] = useState("");
 
     const handleChange = (evt) => {
 
         setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
-        setError('');
+        setError("");
 
     }
 
@@ -49,10 +50,18 @@ export default function SignUpForm({ setUser, updateShowLogin }) {
                     <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
                     <label>Password</label>
                     <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+                    <label>Confirm</label>
+                    <input type="password" name="confirm" value={credentials.confirm} onChange={handleChange} required />
                     <button type="submit">Sign Up</button>
                 </form>
             </div>
-            <p>Already a user? <Link to="/Login" onClick={handleFormChange}>Log In</Link></p>
+            <p>Already a user ?
+                <Link
+                    to="/Login"
+                    onClick={handleFormChange}>
+                    Log In
+                </Link>
+            </p>
             <p className="error-message">&nbsp;{error}</p>
         </div>
     )

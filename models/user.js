@@ -13,12 +13,10 @@ const userSchema = new Schema (
     {
         name_first: {
             type: String,
-            trim: true,
             required: true,
         },
         name_last: {
             type: String,
-            trim: true,
             required: true,
         },
         email: {
@@ -46,10 +44,10 @@ const userSchema = new Schema (
     }
 )
 
-userSchema.pre("save", async (next) => {
-    if (!this.isModified("password")) return next()
-    this.password = await bcrypt.hash(this.password, SALT_ROUNDS)
-    return next()
+userSchema.pre('save', async function (next) {
+	if (!this.isModified('password')) return next();
+	this.password = await bcrypt.hash(this.password, SALT_ROUNDS)
+	return next();
 })
 
 /*========================================

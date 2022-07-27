@@ -23,13 +23,11 @@ app.use(express.static(path.join(__dirname, "build")))
 
 // Middleware that will verify the token and assign a user object of patload to req.user (must come before routes)
 app.use(require("./config/checkToken"))
-console.log("HERE-!")
 
 /*========================================
         API routes
 ========================================*/
 // base route for users
-
 app.use("/api/users", require("./routes/api/users"))
 
 // require funcion ensure logged in that will run on certain routes
