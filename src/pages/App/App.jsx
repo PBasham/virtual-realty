@@ -99,26 +99,28 @@ function App() {
                         navBarLinks={navBarLinks}
                         setNavBarLinks={setNavBarLinks}
                     />
-                    <Routes>
-                        <Route path="/*" element={<Navigate to="/home" />} />
-                        <Route
-                            path="/home"
-                            element={<HomePage
-                                setNavBarLinks={setNavBarLinks}
-                            />} />
-                        <Route
-                            path="/about"
-                            element={<AboutPage />}
-                        />
-                        <Route
-                            path="/watchlist"
-                            element={<WatchListPage />}
-                        />
-                        <Route
-                            path="/explore"
-                            element={<ExplorePage />}
-                        />
-                    </Routes>
+                    <div className="content-wrapper">
+                        <Routes>
+                            <Route path="/*" element={<Navigate to="/home" />} />
+                            <Route
+                                path="/home"
+                                element={<HomePage
+                                    setNavBarLinks={setNavBarLinks}
+                                />} />
+                            <Route
+                                path="/about"
+                                element={<AboutPage />}
+                            />
+                            <Route
+                                path="/watchlist"
+                                element={<WatchListPage />}
+                            />
+                            <Route
+                                path="/explore"
+                                element={<ExplorePage />}
+                            />
+                        </Routes>
+                    </div>
                     <Footer />
                 </>
                 :
