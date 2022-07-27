@@ -20,19 +20,35 @@
     display: flex;
     width: 100vw;
     height: 40vh;
+    border: 2px solid var(--color-blue);
     background-color: white;
 }
 .preview-main {
+    display: grid;
+    place-items: center;
+    position: relative;
     width: 70%;
-    background-color: gray;
+}
+.preview-title {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 15%;
+    background: linear-gradient(to bottom, var(--color-blueTransparent),rgba(0, 0, 255, 0));
 }
 .preview-list {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     width: 30%;
-    background-color: lightgray;
+    border-left: 2px solid var(--color-blue);
 }
 .preview-list-item {
     display: grid;
     place-items: center;
+}
+.preview-list-item:not(:first-of-type) {
+    border-top: 2px solid var(--color-blue);
 }
