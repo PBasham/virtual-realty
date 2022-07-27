@@ -20,7 +20,7 @@
     display: grid;
     grid-template-columns: 70% 30%;
     width: 100vw;
-    height: 40vh;
+    height: 60vh;
     border: 2px solid var(--color-blue);
     background-color: white;
 }
