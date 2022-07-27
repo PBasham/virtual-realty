@@ -1,0 +1,38 @@
+.content-wrapper {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 4px dotted red; */
+}
+.homepage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: blue;
+}
+/*----------------------------------------
+        spotlightarea
+-----------------------------------------*/
+.spotlight-div {
+    display: flex;
+    width: 100vw;
+    height: 40vh;
+    background-color: white;
+}
+.preview-main {
+    width: 70%;
+    background-color: gray;
+}
+.preview-list {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    width: 30%;
+    background-color: lightgray;
+}
+.preview-list-item {
+    display: grid;
+    place-items: center;
+}

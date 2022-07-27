@@ -16,12 +16,12 @@ import HomePage from "../../pages/HomePage/HomePage.jsx"
 import AboutPage from "../../pages/AboutPage/AboutPage.jsx"
 import WatchListPage from "../../pages/WatchListPage/WatchListPage.jsx"
 import ExplorePage from "../../pages/ExplorePage/ExplorePage.jsx"
+import Footer from "../../components/Footer/Footer.jsx"
 
 /*========================================
         Import Styling
 ========================================*/
 import './App.css'
-import Footer from "../../components/Footer/Footer.jsx"
 
 function App() {
     const [user, setUser] = useState(getUser())

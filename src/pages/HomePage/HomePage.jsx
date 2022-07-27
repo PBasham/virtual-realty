@@ -5,6 +5,10 @@ import SpotlightArea from "../../components/Home/SpotlightArea.jsx"
 import MiniAbout from "../../components/Home/MiniAbout.jsx"
 import ServiceCards from "../../components/Home/ServiceCards.jsx"
 import MiniExplore from "../../components/Home/MiniExplore.jsx"
+/*========================================
+        Import Styling
+========================================*/
+import "./HomePage.css"
 
 export default function HomePage() {
   return (
