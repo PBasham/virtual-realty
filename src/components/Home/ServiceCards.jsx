@@ -1,26 +1,38 @@
-import React from 'react'
+/*========================================
+        Import Components
+========================================*/
+import ServiceCard from "./ServiceCard"
 
 export default function ServiceCards() {
-    const servicecards = [
+    const serviceCards = [
         {
             title: "Buy",
             image: "",
-            miniDesc: "",
+            miniDesc: "Browse through beautiful homes to buy.",
         },
         {
             title: "Sell",
             image: "",
-            miniDesc: "",
+            miniDesc: "Sell dat house!",
         },
         {
             title: "Concierge",
             image: "",
-            miniDesc: "",
+            miniDesc: "This is a service we offer!",
         },
     ]
     return (
         <div className="content-div">
-            ServiceCards
+            <div className="service-cards">
+                {serviceCards.map((service, index) => (
+                    <ServiceCard
+                        key={index}
+                        title={service.title}
+                        img={service.image}
+                        desc={service.miniDesc}
+                    />
+                ))}
+            </div>
         </div>
     )
 }
