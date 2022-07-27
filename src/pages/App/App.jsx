@@ -107,6 +107,21 @@ function App() {
                         element={<HomePage
                             setNavBarLinks={setNavBarLinks}
                         />} />
+                        <Route
+                            path="/about"
+                            element={<AboutPage />}
+                        />
+                        <Route
+                            path="/watchlist"
+                            element={<WatchListPage />}
+                        />
+                        <Route
+                            path="/explore"
+                            element={<ExplorePage />}
+                        />
+                        
+                        
+                        
                 </Routes>
                 :
                 <AuthPage setUser={setUser}/>

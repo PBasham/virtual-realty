@@ -1,5 +1,6 @@
 :root {
-    --color-:;
+    --color-blue: rgb(9, 9, 148);
+    --color-blueTransparent: rgba(9, 9, 148,.8);
 }
 
 *,

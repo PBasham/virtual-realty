@@ -1,0 +1,31 @@
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    padding: 0 10px;
+    min-height: 50px;
+    width: 100vw;
+    color: white;
+    font-size: 1.1em;
+    background-color: var(--color-blueTransparent);
+}
+
+.nav-btn,
+.nav-logo {
+    border: 1px dotted pink;
+    transition: 250ms ease-in-out;
+}
+.nav-btn:hover,
+.nav-logo:hover,
+.nav-btn:focus,
+.nav-logo:focus {
+    color: blue;
+}
+
+.nav-btn {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+}

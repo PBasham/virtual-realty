@@ -1,8 +1,31 @@
+/*========================================
+        Import Dependencies
+========================================*/
+import { Link } from "react-router-dom"
+/*========================================
+        Import Styling
+========================================*/
+import "./NavBar.css"
 
+export default function NavBar({ user, setUser, navBarLinks, setNavBarLinks }) {
 
-export default function NavBar() {
-
-  return (
-    <div>NavBar</div>
-  )
+    return (
+        <div className="nav-bar">
+            <div className="nav-logo">
+                Virtual Realty
+            </div>
+            <div className="nav-btns">
+                {navBarLinks.navLinks.map((link) => (
+                    <Link
+                        key={link.id}
+                        to={link.to}
+                        element={link.element}
+                        className="nav-btn"
+                    >
+                        {link.name}
+                    </Link>
+                ))}
+            </div>
+        </div>
+    )
 }
