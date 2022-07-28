@@ -5,9 +5,12 @@ import WatchListItem from "./WatchListItem.jsx"
 
 export default function WatchList() {
     return (
-        <div className="watchlist-page">
+        <div className="watchlist-list">
             WatchList
-            <div className="watchlist-list">
+            <div className="watchlist-items-div">
+                I contain the watchlist items
+                <WatchListItem />
+                <WatchListItem />
                 <WatchListItem />
             </div>
         </div>

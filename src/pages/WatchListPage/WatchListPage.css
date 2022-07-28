@@ -1,11 +1,17 @@
 .watchlist-page {
-
+    padding-top: 100px;
 }
 /*----------------------------------------
         WatchList
 -----------------------------------------*/
+.watchlist-div {
+    border: 4px dotted blue;
+}
+.watchlist-items-div {
+    border: 4px dotted red;
+}
 .watchlist-list {
-
+border: 4px dotted pink;
 }
 
 .watchlist-item {
