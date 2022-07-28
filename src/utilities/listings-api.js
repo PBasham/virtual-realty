@@ -11,7 +11,7 @@ export function getAll() {
     return sendRequest(BASE_URL)
 }
 // show page
-export function getById() {
+export function getById(id) {
     return sendRequest(`${BASE_URL}/${id}`)
 }
 // get matching (future planner)

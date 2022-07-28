@@ -18,7 +18,7 @@ export default function Listing({
     state,
 }) {
     return (
-        <a href="">
+        <a href={`/explore/listings/${_id}`}>
 
             <div className="listing-preview">
                 <img src={main_photo.href} alt=""

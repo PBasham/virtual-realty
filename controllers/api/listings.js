@@ -11,8 +11,13 @@ async function index(req, res) {
     const listings = await Listing.find({})
     res.json(listings)
 }
-
 // show
+async function show(req, res) {
+    const listing = await Listing.findById(req.body._id)
+    console.log(listing)
+    
+    res.json(listing)
+}
 
 // search
 
@@ -21,4 +26,5 @@ async function index(req, res) {
 ========================================*/
 module.exports = {
     index,
+    show,
 }

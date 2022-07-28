@@ -2,7 +2,7 @@
         Import Dependencies
 ========================================*/
 import { useState, useEffect, useRef } from "react"
-import { Routes, Route, Navigate, Redirect } from "react-router-dom"
+import { Routes, Route, Navigate, Redirect, useParams } from "react-router-dom"
 import { getUser } from "../../utilities/users-services.js"
 
 // import logo from './logo.svg';
@@ -16,6 +16,7 @@ import HomePage from "../../pages/HomePage/HomePage.jsx"
 import AboutPage from "../../pages/AboutPage/AboutPage.jsx"
 import WatchListPage from "../../pages/WatchListPage/WatchListPage.jsx"
 import ExplorePage from "../../pages/ExplorePage/ExplorePage.jsx"
+import ListingShowPage from "../ListingShowPage/ListingShowPage.jsx"
 import Footer from "../../components/Footer/Footer.jsx"
 
 /*========================================
@@ -79,6 +80,7 @@ function App() {
     })
 
 
+
     /*========================================
             Functins
     ========================================*/
@@ -118,6 +120,14 @@ function App() {
                             <Route
                                 path="/explore"
                                 element={<ExplorePage />}
+                            />
+                            <Route
+                                path="/explore/:id"
+                                element={<ListingShowPage />}
+                            />
+                            <Route
+                                path="/*"
+                                element={<Navigate to="/home" />}
                             />
                         </Routes>
                     </div>

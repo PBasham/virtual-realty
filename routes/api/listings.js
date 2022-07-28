@@ -11,7 +11,7 @@ const listingsCtrl = require("../../controllers/api/listings.js")
 // Index Route
 router.get("/", listingsCtrl.index)
 // Show Route
-
+router.get("/:id", listingsCtrl.show)
 // Search Route
 
 /*========================================
