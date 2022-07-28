@@ -1,3 +1,8 @@
+/*========================================
+        Import Dependencies
+========================================*/
+import { Link } from "react-router-dom"
+
 export default function Listing({
     _id,
     main_photo,
@@ -13,15 +18,18 @@ export default function Listing({
     state,
 }) {
     return (
-        <div className="listing-preview">
-            <img src={main_photo.href} alt=""
-            />
-            <div className="listing-preview-detail">
+        <a href="">
 
-                <p>${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-                <p>{line}</p>
-                <p>{`${city} ${state}`}</p>
+            <div className="listing-preview">
+                <img src={main_photo.href} alt=""
+                />
+                <div className="listing-preview-detail">
+
+                    <p>${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                    <p>{line}</p>
+                    <p>{`${city} ${state}`}</p>
+                </div>
             </div>
-        </div>
+        </a>
     )
 }
