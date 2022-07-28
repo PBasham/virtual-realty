@@ -2,6 +2,7 @@
         Import Dependencies
 ========================================*/
 import { useState, useEffect } from "react"
+import * as ListingsApi from "../../utilities/listings-api.js"
 /*========================================
         Import Components
 ========================================*/
@@ -16,7 +17,7 @@ export default function ExplorePage() {
 
     useEffect(function() {
         (async function getListings(){
-            const displayListings = await listingsApi.getListings()
+            const displayListings = await ListingsApi.getAll()
             setListingsList(displayListings)
         })()
     })
