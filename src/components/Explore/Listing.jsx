@@ -18,18 +18,19 @@ export default function Listing({
     state,
 }) {
     return (
-        <a href={`/explore/listings/${_id}`}>
+        // <a href={`/explore/${_id}`}>
+            <Link to={`/explore/${_id}` }>
+                <div className="listing-preview">
+                    <img src={main_photo.href} alt=""
+                    />
+                    <div className="listing-preview-detail">
 
-            <div className="listing-preview">
-                <img src={main_photo.href} alt=""
-                />
-                <div className="listing-preview-detail">
-
-                    <p>${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-                    <p>{line}</p>
-                    <p>{`${city} ${state}`}</p>
+                        <p>${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                        <p>{line}</p>
+                        <p>{`${city} ${state}`}</p>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </Link>
+        // {/* </a> */}
     )
 }

@@ -19,7 +19,7 @@ export default function ExplorePage() {
         (async function getListings(){
             const displayListings = await ListingsApi.getAll()
             setListingsList(displayListings)
-            console.log("Listigns: ", displayListings);
+            console.log("Listings: ", displayListings);
         })()
     },[])
     
