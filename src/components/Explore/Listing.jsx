@@ -18,7 +18,9 @@ export default function Listing({
             />
             <div className="listing-preview-detail">
 
-                {_id}
+                <p>${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                <p>{line}</p>
+                <p>{`${city} ${state}`}</p>
             </div>
         </div>
     )

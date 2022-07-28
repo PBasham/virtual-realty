@@ -25,7 +25,16 @@
 }
 
 .listing-preview-detail {
+    display: flex;
+    flex-direction: column;
     position: absolute;
+    min-height: 20%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px ;
+    color: white;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.917), rgba(0, 0, 0, 0));
 }
 
 .listing-preview img {
