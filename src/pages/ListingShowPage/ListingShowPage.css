@@ -1,18 +1,31 @@
 .listing-show {
-    padding: 50px 30px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 40vh;
+    margin: 0 auto;
+    padding: 50px 0;
+    width: 90vw;
+    background-color: brown;
 }
 
 .listing-img {
+    grid-column: 1/2;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     margin: 20px 20px 20px 0;
-    height: 50vw;
-    aspect-ratio: 1.25;
+    height: 100%;
     background: 
         linear-gradient(217deg, rgba(66, 66, 66, 0.8), rgba(255, 0, 0, 0) 70.71%),
         linear-gradient(127deg, rgba(94, 94, 94, 0.8), rgba(0, 255, 0, 0) 70.71%),
         linear-gradient(336deg, rgba(80, 80, 80, 0.8), rgba(0, 0, 255, 0) 70.71%);
     overflow: hidden;
+}
+
+.listing-details {
+    grid-column: 2/3;
+}
+.listing-details-list {
+
 }

@@ -46,7 +46,18 @@ export default function ListingShowPage() {
             <div className="listing-img">
                 <img src={listing.primary_photo} alt="" />
             </div>
-
+            <div className="listing-details">
+                <ul className="listing-details-list">
+                    <li>Status: </li>
+                    <li>Days on Market:</li>
+                    <li>Monthly: </li>
+                    <li>Baths: </li>
+                    <li>Beds: </li>
+                    <li>Year build: </li>
+                    <li>Country: </li>
+                    <li></li>
+                </ul>
+            </div>
         </div>
     )
 }
