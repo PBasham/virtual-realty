@@ -1,7 +1,32 @@
-import React from 'react'
+/*========================================
+        Import Dependencies
+========================================*/
+import { useState, useEffect } from "react"
+/*========================================
+        Import Components
+========================================*/
+import Listings from "../../components/Explore/Listings.jsx"
+/*========================================
+        Import Styling
+========================================*/
+import "./ExplorePage.css"
 
 export default function ExplorePage() {
-  return (
-    <div>ExplorePage</div>
-  )
+    const [listingsList, setListingsList] = useState([])
+
+    useEffect(function() {
+        (async function getListings(){
+            const displayListings = await listingsApi.getListings()
+            setListingsList(displayListings)
+        })()
+    })
+    
+    return (
+        <div className="explore-page">
+            ExplorePage
+            <div className="listings-list">
+                <Listings />
+            </div>
+        </div>
+    )
 }
