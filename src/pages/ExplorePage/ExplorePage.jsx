@@ -19,16 +19,14 @@ export default function ExplorePage() {
         (async function getListings(){
             const displayListings = await ListingsApi.getAll()
             setListingsList(displayListings)
-            console.log("Listings: ",displayListings);
+            console.log("Listigns: ", displayListings);
         })()
     },[])
     
     return (
         <div className="explore-page">
             ExplorePage
-            <div className="listings-list">
-                <Listings />
-            </div>
+                <Listings listingsList={listingsList}/>
         </div>
     )
 }
