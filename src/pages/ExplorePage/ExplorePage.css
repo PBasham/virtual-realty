@@ -24,6 +24,9 @@
     overflow: hidden;
 }
 
+.listing-preview img {
+    height: 300px;
+}
 .listing-preview-detail {
     display: flex;
     flex-direction: column;
@@ -36,7 +39,6 @@
     color: white;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.917), rgba(0, 0, 0, 0));
 }
-
-.listing-preview img {
-    height: 300px;
+.listing-preview:hover {
+    box-shadow: 0 0 1px 2px var(--color-blue);
 }
