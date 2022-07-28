@@ -43,10 +43,10 @@ export default function ListingShowPage() {
                 <h2>{listing.line}</h2>
                 <a href={`${listing.street_view_url}`} target="_blank">{listing.long_address}</a>
             </div>
-            <div className="listing-img">
-                <img src={listing.primary_photo} alt="" />
-            </div>
             <div className="listing-details">
+                <div className="listing-img">
+                    <img src={listing.primary_photo} alt="" />
+                </div>
                 <ul className="listing-details-list">
                     <li>Status: </li>
                     <li>Days on Market:</li>

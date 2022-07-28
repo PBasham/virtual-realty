@@ -1,13 +1,15 @@
 .listing-show {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    grid-template-rows: 40vh;
     margin: 0 auto;
     padding: 50px 0;
     width: 90vw;
     background-color: brown;
 }
 
+.listing-details {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 60vh;
+}
 .listing-img {
     grid-column: 1/2;
     display: flex;
@@ -22,9 +24,8 @@
         linear-gradient(336deg, rgba(80, 80, 80, 0.8), rgba(0, 0, 255, 0) 70.71%);
     overflow: hidden;
 }
-
-.listing-details {
-    grid-column: 2/3;
+.listing-img img {
+    height: 100%;
 }
 .listing-details-list {
 
