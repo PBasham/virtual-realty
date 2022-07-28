@@ -9,6 +9,8 @@ const Listing = require("../../models/listing.js")
 // index
 async function index(req, res) {
     const listings = await Listing.find({})
+    console.log("Listings(Ctrl): ", listings)
+    
     res.json(listings)
 }
 

@@ -38,12 +38,10 @@ app.use("/api/users", require("./routes/api/users"))
 // app.use("/api/home", require("./routes/api/home"))
 // base route for listings
 
-// app.use("/api/listings", require("./routes/api/listings"))
+app.use("/api/listings", require("./routes/api/listings"))
 
 // catch all route that will return the index.html for all non-AJAX request.
 app.get("/*", function(req,res) {
-    console.log("i'm in here")
-    
     res.sendFile(path.join(__dirname, "build", "index.html"))
 })
 /*========================================
