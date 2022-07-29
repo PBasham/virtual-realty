@@ -1,12 +1,12 @@
 /*========================================
-        DEPENDENCIES
+        Require Dependencies
 ========================================*/
 const express = require('express')
 const router = express.Router();
 const watchlistCtrl = require('../../controllers/api/watchlist.js')
 
 /*========================================
-        ROUTES
+        WatchList ROUTES
 ========================================*/
 // Index Route
 router.get('/', watchlistCtrl.index);
@@ -15,6 +15,6 @@ router.get('/', watchlistCtrl.index);
 router.get('/:id', watchlistCtrl.show);
 
 /*========================================
-        EXPORTS
+        Exports
 ========================================*/
 module.exports = router;
