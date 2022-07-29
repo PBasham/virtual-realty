@@ -1,0 +1,44 @@
+.create-watchlistform-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.create-watchlistform {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    padding: 40px;
+    width: 100vw;
+    height: 20vh;
+    background-color: white;
+}
+.create-watchlistform label,
+.create-watchlistform input {
+    margin: 20px 10px;
+    height: 30px;
+    font-size: 1.3em;
+}
+.create-watchlistform form input {
+    padding: 5px 10px;
+}
+
+.close-btn {
+    display: grid;
+    place-items: center;
+    margin: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    aspect-ratio: 1;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    background-color: rgb(223, 17, 17);
+}

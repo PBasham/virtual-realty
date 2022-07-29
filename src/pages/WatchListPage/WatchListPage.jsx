@@ -7,13 +7,19 @@ import * as watchlistApi from "../../utilities/watchlist-api.js"
         Import Components
 ========================================*/
 import WatchList from "../../components/WatchList/WatchList.jsx";
+import CreateWatchListForm from "../../components/WatchList/CreateWatchListForm/CreateWatchListForm.jsx";
 /*========================================
         Import Styling
 ========================================*/
 import "./WatchListPage.css"
+import "../../components/WatchList/CreateWatchListForm/CreateWatchListForm.css"
 
 export default function WatchListPage() {
+
     const [userWatchlistAll, setUserWatchlistAll] = useState([])
+
+    const [showCreateListForm, setShowCreateListForm] = useState(false)
+
     /*========================================
             Get the data?
     ========================================*/
@@ -24,20 +30,31 @@ export default function WatchListPage() {
         })()
     }, [])
 
-    return (
-        <div className="watchlist-page">
-            <div className="watchlist-page-header">
-                <h1>Your Watchlist</h1>
-                <button className="btn">Create List</button>
-            </div>
-            <div className="watchlist-div">
-                {userWatchlistAll.length === 0 ?
-                    <h1>You don't have a watchlist yet</h1>
-                    :
-                    <WatchList />
-                }
+    /*========================================
+            Functions
+    ========================================*/
+    const updateShowForm = () => {
+        setShowCreateListForm(!showCreateListForm)
+        console.log(showCreateListForm);
+    }
 
+    return (
+        <>
+            {showCreateListForm ? <CreateWatchListForm updateShowForm={updateShowForm}/> : null}
+            <div className="watchlist-page">
+                <div className="watchlist-page-header">
+                    <h1>Your Watchlist</h1>
+                    <button className="btn" onClick={updateShowForm}>Create List</button>
+                </div>
+                <div className="watchlist-div">
+                    {userWatchlistAll.length === 0 ?
+                        <h1>You don't have a watchlist yet</h1>
+                        :
+                        <WatchList />
+                    }
+
+                </div>
             </div>
-        </div>
+        </>
     )
 }
