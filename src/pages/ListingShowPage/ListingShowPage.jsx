@@ -91,7 +91,7 @@ export default function ListingShowPage() {
     /* end functions */
     return (
         <>
-            {showCreateListForm ? <CreateWatchListForm updateShowForm={updateShowForm} addList={addList}/> : null}
+            {showCreateListForm ? <CreateWatchListForm updateShowForm={updateShowForm} addList={addList} /> : null}
             <div className="listing-show">
                 <div className="listing-show-header">
                     <h2>{listing.line}</h2>
@@ -119,10 +119,17 @@ export default function ListingShowPage() {
                         </ul>
                         <div className="buttons-div">
                             {userWatchlistAll.length ?
-                                <button className="watchlist-add-btn btn" onClick={handleAddToWatchlist}>Add To Watchlist</button>
+                                <>
+                                    <button className="watchlist-add-btn btn" onClick={handleAddToWatchlist}>Add To Watchlist</button>
+                                    <select name="userListings">
+                                        {userWatchlistAll.map((list, index) => (
+                                            < option value={list.WatchListName}>{list.WatchListName}</option>
+                                        ))}
+                                    </select>
+                                </>
                                 :
                                 <button className="watchlist-add-btn btn" onClick={handleCreateWatchlist}>Create Watchlist</button>
-                        }
+                            }
                         </div>
                     </div>
                 </div>
