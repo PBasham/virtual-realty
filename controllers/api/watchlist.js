@@ -11,6 +11,7 @@ module.exports = {
     index,
     show,
     create,
+    addListing,
 }
 /*========================================
         WatchList functions
@@ -41,5 +42,7 @@ async function create(req, res) {
 // delete watchlist
 
 // add listing
+async function addListing(req, res) {
 
+}
 // remove listing

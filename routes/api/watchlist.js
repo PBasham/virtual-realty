@@ -17,6 +17,8 @@ router.post("/create", watchlistCtrl.create)
 // Show route
 router.get("/:id", watchlistCtrl.show);
 
+// add to list
+router.post("/add/:id", watchlistCtrl.addListing)
 /*========================================
         Exports
 ========================================*/

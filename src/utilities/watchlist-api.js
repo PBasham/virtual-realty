@@ -18,3 +18,8 @@ export function getWatchListById(id) {
 export function createList(listName) {
     return sendRequest(`${BASE_URL}/create`, "POST", listName)
 }
+
+// add listing to watchlist
+export function addToList(watchlistId, listingData) {
+    return sendRequest(`${BASE_URL}/add/${watchlistId}/${listingData}`, "POST", listingData)
+}
