@@ -33,12 +33,11 @@ app.use("/api/users", require("./routes/api/users"))
 // require funcion ensure logged in that will run on certain routes
 // const ensureLoggedIn = require("./config/ensureLoggedIn.js")
 
-// base route for home
-
-// app.use("/api/home", require("./routes/api/home"))
 // base route for listings
+app.use("/api/listings", require("./routes/api/listings.js"))
 
-app.use("/api/listings", require("./routes/api/listings"))
+// base route for watchlist
+app.use("/api/watchlist", require("./routes/api/watchlist.js"))
 
 // catch all route that will return the index.html for all non-AJAX request.
 app.get("/*", function(req,res) {
