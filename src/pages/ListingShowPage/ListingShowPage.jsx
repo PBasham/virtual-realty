@@ -83,9 +83,14 @@ export default function ListingShowPage() {
                 </div>
             </div>
             <ul className="listing-tags">
-                {listing.tags.map(tag => (
+                { listing.tags != null ? 
+                listing.tags.map(tag => (
                     <li className="listing-tag">{tag}</li>
-                ))}
+                ))
+                :
+                null
+                
+                }
             </ul>
         </div>
     )
