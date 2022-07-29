@@ -21,5 +21,5 @@ export function createList(listName) {
 
 // add listing to watchlist
 export function addToList(watchlistId, listingData) {
-    return sendRequest(`${BASE_URL}/add/${watchlistId}/${listingData}`, "POST", listingData)
+    return sendRequest(`${BASE_URL}/add/${watchlistId}/`, "POST", listingData)
 }

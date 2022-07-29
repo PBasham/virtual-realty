@@ -39,6 +39,11 @@ async function create(req, res) {
 
 // add listing
 async function addListing(req, res) {
-
+    console.log("params: ",req.params)
+    console.log("body: ",req.body)
+    const addedListing = await WatchList.findByIdAndUpdate(req.params.watchlistId, {
+        $push: { listings: req.body}
+    })
+    res.json(addedListing)
 }
 // remove listing
