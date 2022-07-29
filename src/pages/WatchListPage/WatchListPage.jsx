@@ -35,11 +35,9 @@ export default function WatchListPage() {
     ========================================*/
     const updateShowForm = () => {
         setShowCreateListForm(!showCreateListForm)
-        console.log(showCreateListForm);
     }
 
     const addList = (newList) => {
-        console.log(newList)
         setUserWatchlistAll([...userWatchlistAll, newList])
     }
 

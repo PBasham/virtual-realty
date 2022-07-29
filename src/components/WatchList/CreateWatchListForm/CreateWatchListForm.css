@@ -22,10 +22,11 @@
 .create-watchlistform input {
     margin: 20px 10px;
     height: 30px;
-    font-size: 1.3em;
+    font-size: 1.4em;
 }
-.create-watchlistform form input {
-    padding: 5px 10px;
+.create-watchlistform input {
+    padding: 10px 10px;
+    font-size: 1em;
 }
 
 .close-btn {
