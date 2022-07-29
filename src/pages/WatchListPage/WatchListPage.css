@@ -32,9 +32,53 @@
         0 1px 5px 1px grey;
 }
 .watchlist-items-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
     min-height: 75px;
-    background-color: antiquewhite;
 }
 
 
-.watchlist-item {}
+.watchlist-item {
+    position: relative;
+    margin: 20px;
+    min-height: 125px;
+    width: 200px;
+}
+.watchlist-item-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: 
+        linear-gradient(217deg, rgba(66, 66, 66, 0.8), rgba(255, 0, 0, 0) 70.71%),
+        linear-gradient(127deg, rgba(94, 94, 94, 0.8), rgba(0, 255, 0, 0) 70.71%),
+        linear-gradient(336deg, rgba(80, 80, 80, 0.8), rgba(0, 0, 255, 0) 70.71%);
+    overflow: hidden;
+    z-index: 25;
+}
+
+.watchlist-item-img img {
+    width: 100%;
+}
+
+.watchlist-item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    color: white;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.688), rgba(0, 0, 0, 0));
+    z-index: 50;
+}

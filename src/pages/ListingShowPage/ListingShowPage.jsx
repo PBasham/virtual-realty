@@ -80,6 +80,7 @@ export default function ListingShowPage() {
     const handleAddToWatchlist = async () => {
         const listingToAdd = await watchlistAPI.addToList(selectedList.listId, {
             listingId: listing._id,
+            photo: listing.primary_photo,
             price: listing.price,
             line: listing.line,
             location: `${listing.city} ${listing.state}`,
@@ -91,12 +92,14 @@ export default function ListingShowPage() {
     }
 
     const addList = (newList) => {
+        console.log(newList);
+        setSelectedList({ listId: newList._id})
         setUserWatchlistAll([...userWatchlistAll, newList])
     }
 
     const handleOptionChange = (e) => {
         console.log("Change!", e.target.value)
-        setSelectedList(e.target.value)
+        setSelectedList({listId: e.target.value})
     }
     /* end functions */
     return (
