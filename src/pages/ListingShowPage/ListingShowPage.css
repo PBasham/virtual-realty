@@ -1,8 +1,10 @@
 .listing-show {
-    margin: 0 auto;
-    padding: 50px 0;
-    width: 90vw;
-    background-color: brown;
+    margin: 60px auto;
+    padding: 20px 30px;
+    width: 100vw;
+    box-shadow: 
+        0 -1px 5px -1px grey,
+        0 1px 5px 1px grey;
 }
 
 .listing-details {
@@ -10,23 +12,45 @@
     grid-template-columns: 60% 40%;
     grid-template-rows: 60vh;
 }
+
 .listing-img {
     grid-column: 1/2;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    margin: 20px 20px 20px 0;
-    height: 100%;
-    background: 
+    /* margin: 20px 20px 20px 0; */
+    width: 100%;
+    background:
         linear-gradient(217deg, rgba(66, 66, 66, 0.8), rgba(255, 0, 0, 0) 70.71%),
         linear-gradient(127deg, rgba(94, 94, 94, 0.8), rgba(0, 255, 0, 0) 70.71%),
         linear-gradient(336deg, rgba(80, 80, 80, 0.8), rgba(0, 0, 255, 0) 70.71%);
     overflow: hidden;
 }
+
 .listing-img img {
     height: 100%;
 }
-.listing-details-list {
 
+.listing-details-list {
+    padding: 20px;
+    list-style: none;
+}
+
+.listing-details-list li {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding: 10px 30px;
+}
+.listing-details-list li span {
+    position: absolute;
+    right: 0;
+    padding-right: 50px;
+}
+
+.listing-details-list li:not(:first-of-type) {
+    border-top: 1px solid grey;
 }
