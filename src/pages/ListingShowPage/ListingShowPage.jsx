@@ -23,13 +23,18 @@ export default function ListingShowPage() {
     const [showCreateListForm, setShowCreateListForm] = useState(false)
 
     const [userWatchlistAll, setUserWatchlistAll] = useState([])
+    
+    const [selectedList, setSelectedList] = useState({
+        listId: "",
+    })
 
     let objListing = {}
 
     useEffect(() => {
         (async function getUserWatchList() {
             const userWatchlist = await watchlistAPI.getUserWatchList()
-            setUserWatchlistAll(userWatchlist)
+            await setUserWatchlistAll(userWatchlist)
+            userWatchlist.length ? await setSelectedList({ listId: userWatchlist[0]._id}) : await setSelectedList(null)
         })()
     }, [])
 
@@ -73,8 +78,8 @@ export default function ListingShowPage() {
     }
 
     const handleAddToWatchlist = async () => {
-        console.log(listing._id);
-        const listingToAdd = await watchlistAPI.addToList(listing._id, {
+        const listingToAdd = await watchlistAPI.addToList(selectedList.listId, {
+            listingId: listing._id,
             price: listing.price,
             line: listing.line,
             location: `${listing.city} ${listing.state}`,
@@ -87,6 +92,11 @@ export default function ListingShowPage() {
 
     const addList = (newList) => {
         setUserWatchlistAll([...userWatchlistAll, newList])
+    }
+
+    const handleOptionChange = (e) => {
+        console.log("Change!", e.target.value)
+        setSelectedList(e.target.value)
     }
     /* end functions */
     return (
@@ -121,9 +131,9 @@ export default function ListingShowPage() {
                             {userWatchlistAll.length ?
                                 <>
                                     <button className="watchlist-add-btn btn" onClick={handleAddToWatchlist}>Add To Watchlist</button>
-                                    <select name="userListings">
+                                    <select name="userListings" onChange={handleOptionChange}>
                                         {userWatchlistAll.map((list, index) => (
-                                            < option value={list.WatchListName}>{list.WatchListName}</option>
+                                            < option value={list._id}>{list.WatchListName}</option>
                                         ))}
                                     </select>
                                 </>
