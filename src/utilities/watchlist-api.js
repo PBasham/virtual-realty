@@ -1,7 +1,6 @@
 /*========================================
         Import Dependencies
 ========================================*/
-import { base } from "../../models/user";
 import sendRequest from "./send-request";
 
 const BASE_URL = "/api/watchlist"

@@ -4,8 +4,20 @@
 /*----------------------------------------
         WatchList
 -----------------------------------------*/
+.watchlist-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .watchlist-div {
-    border: 4px dotted blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    box-shadow: 
+    0 -1px 5px -1px grey,
+    0 1px 5px 1px grey;
 }
 .watchlist-items-div {
     border: 4px dotted red;

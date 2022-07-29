@@ -2,6 +2,7 @@
         Import Dependencies
 ========================================*/
 import { useState, useEffect } from "react";
+import * as watchlistApi from "../../utilities/watchlist-api.js"
 /*========================================
         Import Components
 ========================================*/
@@ -12,23 +13,30 @@ import WatchList from "../../components/WatchList/WatchList.jsx";
 import "./WatchListPage.css"
 
 export default function WatchListPage() {
-    const [ userWatchlist, setUserWatchlist] = useState([])
+    const [userWatchlistAll, setUserWatchlistAll] = useState([])
     /*========================================
             Get the data?
     ========================================*/
-    // useEffect(() => {
-    //     (async function getUserWatchlist(){
-    //         const userWatchlist = await watchlistApi.getWatchlist()
-    //     })()
-    // }, [])
-    
+    useEffect(() => {
+        (async function getUserWatchList() {
+            const userWatchlist = await watchlistApi.getUserWatchList()
+            setUserWatchlistAll(userWatchlist)
+        })()
+    }, [])
+
     return (
         <div className="watchlist-page">
-            WatchListPage
+            <div className="watchlist-page-header">
+                <h1>Your Watchlist</h1>
+                <button className="btn">Create List</button>
+            </div>
             <div className="watchlist-div">
-                This containes all of the watchlist
-                <WatchList />
-                <WatchList />
+                {userWatchlistAll.length === 0 ?
+                    <h1>You don't have a watchlist yet</h1>
+                    :
+                    <WatchList />
+                }
+
             </div>
         </div>
     )

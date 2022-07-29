@@ -7,7 +7,7 @@ const Schema = mongoose.Schema
 /*========================================
         WatchList Schema
 ========================================*/
-const watchListSchema = new Schema (
+const WatchListSchema = new Schema (
     {
         userId: {
             type: String,
