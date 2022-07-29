@@ -29,6 +29,18 @@ export default function ListingShowPage() {
                 objListing.line = displayListing.location.address.line
                 objListing.long_address = `${displayListing.location.address.city} ${displayListing.location.address.state}, ${displayListing.location.address.postal_code}`
                 objListing.street_view_url = displayListing.location.street_view_url
+                objListing.price = displayListing.list_price
+                objListing.photos = displayListing.photos
+                objListing.tags = displayListing.tags
+                objListing.status = "For Sale"
+                objListing.listing_date = displayListing.list_date
+                objListing.monthly = (displayListing.list_price / 72).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                objListing.baths = displayListing.description.baths
+                objListing.beds = displayListing.description.beds
+                objListing.sqft = displayListing.description.sqft != null ? displayListing.description.sqft : displayListing.description.lot_sqft
+                objListing.year_build = displayListing.description.year_built
+                objListing.county = displayListing.location.county.name
+                objListing.open_house = displayListing.open_houses
             })()
             console.log("Listing: ", displayListing);
             console.log("ObjListing: ", objListing);
@@ -43,19 +55,25 @@ export default function ListingShowPage() {
                 <h2>{listing.line}</h2>
                 <a href={`${listing.street_view_url}`} target="_blank">{listing.long_address}</a>
             </div>
-            <div className="listing-details">
+            <div className="listing-wrapper">
+
                 <div className="listing-img">
                     <img src={listing.primary_photo} alt="" />
                 </div>
-                <ul className="listing-details-list">
-                    <li>Status: <span>{}</span> </li>
-                    <li>Days on Market:<span>{}</span> </li>
-                    <li>Monthly: <span>{}</span> </li>
-                    <li>Baths: <span>{}</span> </li>
-                    <li>Beds: <span>{}</span> </li>
-                    <li>Year build: <span>{}</span> </li>
-                    <li>Country: <span>{}</span> </li>
-                </ul>
+                <div className="listing-details">
+                    <ul className="listing-details-list">
+                        <li>Status <span>{listing.status}</span> </li>
+                        <li>Monthly <span>{listing.monthly}</span> </li>
+                        <li>Baths <span>{listing.baths}</span> </li>
+                        <li>Beds <span>{listing.beds}</span> </li>
+                        <li>sqft <span>{listing.sqft}</span> </li>
+                        <li>Year build <span>{listing.year_build}</span> </li>
+                        {/* <li>Country <span>{listing.}</span> </li> */}
+                    </ul>
+                    <div className="buttons-div">
+                        <button className="watchlist-add-btn btn">Add To Watchlist</button>
+                    </div>
+                </div>
             </div>
         </div>
     )
