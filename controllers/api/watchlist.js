@@ -10,6 +10,7 @@ const WatchList = require("../../models/watchlist.js")
 module.exports = {
     index,
     show,
+    create,
 }
 /*========================================
         WatchList functions
@@ -29,7 +30,14 @@ res.json(userWatchList);
 }
 
 // create watchlist
-
+async function create(req, res) {
+    const newListData = {
+        userId: req.user._id,
+        WatchListName: req.body.WatchListName
+    }
+    const newList = WatchList.create(newListData)
+    res.json(newList);
+}
 // delete watchlist
 
 // add listing

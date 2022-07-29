@@ -40,7 +40,9 @@ export default function WatchListPage() {
 
     return (
         <>
-            {showCreateListForm ? <CreateWatchListForm updateShowForm={updateShowForm}/> : null}
+            {showCreateListForm ? <CreateWatchListForm updateShowForm={updateShowForm} 
+            userWatchlistAll={userWatchlistAll}
+            setUserWatchlistAll={setUserWatchlistAll}/> : null}
             <div className="watchlist-page">
                 <div className="watchlist-page-header">
                     <h1>Your Watchlist</h1>
@@ -50,7 +52,12 @@ export default function WatchListPage() {
                     {userWatchlistAll.length === 0 ?
                         <h1>You don't have a watchlist yet</h1>
                         :
-                        <WatchList />
+                        userWatchlistAll.map((list, index) => (
+                            <WatchList 
+                                key={index}
+                                watchlist={list}
+                            />
+                        ))
                     }
 
                 </div>

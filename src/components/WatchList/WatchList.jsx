@@ -3,14 +3,12 @@
 ========================================*/
 import WatchListItem from "./WatchListItem.jsx"
 
-export default function WatchList() {
+export default function WatchList({watchlist}) {
     return (
         <div className="watchlist-list">
-            WatchList
+            {watchlist.WatchListName}
             <div className="watchlist-items-div">
-                I contain the watchlist items
-                <WatchListItem />
-                <WatchListItem />
+                {watchlist.listings.length}
                 <WatchListItem />
             </div>
         </div>
