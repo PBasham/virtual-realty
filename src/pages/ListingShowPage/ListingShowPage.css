@@ -102,13 +102,15 @@
     flex-direction: row;
     flex-wrap: wrap;
     padding-top: 10px;
-    /* width: 60%; */
+    width: 60%;
     list-style: none;
 }
 .listing-tag {
-    display: inline;
-    margin: 5px 10px 0 0;
-    padding: 2px 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px 5px 0 0;
+    padding: 2px 4px;
     font-size: 16px;
     color: var(--color-blueTransparent);
     border-radius: 5px;
