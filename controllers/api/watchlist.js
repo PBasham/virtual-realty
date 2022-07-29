@@ -18,15 +18,11 @@ module.exports = {
 ========================================*/
 async function index(req, res) {
     const userWatchlistAll = await WatchList.find({userId: req.user._id});
-    console.log("userWatchListAll: ",userWatchlistAll)
-    
 res.json(userWatchlistAll);
 }
 
 async function show(req, res) {
 const userWatchList = await WatchList.findById(req.params.id);
-console.log("userWatchList :", userWatchList)
-
 res.json(userWatchList);
 }
 
@@ -36,7 +32,7 @@ async function create(req, res) {
         userId: req.user._id,
         WatchListName: req.body.WatchListName
     }
-    const newList = WatchList.create(newListData)
+    const newList = await WatchList.create(newListData)
     res.json(newList);
 }
 // delete watchlist

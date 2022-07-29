@@ -4,7 +4,7 @@
 import { useState } from "react"
 import * as watchlistAPI from "../../../utilities/watchlist-api.js"
 
-export default function CreateWatchListForm({ updateShowForm, userWatchlistAll, setUserWatchlistAll }) {
+export default function CreateWatchListForm({ updateShowForm, addList}) {
 
     const [newListName, setNewListName] = useState({
 
@@ -18,7 +18,7 @@ export default function CreateWatchListForm({ updateShowForm, userWatchlistAll, 
         e.preventDefault()
         // logic to create new list!!!
         const newList = await watchlistAPI.createList(newListName)
-        setUserWatchlistAll([...userWatchlistAll, {newList}])
+        addList(newList)
         updateShowForm()
     }
 

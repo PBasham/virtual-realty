@@ -38,11 +38,15 @@ export default function WatchListPage() {
         console.log(showCreateListForm);
     }
 
+    const addList = (newList) => {
+        console.log(newList)
+        setUserWatchlistAll([...userWatchlistAll, newList])
+    }
+
     return (
         <>
             {showCreateListForm ? <CreateWatchListForm updateShowForm={updateShowForm} 
-            userWatchlistAll={userWatchlistAll}
-            setUserWatchlistAll={setUserWatchlistAll}/> : null}
+            addList={addList}/> : null}
             <div className="watchlist-page">
                 <div className="watchlist-page-header">
                     <h1>Your Watchlist</h1>
