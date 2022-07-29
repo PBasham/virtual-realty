@@ -28,7 +28,7 @@ export default function CreateWatchListForm({ updateShowForm, addList}) {
             <form onSubmit={handleSubmit} className="create-watchlistform">
                 <div className="close-btn" onClick={updateShowForm}>X</div>
                 <label>Name your new list</label>
-                <input type="text" name="list" value={newListName.WatchListName} onChange={handleChange}/>
+                <input type="text" name="list" value={newListName.WatchListName} onChange={handleChange} autoFocus/>
                 <button type="submit" className="btn">Create</button>
             </form>
             {/* </div> */}
