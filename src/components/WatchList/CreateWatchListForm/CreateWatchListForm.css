@@ -6,6 +6,7 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 98;
 }
 .create-watchlistform {
     display: flex;
@@ -17,6 +18,7 @@
     width: 100vw;
     height: 20vh;
     background-color: white;
+    z-index: 99;
 }
 .create-watchlistform label,
 .create-watchlistform input {
