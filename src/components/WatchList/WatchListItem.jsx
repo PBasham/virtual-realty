@@ -5,10 +5,10 @@ import { Link } from "react-router-dom"
 import * as watchlistAPI from "../../utilities/watchlist-api.js"
 
 
-export default function WatchListItem({ listing, updateList }) {
+export default function WatchListItem({ listing, updateList, watchlistId }) {
 
     const handleRemoveListing = async () => {
-        await watchlistAPI.removeListing(listing.listingId)
+        await watchlistAPI.removeListing(watchlistId, listing.listingId)
         updateList()
     }
     return (

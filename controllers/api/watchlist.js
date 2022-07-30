@@ -13,18 +13,19 @@ module.exports = {
     create,
     addListing,
     deleteList,
+    removeListing,
 }
 /*========================================
         WatchList functions
 ========================================*/
 async function index(req, res) {
-    const userWatchlistAll = await WatchList.find({userId: req.user._id});
-res.json(userWatchlistAll);
+    const userWatchlistAll = await WatchList.find({ userId: req.user._id });
+    res.json(userWatchlistAll);
 }
 
 async function show(req, res) {
-const userWatchList = await WatchList.findById(req.params.id);
-res.json(userWatchList);
+    const userWatchList = await WatchList.findById(req.params.id);
+    res.json(userWatchList);
 }
 
 // create watchlist
@@ -45,8 +46,19 @@ async function deleteList(req, res) {
 // add listing
 async function addListing(req, res) {
     const addedListing = await WatchList.findByIdAndUpdate(req.params.watchlistId, {
-        $push: { listings: req.body}
+        $push: { listings: req.body }
     })
     res.json(addedListing)
 }
 // remove listing
+async function removeListing(req, res) {
+    console.log("params: ", req.params)
+    const removedListing = await WatchList.findByIdAndUpdate(req.params.watchlistId,
+        {
+            $pull: {
+                listings: {listingId: req.params.listingId},
+            },
+        })
+        console.log(removedListing)
+    res.json(removedListing)
+}

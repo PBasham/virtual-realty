@@ -56,9 +56,7 @@ export default function WatchListPage() {
                     <button className="btn" onClick={updateShowForm}>Create List</button>
                 </div>
                 <div className="watchlist-div">
-                    {userWatchlistAll.length === 0 ?
-                        <h1>You don't have a watchlist yet</h1>
-                        :
+                    {userWatchlistAll.length != 0 ?
                         userWatchlistAll.map((list, index) => (
                             <WatchList
                                 key={index}
@@ -66,6 +64,8 @@ export default function WatchListPage() {
                                 updateList={updateList}
                             />
                         ))
+                        :
+                        <h1>You don't have a watchlist yet</h1>
                     }
 
                 </div>

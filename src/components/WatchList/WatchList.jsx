@@ -24,6 +24,7 @@ export default function WatchList({ watchlist, updateList }) {
                             key={index}
                             listing={listing}
                             updateList={updateList}
+                            watchlistId={watchlist._id}
                         />
                     ))
                     :

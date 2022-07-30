@@ -22,6 +22,9 @@ router.post("/add/:watchlistId/", watchlistCtrl.addListing)
 
 // delete list 
 router.delete("/delete/:watchlistId/", watchlistCtrl.deleteList)
+
+// remove listing from watchlist
+router.put("/update/:watchlistId/remove/:listingId", watchlistCtrl.removeListing)
 /*========================================
         Exports
 ========================================*/

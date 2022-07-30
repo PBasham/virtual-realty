@@ -30,6 +30,6 @@ export function deleteList(watchlistId) {
 }
 
 // remove listing
-export function removeListing() {
-    console.log("Ohhhhh I've been clicked!")
+export function removeListing(watchlistId, listingId) {
+    return sendRequest(`${BASE_URL}/update/${watchlistId}/remove/${listingId}`, "PUT")
 }
