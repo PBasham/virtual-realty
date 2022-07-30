@@ -23,6 +23,7 @@ export default function WatchList({ watchlist, updateList }) {
                         <WatchListItem 
                             key={index}
                             listing={listing}
+                            updateList={updateList}
                         />
                     ))
                     :

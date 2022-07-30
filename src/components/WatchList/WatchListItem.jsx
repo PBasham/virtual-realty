@@ -2,12 +2,18 @@
         Import Dependencies
 ========================================*/
 import { Link } from "react-router-dom"
+import * as watchlistAPI from "../../utilities/watchlist-api.js"
 
 
-export default function WatchListItem({ listing }) {
+export default function WatchListItem({ listing, updateList }) {
+
+    const handleRemoveListing = async () => {
+        await watchlistAPI.removeListing(listing.listingId)
+        updateList()
+    }
     return (
-        <Link to={`/explore/${listing.listingId}`}>
-            <div className="watchlist-item">
+        <div className="watchlist-item">
+            <Link to={`/explore/${listing.listingId}`}>
                 <div className="watchlist-item-img">
                     <img src={listing.photo} alt="" />
                 </div>
@@ -16,7 +22,8 @@ export default function WatchListItem({ listing }) {
                     <p>{listing.line}</p>
                     <p>{listing.location}</p>
                 </div>
-            </div>
-        </Link>
+            </Link>
+            <button className="delete-listing-btn" onClick={handleRemoveListing}>X</button>
+        </div>
     )
 }

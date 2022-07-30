@@ -93,3 +93,18 @@
 .delete-list-btn.btn {
     background-color: var(--color-red);
 }
+.delete-listing-btn {
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    color: white;
+    border: none;
+    background-color: var(--color-red);
+    z-index: 51;
+}

@@ -28,3 +28,8 @@ export function addToList(watchlistId, listingData) {
 export function deleteList(watchlistId) {
     return sendRequest(`${BASE_URL}/delete/${watchlistId}`, "DELETE")
 }
+
+// remove listing
+export function removeListing() {
+    console.log("Ohhhhh I've been clicked!")
+}
