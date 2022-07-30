@@ -45,9 +45,20 @@ async function deleteList(req, res) {
 }
 // add listing
 async function addListing(req, res) {
-    const addedListing = await WatchList.findByIdAndUpdate(req.params.watchlistId, {
+    const doesExist = await WatchList.find({ $and: [
+        {_id: req.params.watchlistId},
+        {"listings.listingId": req.body.listingId}
+    ]})
+
+    console.log(doesExist.length)
+    
+    const addedListing = await (!doesExist.length ? WatchList.findByIdAndUpdate(req.params.watchlistId, {
         $push: { listings: req.body }
     })
+    :
+    null
+    )
+
     res.json(addedListing)
 }
 // remove listing
