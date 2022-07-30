@@ -19,6 +19,9 @@ router.get("/:id", watchlistCtrl.show);
 
 // add to list
 router.post("/add/:watchlistId/", watchlistCtrl.addListing)
+
+// delete list 
+router.post("/delete/:id", watchlistCtrl.deleteList)
 /*========================================
         Exports
 ========================================*/
