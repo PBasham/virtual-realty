@@ -31,10 +31,9 @@ export default function NavBar({ user, setUser, navBarLinks, setNavBarLinks }) {
                     </Link>
                 ))}
             </div>
-            <div className="UserLogOut">
-  
-      <button className="nav-btn border-sides" onClick={handleLogout}>LOG OUT</button>
-    </div>
+            <div className="nav-user-div">
+                <button className="nav-user" onClick={handleLogout}>LogOut</button>
+            </div>
         </div>
     )
 }
