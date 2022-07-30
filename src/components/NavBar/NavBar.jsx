@@ -2,6 +2,7 @@
         Import Dependencies
 ========================================*/
 import { Link } from "react-router-dom"
+import { logOut } from "../../utilities/users-services"
 /*========================================
         Import Styling
 ========================================*/
@@ -9,6 +10,10 @@ import "./NavBar.css"
 
 export default function NavBar({ user, setUser, navBarLinks, setNavBarLinks }) {
 
+    const handleLogout = async () => {
+        logOut()
+        setUser(null)
+    }
     return (
         <div className="nav-bar">
             <div className="nav-logo">
@@ -26,6 +31,10 @@ export default function NavBar({ user, setUser, navBarLinks, setNavBarLinks }) {
                     </Link>
                 ))}
             </div>
+            <div className="UserLogOut">
+  
+      <button className="nav-btn border-sides" onClick={handleLogout}>LOG OUT</button>
+    </div>
         </div>
     )
 }
