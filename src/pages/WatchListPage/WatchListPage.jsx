@@ -41,10 +41,15 @@ export default function WatchListPage() {
         setUserWatchlistAll([...userWatchlistAll, newList])
     }
 
+    const updateList = async () => {
+        const userWatchlist = await watchlistApi.getUserWatchList()
+        setUserWatchlistAll(userWatchlist)
+    }
+
     return (
         <>
-            {showCreateListForm ? <CreateWatchListForm updateShowForm={updateShowForm} 
-            addList={addList}/> : null}
+            {showCreateListForm ? <CreateWatchListForm updateShowForm={updateShowForm}
+                addList={addList} /> : null}
             <div className="watchlist-page">
                 <div className="watchlist-page-header">
                     <h1>Your Watchlist</h1>
@@ -55,9 +60,10 @@ export default function WatchListPage() {
                         <h1>You don't have a watchlist yet</h1>
                         :
                         userWatchlistAll.map((list, index) => (
-                            <WatchList 
+                            <WatchList
                                 key={index}
                                 watchlist={list}
+                                updateList={updateList}
                             />
                         ))
                     }

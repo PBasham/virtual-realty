@@ -26,5 +26,5 @@ export function addToList(watchlistId, listingData) {
 
 // delete list
 export function deleteList(watchlistId) {
-    return sendRequest(`${BASE_URL}/delete/${watchlistId}`)
+    return sendRequest(`${BASE_URL}/delete/${watchlistId}`, "DELETE")
 }

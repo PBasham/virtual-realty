@@ -12,6 +12,7 @@ module.exports = {
     show,
     create,
     addListing,
+    deleteList,
 }
 /*========================================
         WatchList functions
@@ -36,11 +37,13 @@ async function create(req, res) {
     res.json(newList);
 }
 // delete watchlist
-
+async function deleteList(req, res) {
+    console.log(req.params.watchlistId)
+    const removeWatchlist = await WatchList.findByIdAndDelete(req.params.watchlistId)
+    res.json(removeWatchlist)
+}
 // add listing
 async function addListing(req, res) {
-    console.log("params: ",req.params)
-    console.log("body: ",req.body)
     const addedListing = await WatchList.findByIdAndUpdate(req.params.watchlistId, {
         $push: { listings: req.body}
     })

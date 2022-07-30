@@ -8,10 +8,11 @@ import * as watchlistAPI from "../../utilities/watchlist-api.js"
 ========================================*/
 import WatchListItem from "./WatchListItem.jsx"
 
-export default function WatchList({ watchlist }) {
+export default function WatchList({ watchlist, updateList }) {
 
     const handleDeleteClick = async () => {
-        watchlistAPI.deleteList(watchlist._id)
+        await watchlistAPI.deleteList(watchlist._id)
+        updateList()
     }
     return (
         <div className="watchlist-list">
