@@ -23,3 +23,8 @@ export function createList(listName) {
 export function addToList(watchlistId, listingData) {
     return sendRequest(`${BASE_URL}/add/${watchlistId}/`, "POST", listingData)
 }
+
+// delete list
+export function deleteList(watchlistId) {
+    return sendRequest(`${BASE_URL}/delete/${watchlistId}`)
+}

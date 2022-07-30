@@ -37,6 +37,7 @@
     justify-content: flex-start;
     align-items: center;
     min-height: 75px;
+
 }
 
 
@@ -81,4 +82,14 @@
     color: white;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.688), rgba(0, 0, 0, 0));
     z-index: 50;
+}
+
+.delete-list-div {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.delete-list-btn.btn {
+    background-color: var(--color-red);
 }
