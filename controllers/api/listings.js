@@ -24,7 +24,7 @@ async function show(req, res) {
 
 // showhouses
 async function getSpotlightHouses(req, res) {
-    const showHouses = await Listing.find({ primary_photo: { $ne: null } }).limit(4)
+    const showHouses = await Listing.find({ primary_photo: { $ne: null } }, {}, { sort: { '_id' : -1 }}).sort().limit(4)
     console.log("show houses to return: ", showHouses[0])
 
     const returnShowHouses = {
