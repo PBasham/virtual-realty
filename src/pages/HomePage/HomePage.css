@@ -20,7 +20,7 @@
     display: grid;
     grid-template-columns: 70% 30%;
     width: 100vw;
-    height: 80vh;
+    height: clamp(400px,60vh,500px);
     border: 2px solid var(--color-blue);
     background-color: white;
 }
@@ -45,7 +45,7 @@
     z-index: 25;
 }
 .preview-main-img img {
-    height: 100%;
+    width: 100%;
 }
 .preview-title {
     display: flex;
@@ -69,7 +69,7 @@
 .preview-list-item {
     display: flex;
     position: relative;
-    height: 33.333%;
+    height: 50%;
 }
 .preview-list-img {
     display: flex;

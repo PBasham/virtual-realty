@@ -17,7 +17,7 @@ import "./ListingShowPage.css"
 export default function ListingShowPage() {
 
     const navigate = useNavigate()
-    
+
     const params = useParams()
 
     const [listing, setListing] = useState({})
@@ -25,7 +25,7 @@ export default function ListingShowPage() {
     const [showCreateListForm, setShowCreateListForm] = useState(false)
 
     const [userWatchlistAll, setUserWatchlistAll] = useState([])
-    
+
     const [selectedList, setSelectedList] = useState({
         listId: "",
     })
@@ -36,7 +36,7 @@ export default function ListingShowPage() {
         (async function getUserWatchList() {
             const userWatchlist = await watchlistAPI.getUserWatchList()
             await setUserWatchlistAll(userWatchlist)
-            userWatchlist.length ? await setSelectedList({ listId: userWatchlist[0]._id}) : await setSelectedList(null)
+            userWatchlist.length ? await setSelectedList({ listId: userWatchlist[0]._id }) : await setSelectedList(null)
         })()
     }, [])
 
@@ -55,7 +55,7 @@ export default function ListingShowPage() {
                 objListing.tags = displayListing.tags
                 objListing.status = "For Sale"
                 objListing.listing_date = displayListing.list_date
-                objListing.monthly = (displayListing.list_price / 72).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                objListing.monthly = (displayListing.list_price / 180).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
                 objListing.baths = displayListing.description.baths
                 objListing.beds = displayListing.description.beds
                 objListing.sqft = displayListing.description.sqft != null ? displayListing.description.sqft : displayListing.description.lot_sqft
@@ -95,13 +95,13 @@ export default function ListingShowPage() {
 
     const addList = (newList) => {
         console.log(newList);
-        setSelectedList({ listId: newList._id})
+        setSelectedList({ listId: newList._id })
         setUserWatchlistAll([...userWatchlistAll, newList])
     }
 
     const handleOptionChange = (e) => {
         console.log("Change!", e.target.value)
-        setSelectedList({listId: e.target.value})
+        setSelectedList({ listId: e.target.value })
     }
     /* end functions */
     return (
@@ -128,11 +128,11 @@ export default function ListingShowPage() {
                     <div className="listing-details">
                         <ul className="listing-details-list">
                             <li>Status <span>{listing.status}</span> </li>
-                            <li>Monthly <span>${listing.monthly} 3yrs</span> </li>
+                            <li>Monthly <span>${listing.monthly}</span> </li>
                             <li>Baths <span>{listing.baths}</span> </li>
                             <li>Beds <span>{listing.beds}</span> </li>
                             <li>sqft <span>{listing.sqft}</span> </li>
-                            <li>Year build <span>{listing.year_build}</span> </li>
+                            <li>Year built <span>{listing.year_build}</span> </li>
                             <li>County <span>{listing.county}</span> </li>
                         </ul>
                         <div className="buttons-div">
@@ -151,6 +151,7 @@ export default function ListingShowPage() {
                         </div>
                     </div>
                 </div>
+                <h2 className="tags-header">Featured Tags</h2>
                 <ul className="listing-tags">
                     {listing.tags != null ?
                         listing.tags.map(tag => (

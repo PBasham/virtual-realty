@@ -24,7 +24,7 @@ async function show(req, res) {
 
 // showhouses
 async function getSpotlightHouses(req, res) {
-    const showHouses = await Listing.find({ primary_photo: { $ne: null } }, {}, { sort: { '_id' : -1 }}).sort().limit(4)
+    const showHouses = await Listing.find({ primary_photo: { $ne: null } }, {}, { sort: { '_id' : -1 }}).sort().limit(3)
     console.log("show houses to return: ", showHouses[0])
 
     const returnShowHouses = {
@@ -49,13 +49,6 @@ async function getSpotlightHouses(req, res) {
                 price: showHouses[2].list_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
                 line: showHouses[2].location.address.line,
                 location: `${showHouses[2].location.address.city} ${showHouses[0].location.address.state}`,
-            },
-            {
-                listingId: showHouses[3]._id,
-                photo: showHouses[3].primary_photo.href,
-                price: showHouses[3].list_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-                line: showHouses[3].location.address.line,
-                location: `${showHouses[3].location.address.city} ${showHouses[0].location.address.state}`,
             },
         ]
     }
