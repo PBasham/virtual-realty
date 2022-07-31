@@ -8,6 +8,7 @@ import * as watchlistAPI from "../../utilities/watchlist-api.js"
 /*========================================
         Import Compoennts
 ========================================*/
+import ListingShow from "../../components/Explore/ListingShow.jsx"
 import CreateWatchListForm from "../../components/WatchList/CreateWatchListForm/CreateWatchListForm.jsx"
 /*========================================
         Import Styling
@@ -103,11 +104,6 @@ export default function ListingShowPage() {
         setSelectedList({ listId: e.target.value })
     }
     /* end functions */
-
-
-
-
-
     return (
         <>
             {showCreateListForm ? <CreateWatchListForm updateShowForm={updateShowForm} addList={addList} /> : null}

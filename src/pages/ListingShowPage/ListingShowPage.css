@@ -138,3 +138,17 @@
     border-radius: 20px;
     box-shadow: 0 0 3px 1px gray;
 }
+
+/*----------------------------------------
+        
+-----------------------------------------*/
+.listing-show-wrapper {}
+.listing-show-header {}
+.listing-wrapper {}
+.listing-photos-wrapper {}
+.listing-photo-main {}
+.listing-photo-other {}
+.listing-details-wrapper {}
+.listing-details-main {}
+.listing-details-other {}
+.listing-details-tags {}
