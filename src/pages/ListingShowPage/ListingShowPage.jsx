@@ -2,7 +2,7 @@
         Import Dependencies
 ========================================*/
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import * as ListingsApi from "../../utilities/listings-api.js"
 import * as watchlistAPI from "../../utilities/watchlist-api.js"
 /*========================================
@@ -16,6 +16,8 @@ import CreateWatchListForm from "../../components/WatchList/CreateWatchListForm/
 import "./ListingShowPage.css"
 export default function ListingShowPage() {
 
+    const navigate = useNavigate()
+    
     const params = useParams()
 
     const [listing, setListing] = useState({})
@@ -106,6 +108,9 @@ export default function ListingShowPage() {
         <>
             {showCreateListForm ? <CreateWatchListForm updateShowForm={updateShowForm} addList={addList} /> : null}
             <div className="listing-show">
+                <div className="back-btn" onClick={() => navigate(-1)}>
+                    {`<`}
+                </div>
                 <div className="listing-show-header">
                     <h2>{listing.line}</h2>
                     <a href={`${listing.street_view_url}`} target="_blank">{listing.long_address}</a>
