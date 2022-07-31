@@ -1,7 +1,6 @@
 /*========================================
         Import Dependencies
 ========================================*/
-import { getByDisplayValue } from "@testing-library/react";
 import sendRequest from "./send-request";
 
 const BASE_URL = "/api/listings"
@@ -13,5 +12,9 @@ export function getAll() {
 // show page
 export function getById(id) {
     return sendRequest(`${BASE_URL}/${id}`)
+}
+// showpage
+export function spotlightHouses() {
+    return sendRequest(`${BASE_URL}/showhouses`)
 }
 // get matching (future planner)

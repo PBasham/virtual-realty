@@ -3,7 +3,7 @@
 ========================================*/
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import * as ListingsApi from "../../utilities/listings-api.js"
+import * as listingsApi from "../../utilities/listings-api.js"
 import * as watchlistAPI from "../../utilities/watchlist-api.js"
 /*========================================
         Import Compoennts
@@ -42,7 +42,7 @@ export default function ListingShowPage() {
 
     useEffect(function () {
         (async function getListingById() {
-            const displayListing = await ListingsApi.getById(params.id)
+            const displayListing = await listingsApi.getById(params.id)
             console.log("Listing: ", displayListing);
             (await function setupListing() {
                 objListing._id = displayListing._id

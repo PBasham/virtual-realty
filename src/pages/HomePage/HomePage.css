@@ -20,35 +20,89 @@
     display: grid;
     grid-template-columns: 70% 30%;
     width: 100vw;
-    min-height: 500px;
+    height: 80vh;
     border: 2px solid var(--color-blue);
     background-color: white;
 }
 .preview-main {
-    display: grid;
-    place-items: center;
     position: relative;
 }
+
+.preview-main-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(217deg, rgba(66, 66, 66, 0.8), rgba(255, 0, 0, 0) 70.71%),
+        linear-gradient(127deg, rgba(94, 94, 94, 0.8), rgba(0, 255, 0, 0) 70.71%),
+        linear-gradient(336deg, rgba(80, 80, 80, 0.8), rgba(0, 0, 255, 0) 70.71%);    
+    overflow: hidden;
+    z-index: 25;
+}
+.preview-main-img img {
+    height: 100%;
+}
 .preview-title {
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
+    padding: 20px;
     min-height: 18%;
     font-size: 2em;
     color: white;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 255, 0));
+    z-index: 50;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
 }
 .preview-list {
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    display: flex;
+    flex-direction: column;
     border-left: 2px solid var(--color-blue);
 }
 .preview-list-item {
-    display: grid;
-    place-items: center;
+    display: flex;
+    position: relative;
+    height: 33.333%;
+}
+.preview-list-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(217deg, rgba(66, 66, 66, 0.8), rgba(255, 0, 0, 0) 70.71%),
+        linear-gradient(127deg, rgba(94, 94, 94, 0.8), rgba(0, 255, 0, 0) 70.71%),
+        linear-gradient(336deg, rgba(80, 80, 80, 0.8), rgba(0, 0, 255, 0) 70.71%);    
+    overflow: hidden;
+    z-index: 25;
+}
+.preview-list-img img {
+    width: 100%;
+}
+.preview-list-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    padding: 5px;
+    color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, black, rgba(0, 0, 0, 0) 50%);
+    z-index: 50;
 }
 .preview-list-item:not(:first-of-type) {
     border-top: 2px solid var(--color-blue);

@@ -1,4 +1,9 @@
 /*========================================
+        Import Dependencies
+========================================*/
+import { useState, useEffect } from "react"
+import * as listingsAPI from "../../utilities/listings-api.js"
+/*========================================
         Import Components
 ========================================*/
 import SpotlightArea from "../../components/Home/SpotlightArea.jsx"
@@ -11,12 +16,33 @@ import MiniExplore from "../../components/Home/MiniExplore.jsx"
 import "./HomePage.css"
 
 export default function HomePage() {
-  return (
-    <div className="homepage">
-        <SpotlightArea />
-        <MiniAbout />
-        <ServiceCards />
-        <MiniExplore />
-    </div>
-  )
+
+    const [spotlightHouses, setSpotlightHouses] = useState({
+        showHouse: {},
+        listHouses: [],
+    })
+    
+    useEffect(() => {
+        (async function getSpotlightHouses() {
+            const listings = await listingsAPI.spotlightHouses()
+            console.log("listings: ", listings)
+            await setSpotlightHouses({
+                ...spotlightHouses,
+                showHouse: listings.showHouse,
+                listHouses: listings.listHouses
+            })
+        })()
+    }, [])
+
+    return (
+        <div className="homepage">
+            <SpotlightArea 
+            showHouse={spotlightHouses.showHouse}
+            listHouses={spotlightHouses.listHouses}
+            />
+            <MiniAbout />
+            <ServiceCards />
+            <MiniExplore />
+        </div>
+    )
 }
