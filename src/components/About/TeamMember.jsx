@@ -1,7 +1,7 @@
-export default function TeamMember({memberImg, className}) {
+export default function TeamMember({member, className, handleActiveMember}) {
   return (
-    <div className={className}>
-        <img src={memberImg} alt="" />
+    <div className={className} onClick={() => {handleActiveMember(member.id)}}>
+        <img src={member.img} alt="" />
     </div>
   )
 }
