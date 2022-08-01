@@ -1,17 +1,18 @@
 .content-wrapper {
 }
-.content-div {
-    display: ;
-    margin: 40px auto;
-    width: 70vw;
-    background-color: white;
-}
 .homepage {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
+}
+.home-content-wrapper {
+    margin: 20px auto;
+    width: 60vw;
+}
+.home-content-wrapper > div {
+    margin: 30px 0;
 }
 /*----------------------------------------
         spotlightarea
@@ -110,22 +111,47 @@
 /*----------------------------------------
         miniabout
 -----------------------------------------*/
-.miniabout-div {
-    text-align: center;
+.miniabout-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.miniabout-content-wrapper {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+.miniabout-content {
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+    /* border: 3px dotted red; */
+}
+.miniabout-content > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    /* border: 3px dotted blue; */
+}
+.miniabout-content-one {
     text-align: left;
-    padding: 10px;
 }
+.miniabout-content-two {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.miniabout-content-two img {
+    width: 100%;
+}
+
+
 /*----------------------------------------
         ServiceCards
 -----------------------------------------*/
 .service-cards {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 .service-cards-item {
     display: flex;
@@ -133,7 +159,7 @@
     align-items: center;
     position: relative;
     margin: 0 10px;
-    width: 40vw;
+    width: 300px;
     min-height: 100px;
     box-shadow: 0 0 3px 1px grey;
     border-radius: 15px;
@@ -154,3 +180,6 @@
     position: absolute;
     bottom: -25px;
 }
+/*----------------------------------------
+        Statistics
+-----------------------------------------*/

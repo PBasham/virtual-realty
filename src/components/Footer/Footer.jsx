@@ -24,7 +24,7 @@ export default function Footer() {
                 </li>
             </ul>
             <ul className="footer-ul ul-locatoin">
-            <li><h2>Locaton</h2></li>
+            <li><h2>Location</h2></li>
                 <li>761 Marlen Fall, West Greenbury</li>
                 <li>Michigan 19023</li>
             </ul>

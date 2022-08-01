@@ -9,19 +9,19 @@ import * as listingsAPI from "../../utilities/listings-api.js"
 import SpotlightArea from "../../components/Home/SpotlightArea.jsx"
 import MiniAbout from "../../components/Home/MiniAbout.jsx"
 import ServiceCards from "../../components/Home/ServiceCards.jsx"
-import MiniExplore from "../../components/Home/MiniExplore.jsx"
+import Statistics from "../../components/Home/Statistics.jsx"
 /*========================================
         Import Styling
 ========================================*/
 import "./HomePage.css"
 
-export default function HomePage({navBarLinks, setNavBarLinks}) {
+export default function HomePage({ navBarLinks, setNavBarLinks }) {
 
     const [spotlightHouses, setSpotlightHouses] = useState({
         showHouse: {},
         listHouses: [],
     })
-    
+
     useEffect(() => {
         (async function getSpotlightHouses() {
             const listings = await listingsAPI.spotlightHouses()
@@ -32,18 +32,20 @@ export default function HomePage({navBarLinks, setNavBarLinks}) {
                 listHouses: listings.listHouses
             })
         })()
-        setNavBarLinks({...navBarLinks, activeNavLink: 0})
+        setNavBarLinks({ ...navBarLinks, activeNavLink: 0 })
     }, [])
 
     return (
         <div className="homepage">
-            <SpotlightArea 
-            showHouse={spotlightHouses.showHouse}
-            listHouses={spotlightHouses.listHouses}
+            <SpotlightArea
+                showHouse={spotlightHouses.showHouse}
+                listHouses={spotlightHouses.listHouses}
             />
-            <MiniAbout />
-            <ServiceCards />
-            <MiniExplore />
+            <div className="home-content-wrapper">
+                <MiniAbout />
+                <ServiceCards />
+                <Statistics />
+            </div>
         </div>
     )
 }
