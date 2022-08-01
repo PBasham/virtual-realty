@@ -6,18 +6,15 @@
     width: clamp(600px, 80vw, 800px);
     min-height: 400px;
 }
-
+.about-wrapper > div {
+    margin-bottom: 40px;
+}
 .mission-wrapper {
 
 }
-
-.team-wrapper {
-
-}
-
 .team-members {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     position: relative;
 }
 
@@ -64,10 +61,30 @@
     position: absolute;
     height: 100%;
 }
-
-.team-detail-details {
-}
-
 .services-wrapper {}
-
+.services-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.service-list-card {
+    text-align: center;
+    width: 250px;
+    min-height: 100px;
+}
+.service-list-card h4 {
+    margin-bottom: 20px;
+}
+.service-card-detail-img {
+    position: relative;
+    margin-bottom: 10px;
+    min-height: 125px;
+    overflow: hidden;
+}
+.service-card-detail-img img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
 .next-step-wrapper {}
