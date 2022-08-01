@@ -103,27 +103,39 @@ function App() {
                     />
                     <div className="content-wrapper">
                         <Routes>
-                            <Route path="/*" element={<Navigate to="/home" />} />
                             <Route
                                 path="/home"
                                 element={<HomePage
+                                    navBarLinks={navBarLinks}
                                     setNavBarLinks={setNavBarLinks}
                                 />} />
                             <Route
                                 path="/about"
-                                element={<AboutPage />}
+                                element={<AboutPage
+                                    navBarLinks={navBarLinks}
+                                    setNavBarLinks={setNavBarLinks}
+                                />}
                             />
                             <Route
                                 path="/watchlist"
-                                element={<WatchListPage />}
+                                element={<WatchListPage
+                                    navBarLinks={navBarLinks}
+                                    setNavBarLinks={setNavBarLinks}
+                                />}
                             />
                             <Route
                                 path="/explore"
-                                element={<ExplorePage />}
+                                element={<ExplorePage
+                                    navBarLinks={navBarLinks}
+                                    setNavBarLinks={setNavBarLinks}
+                                />}
                             />
                             <Route
                                 path="/explore/:id"
-                                element={<ListingShowPage />}
+                                element={<ListingShowPage
+                                    navBarLinks={navBarLinks}
+                                    setNavBarLinks={setNavBarLinks}
+                                />}
                             />
                             <Route
                                 path="/*"

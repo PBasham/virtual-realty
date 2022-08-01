@@ -15,7 +15,7 @@ export default function NavBar({ user, setUser, navBarLinks, setNavBarLinks }) {
         setUser(null)
     }
     return (
-        <div className="nav-bar">
+        <div className={`nav-bar ${navBarLinks.activeNavLink != 0 ? "background-black" : ""}`}>
             <div className="nav-logo">
                 VirtualRealty
             </div>

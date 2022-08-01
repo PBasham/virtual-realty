@@ -14,7 +14,7 @@ import CreateWatchListForm from "../../components/WatchList/CreateWatchListForm/
 import "./WatchListPage.css"
 import "../../components/WatchList/CreateWatchListForm/CreateWatchListForm.css"
 
-export default function WatchListPage() {
+export default function WatchListPage({navBarLinks, setNavBarLinks}) {
 
     const [userWatchlistAll, setUserWatchlistAll] = useState([])
 
@@ -28,6 +28,7 @@ export default function WatchListPage() {
             const userWatchlist = await watchlistApi.getUserWatchList()
             setUserWatchlistAll(userWatchlist)
         })()
+        setNavBarLinks({...navBarLinks, activeNavLink: 1})
     }, [])
 
     /*========================================

@@ -15,7 +15,7 @@ import MiniExplore from "../../components/Home/MiniExplore.jsx"
 ========================================*/
 import "./HomePage.css"
 
-export default function HomePage() {
+export default function HomePage({navBarLinks, setNavBarLinks}) {
 
     const [spotlightHouses, setSpotlightHouses] = useState({
         showHouse: {},
@@ -32,6 +32,7 @@ export default function HomePage() {
                 listHouses: listings.listHouses
             })
         })()
+        setNavBarLinks({...navBarLinks, activeNavLink: 0})
     }, [])
 
     return (

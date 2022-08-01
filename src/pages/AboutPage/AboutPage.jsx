@@ -1,9 +1,16 @@
 /*========================================
+        Import Dependencies
+========================================*/
+import { useEffect } from "react"
+/*========================================
         Import Styles
 ========================================*/
 import "./AboutPage.css"
 
-export default function AboutPage() {
+export default function AboutPage({navBarLinks, setNavBarLinks}) {
+    useEffect(() => {
+        setNavBarLinks({...navBarLinks, activeNavLink: 1})
+    },[])
   return (
     <div className="about-wrapper">
         <div className="mission-wrapper">

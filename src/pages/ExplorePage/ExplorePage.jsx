@@ -12,7 +12,7 @@ import Listings from "../../components/Explore/Listings.jsx"
 ========================================*/
 import "./ExplorePage.css"
 
-export default function ExplorePage() {
+export default function ExplorePage({navBarLinks, setNavBarLinks}) {
     const [listingsList, setListingsList] = useState([])
 
     useEffect(function() {
@@ -21,6 +21,7 @@ export default function ExplorePage() {
             setListingsList(displayListings)
             // console.log("Listings: ", displayListings);
         })()
+        setNavBarLinks({...navBarLinks, activeNavLink: 1})
     },[])
     
     return (

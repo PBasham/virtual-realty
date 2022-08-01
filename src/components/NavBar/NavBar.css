@@ -12,6 +12,7 @@
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.485), rgba(0, 0, 0, 0));
 }
 .background-black {
+    position: sticky;
     background-color: black;
 }
 .nav-logo,
