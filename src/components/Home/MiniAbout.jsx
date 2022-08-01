@@ -10,7 +10,9 @@ export default function MiniAbout() {
                     <p>Find your next move all in the comfort of your home so that ...</p>
                 </div>
                 <div className="miniabout-content-two">
+                <div className="miniabout-content-two-img">
                     <img src="https://cdn.dribbble.com/users/152834/screenshots/2200351/bpd-steps.gif" alt="" />
+                </div>
                     <p>Your next destination is your new home</p>
                 </div>
             </div>
