@@ -8,8 +8,8 @@ export default function Statistics() {
             <div className="statistics-content-one">
                 <p>Data shows that homes are on the market for <span className="text-blue">31 days</span>. Close quicker while making informed decisions through the help of our expert team</p>
                 <div className="statistics-content-links">
-                    <a href="/about">{`Meet the Team >`}</a>
-                    <a href="/explore">{`Explore Now >`}</a>
+                    <a href="/about">Meet the Team<span className="text-blue">{` >`}</span></a>
+                    <a href="/explore">Explore Now<span className="text-blue">{` >`}</span></a>
                 </div>
             </div>
             <div className="statistics-content-img">

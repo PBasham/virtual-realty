@@ -227,6 +227,8 @@
 .statistics-content-one p, 
 .statistics-content-one a {
     margin-bottom: 10px;
+    text-decoration: none;
+    color: black;
 }
 .statistics-content-links {
     display: flex;
