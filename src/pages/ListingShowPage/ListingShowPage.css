@@ -218,6 +218,26 @@
     padding: 5px 10px;
     transition: 250ms ease-in;
 }
-.listing-details-other {}
+.listing-details-other {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+}
+.listing-details-other ul {
+    width: 80%;
+    list-style: none;
+}
+.listing-details-other ul li {
+    position: relative;
+    padding: 5px 10px;
+    margin: 10px 0;
+}
+.listing-details-other ul li:not(:first-of-type) {
+    border-top: 1px solid grey;
+}
+.listing-details-other ul li span{
+    position: absolute;
+    right: 0;
 
+}
 .listing-details-tags {}

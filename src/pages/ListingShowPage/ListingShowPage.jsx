@@ -151,8 +151,11 @@ export default function ListingShowPage() {
                             photos={listing.photos}
                         />
                         <ListingShowDetails 
-                            // priceDisplay={listing.price}
                             price={listing.price}
+                            baths={listing.baths}
+                            beds={listing.beds}
+                            sqft={listing.sqft}
+                            year_build={listing.year_build}
                         />
                 </div>
             </div>

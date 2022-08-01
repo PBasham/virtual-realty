@@ -2,8 +2,16 @@
         Import Dependencies
 ========================================*/
 import { useState, useEffect } from "react"
-export default function ListingShowDetails({ price, priceDispaly }) {
+export default function ListingShowDetails({ price, baths, beds, sqft, year_build }) {
 
+    {
+        console.log(
+baths,
+beds,
+sqft,
+year_build,
+        )
+    }
     const calcMonthlyPrice = (months) => {
         const monthlyPayment = (price.replace(/\,/g,'') / months).toFixed(2)
         return `$${monthlyPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
@@ -43,7 +51,12 @@ export default function ListingShowDetails({ price, priceDispaly }) {
                 <h2 className="listing-detail-estimate-calc">{monthlyCalc}</h2>
             </div>
             <div className="listing-details-other">
-
+                <ul>
+                    <li>Baths: <span>{baths}</span></li>
+                    <li>Beds: <span>{beds}</span></li>
+                    <li>Sqft: <span>{sqft}</span></li>
+                    <li>Year Build: <span>{year_build}</span></li>
+                </ul>
             </div>
             <div className="listing-details-tags">1</div>
         </div>
