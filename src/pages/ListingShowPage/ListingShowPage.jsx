@@ -156,6 +156,7 @@ export default function ListingShowPage() {
                             beds={listing.beds}
                             sqft={listing.sqft}
                             year_build={listing.year_build}
+                            tags={listing.tags}
                         />
                 </div>
             </div>

@@ -83,31 +83,6 @@
 .btn:focus {
     background-color: rgb(87, 87, 200);
 }
-.tags-header {
-    margin-top: 30px;
-}
-
-.listing-tags {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-top: 10px;
-    width: 60%;
-    list-style: none;
-}
-
-.listing-tag {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 5px 5px 0 0;
-    padding: 2px 4px;
-    font-size: 16px;
-    color: var(--color-blueTransparent);
-    border-radius: 5px;
-    background-color: rgb(171, 238, 249);
-}
-
 /*----------------------------------------
         
 -----------------------------------------*/
@@ -240,4 +215,25 @@
     right: 0;
 
 }
-.listing-details-tags {}
+.tags-header {
+    margin-top: 30px;
+}
+.listing-details-tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    list-style: none;
+}
+
+.listing-tag {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 5px 5px 0 0;
+    padding: 2px 4px;
+    font-size: 16px;
+    color: var(--color-blueTransparent);
+    border-radius: 5px;
+    background-color: rgb(171, 238, 249);
+}

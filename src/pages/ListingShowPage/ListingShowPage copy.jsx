@@ -159,7 +159,6 @@ export default function ListingShowPage() {
                         ))
                         :
                         null
-
                     }
                 </ul>
             </div>

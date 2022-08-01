@@ -2,21 +2,21 @@
         Import Dependencies
 ========================================*/
 import { useState, useEffect } from "react"
-export default function ListingShowDetails({ price, baths, beds, sqft, year_build }) {
+export default function ListingShowDetails({ price, baths, beds, sqft, year_build, tags }) {
 
     {
         console.log(
-baths,
-beds,
-sqft,
-year_build,
+            baths,
+            beds,
+            sqft,
+            year_build,
         )
     }
     const calcMonthlyPrice = (months) => {
-        const monthlyPayment = (price.replace(/\,/g,'') / months).toFixed(2)
+        const monthlyPayment = (price.replace(/\,/g, '') / months).toFixed(2)
         return `$${monthlyPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
     }
-    const [ monthlyCalc, setMonthlyCalc ] = useState("(Select a year for an estimate)")
+    const [monthlyCalc, setMonthlyCalc] = useState("(Select a year for an estimate)")
 
 
     const handleYearChange = (e) => {
@@ -58,7 +58,15 @@ year_build,
                     <li>Year Build: <span>{year_build}</span></li>
                 </ul>
             </div>
-            <div className="listing-details-tags">1</div>
+            <div className="listing-details-tags">
+                {tags != null ?
+                    tags.map(tag => (
+                        <li className="listing-tag">{tag}</li>
+                    ))
+                    :
+                    null
+                }
+            </div>
         </div>
     )
 }
