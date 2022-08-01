@@ -9,7 +9,7 @@ export default function TeamDetails({activeMember}) {
         <div className="team-detail-details">
             <h2>{`${activeMember.first_name} ${activeMember.last_name}`}</h2>
             <h2>Joined Month Year</h2>
-            <h3>{activeMember.description}</h3>
+            <p>{activeMember.description}</p>
         </div>
     </div>
   )
