@@ -3,20 +3,24 @@
 ========================================*/
 import { useEffect } from "react"
 /*========================================
+Import Components
+========================================*/
+import Mission from "../../components/About/Mission"
+import Team from "../../components/About/Team"
+/*========================================
         Import Styles
 ========================================*/
 import "./AboutPage.css"
 
-export default function AboutPage({navBarLinks, setNavBarLinks}) {
+export default function AboutPage({ navBarLinks, setNavBarLinks }) {
+
     useEffect(() => {
-        setNavBarLinks({...navBarLinks, activeNavLink: 1})
-    },[])
-  return (
-    <div className="about-wrapper">
-        <div className="mission-wrapper">
-            <h2>Our Mission</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut pharetra sit amet aliquam. Ipsum dolor sit amet consectetur adipiscing elit. Eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque. Dignissim convallis aenean et tortor.</p>
+        setNavBarLinks({ ...navBarLinks, activeNavLink: 1 })
+    }, [])
+    return (
+        <div className="about-wrapper">
+            <Mission />
+            <Team />
         </div>
-    </div>
-  )
+    )
 }
