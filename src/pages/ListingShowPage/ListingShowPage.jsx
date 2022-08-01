@@ -146,7 +146,10 @@ export default function ListingShowPage() {
                     </div>
                 </div>
                 <div className="listing-wrapper">
-                        <ListingShowPhotos />
+                        <ListingShowPhotos 
+                            primary_photo={listing.primary_photo}
+                            photos={listing.photos}
+                        />
                         <ListingShowDetails />
                 </div>
             </div>
