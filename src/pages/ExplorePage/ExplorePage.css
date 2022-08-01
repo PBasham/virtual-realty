@@ -8,6 +8,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 0 auto;
+    width: 80vw;
 }
 
 .listing-preview {
