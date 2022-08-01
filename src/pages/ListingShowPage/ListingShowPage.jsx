@@ -9,6 +9,8 @@ import * as watchlistAPI from "../../utilities/watchlist-api.js"
         Import Compoennts
 ========================================*/
 import CreateWatchListForm from "../../components/WatchList/CreateWatchListForm/CreateWatchListForm.jsx"
+import ListingShowDetails from "../../components/Explore/ListingShowDetails.jsx"
+import ListingShowPhotos from "../../components/Explore/ListingShowPhotos.jsx"
 /*========================================
         Import Styling
 ========================================*/
@@ -28,6 +30,8 @@ export default function ListingShowPage() {
     const [selectedList, setSelectedList] = useState({
         listId: "",
     })
+
+    const [ addToListMessage, setAddToListMessage] = useState("")
 
     let objListing = {}
 
@@ -86,6 +90,12 @@ export default function ListingShowPage() {
             line: listing.line,
             location: `${listing.city} ${listing.state}`,
         })
+        listingToAdd ? 
+            setAddToListMessage("Added to watchlist!")
+            :
+            setAddToListMessage("Already in watchlist.")
+
+        console.log(listingToAdd)
     }
 
     const handleCreateWatchlist = async () => {
@@ -111,36 +121,15 @@ export default function ListingShowPage() {
     return (
         <>
             {showCreateListForm ? <CreateWatchListForm updateShowForm={updateShowForm} addList={addList} /> : null}
-            <div className="listing-show">
-                <div className="back-btn" onClick={() => navigate(-1)}>
-                    {`<`}
-                </div>
+            <div className="listing-show-wrapper">
                 <div className="listing-show-header">
+                    <div className="back-btn" onClick={() => navigate(-1)}>
+                        {`<`}
+                    </div>
                     <h2>{listing.line}</h2>
                     <a href={`${listing.street_view_url}`} target="_blank">{listing.long_address}</a>
-                </div>
-                <div className="listing-wrapper">
-
-                    <div className="listing-img">
-                        <img src={listing.primary_photo} alt="" />
-                        <div className="listing-main-info">
-                            <p>${listing.price}</p>
-                            <p>{listing.line}</p>
-                            <p>{`${listing.city} ${listing.state}`}</p>
-                        </div>
-                    </div>
-                    <div className="listing-details">
-                        <ul className="listing-details-list">
-                            <li>Status <span>{listing.status}</span> </li>
-                            <li>Monthly <span>${listing.monthly}</span> </li>
-                            <li>Baths <span>{listing.baths}</span> </li>
-                            <li>Beds <span>{listing.beds}</span> </li>
-                            <li>sqft <span>{listing.sqft}</span> </li>
-                            <li>Year built <span>{listing.year_build}</span> </li>
-                            <li>County <span>{listing.county}</span> </li>
-                        </ul>
-                        <div className="buttons-div">
-                            {userWatchlistAll.length ?
+                    <div className="watchlist-btn-div">
+                    {userWatchlistAll.length ?
                                 <>
                                     <button className="watchlist-add-btn btn" onClick={handleAddToWatchlist}>Add To Watchlist</button>
                                     <select name="userListings" onChange={handleOptionChange}>
@@ -148,24 +137,18 @@ export default function ListingShowPage() {
                                             < option value={list._id}>{list.WatchListName}</option>
                                         ))}
                                     </select>
+                                    <p>{addToListMessage}</p>
                                 </>
                                 :
                                 <button className="watchlist-add-btn btn" onClick={handleCreateWatchlist}>Create Watchlist</button>
                             }
-                        </div>
+                        
                     </div>
                 </div>
-                <h2 className="tags-header">Featured Tags</h2>
-                <ul className="listing-tags">
-                    {listing.tags != null ?
-                        listing.tags.map(tag => (
-                            <li className="listing-tag">{tag}</li>
-                        ))
-                        :
-                        null
-
-                    }
-                </ul>
+                <div className="listing-wrapper">
+                        <ListingShowPhotos />
+                        <ListingShowDetails />
+                </div>
             </div>
         </>
     )
