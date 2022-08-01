@@ -16,8 +16,8 @@ export default function NavBar({ user, setUser, navBarLinks, setNavBarLinks }) {
     }
     return (
         <div className={`nav-bar ${navBarLinks.activeNavLink != 0 ? "background-black" : ""}`}>
-            <div className="nav-logo">
-                VirtualRealty
+            <div className={`nav-logo`}>
+                <span className="text-blue">V</span>irtual<span className="text-blue">R</span>ealty
             </div>
             <div className="nav-btns">
                 {navBarLinks.navLinks.map((link) => (

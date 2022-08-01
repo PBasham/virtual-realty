@@ -22,3 +22,9 @@ body {
 .flex-hor-center {
     align-self: center;
 }
+.text-blue {
+    color: rgb(110, 138, 251);
+}
+.text-black {
+    color: black;
+}
