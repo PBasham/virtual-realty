@@ -151,7 +151,7 @@
     display: flex;
     flex-direction: row;
     height: clamp(600px, 80vh, 1080px);
-    background-color: rgba(0, 0, 255, 0.329);
+    /* background-color: rgba(0, 0, 255, 0.329); */
 }
 
 .listing-wrapper > div {
@@ -162,7 +162,7 @@
     flex-direction: column;
     position: relative;
     width: 60%;
-    background-color: rgba(255, 0, 208, 0.329);
+    /* background-color: rgba(255, 0, 208, 0.329); */
 }
 .listing-photos-wrapper > div {
     display: flex;
@@ -178,7 +178,7 @@
     padding: 10px;
     width: 100%;
     /* height: 500px; */
-    background-color: rgba(61, 47, 58, 0.329);
+    /* background-color: rgba(61, 47, 58, 0.329); */
 }
 .listing-photos img {
     width: 100%;
@@ -189,7 +189,7 @@
     align-items: ;
     /* padding: 30px; */
     width: 40%;
-    background-color: rgba(0, 255, 140, 0.329);
+    /* background-color: rgba(0, 255, 140, 0.329); */
 }
 .listing-details-wrapper > div {
     margin: 30px;
@@ -198,8 +198,9 @@
     display: flex;
     flex-direction: column;
 }
-.listing-details-main > div { 
-    margin: 40px 0;
+.listing-details-main > div,
+.listing-details-main > h2 { 
+    margin: 20px 0;
 }
 .listing-detail-estimate-options {
     display: flex;
@@ -208,22 +209,24 @@
 .listing-detail-estimate-options input{
     display: none;
 }
-.listing-detail-estimate-options input[type="radio"]:checked + label{
-    background-color: blue;
-}
 
 .listing-detail-estimate-options label{
     display: grid;
     place-items: center;
-    width: 50px;
-    border: 1px solid black;
     padding: 5px;
+    width: 50px;
+    background-color: rgb(217, 217, 217);
+}
+.listing-detail-estimate-options input[type="radio"]:checked + label{
+    background-color: rgb(171, 171, 171);
 }
 .listing-detail-estimate-calc {
+    display: grid;
+    place-items: center;
     align-self: center;
-    width: 25%;
+    height: 40px;
     padding: 5px 10px;
-    border: 1px solid black;
+    transition: 250ms ease-in;
 }
 .listing-details-other {}
 
