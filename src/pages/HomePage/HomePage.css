@@ -12,7 +12,7 @@
     width: 70vw;
 }
 .home-content-wrapper > div {
-    margin: 30px 0;
+    margin: 100px 0;
 }
 /*----------------------------------------
         spotlightarea
@@ -212,3 +212,30 @@
 /*----------------------------------------
         Statistics
 -----------------------------------------*/
+.statistics-wrapper > h2 {
+    margin-bottom: 20px;
+}
+.statistics-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 300px;
+}
+.statistics-content > div{
+    width: 400px;
+}
+.statistics-content-one p, 
+.statistics-content-one a {
+    margin-bottom: 10px;
+}
+.statistics-content-links {
+    display: flex;
+    flex-direction: column;
+}
+.statistics-content-img {
+    position: relative;
+}
+.statistics-content-img img {
+    position: absolute;
+    width: 100%;
+}
