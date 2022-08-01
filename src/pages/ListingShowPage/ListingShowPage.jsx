@@ -150,7 +150,10 @@ export default function ListingShowPage() {
                             primary_photo={listing.primary_photo}
                             photos={listing.photos}
                         />
-                        <ListingShowDetails />
+                        <ListingShowDetails 
+                            // priceDisplay={listing.price}
+                            price={listing.price}
+                        />
                 </div>
             </div>
         </>

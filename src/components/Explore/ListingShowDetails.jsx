@@ -1,15 +1,27 @@
-import React from 'react'
+/*========================================
+        Import Dependencies
+========================================*/
+import { useState, useEffect } from "react"
+export default function ListingShowDetails({ price, priceDispaly }) {
 
-export default function ListingShowDetails() {
+    const calcMonthlyPrice = (months) => {
+        const monthlyPayment = (price.replace(/\,/g,'') / months).toFixed(2)
+        return monthlyPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    }
+    const [ monthlyCalc, setMonthlyCalc ] = useState("")
+
+
     const handleYearChange = (e) => {
         console.log(e.target.value)
+        const months = e.target.value * 12
+        setMonthlyCalc(calcMonthlyPrice(months))
     }
 
     return (
         <div className="listing-details-wrapper">
             <div className="listing-details-main">
                 <h2>For Sale</h2>
-                <h1>Price</h1>
+                <h1>Price {price}</h1>
                 <div className="listing-detail-estimate-options">
                     <input id="radio-10" type="radio" value="10" name="years" onClick={handleYearChange} />
                     <label htmlFor="radio-10" value="10" >10
@@ -23,12 +35,15 @@ export default function ListingShowDetails() {
                     <input id="radio-25" type="radio" value="25" name="years" onClick={handleYearChange} />
                     <label htmlFor="radio-25" >25
                     </label>
-                    <input id="radio-30" type="radio" value="30" name="years" onClick={handleYearChange}/>
+                    <input id="radio-30" type="radio" value="30" name="years" onClick={handleYearChange} />
                     <label htmlFor="radio-30" >30
                     </label>
                 </div>
+                <h2 className="listing-detail-estimate-calc">${monthlyCalc}</h2>
             </div>
-            <div className="listing-details-other">1</div>
+            <div className="listing-details-other">
+                
+            </div>
             <div className="listing-details-tags">1</div>
         </div>
     )
