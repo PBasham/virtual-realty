@@ -18,7 +18,6 @@ export default function Listing({
     state,
 }) {
     return (
-        // <a href={`/explore/${_id}`}>
             <Link to={`/explore/${_id}` }>
                 <div className="listing-preview">
                     <img src={main_photo.href} alt=""
@@ -31,6 +30,5 @@ export default function Listing({
                     </div>
                 </div>
             </Link>
-        // {/* </a> */}
     )
 }
