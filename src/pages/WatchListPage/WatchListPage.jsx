@@ -14,7 +14,7 @@ import CreateWatchListForm from "../../components/WatchList/CreateWatchListForm/
 import "./WatchListPage.css"
 import "../../components/WatchList/CreateWatchListForm/CreateWatchListForm.css"
 
-export default function WatchListPage({navBarLinks, setNavBarLinks}) {
+export default function WatchListPage({ navBarLinks, setNavBarLinks }) {
 
     const [userWatchlistAll, setUserWatchlistAll] = useState([])
 
@@ -28,7 +28,7 @@ export default function WatchListPage({navBarLinks, setNavBarLinks}) {
             const userWatchlist = await watchlistApi.getUserWatchList()
             setUserWatchlistAll(userWatchlist)
         })()
-        setNavBarLinks({...navBarLinks, activeNavLink: 1})
+        setNavBarLinks({ ...navBarLinks, activeNavLink: 1 })
     }, [])
 
     /*========================================
@@ -52,23 +52,26 @@ export default function WatchListPage({navBarLinks, setNavBarLinks}) {
             {showCreateListForm ? <CreateWatchListForm updateShowForm={updateShowForm}
                 addList={addList} /> : null}
             <div className="watchlist-page">
-                <div className="watchlist-page-header">
-                    <h1>Your Watchlist</h1>
-                    <button className="btn" onClick={updateShowForm}>Create List</button>
-                </div>
-                <div className="watchlist-div">
-                    {userWatchlistAll.length != 0 ?
-                        userWatchlistAll.map((list, index) => (
-                            <WatchList
-                                key={index}
-                                watchlist={list}
-                                updateList={updateList}
-                            />
-                        ))
-                        :
-                        <h1>You don't have a watchlist yet</h1>
-                    }
+                <div className="watchlist-wrapper">
 
+                    <div className="watchlist-page-header">
+                        <h1>Your Watchlist</h1>
+                        <button className="btn" onClick={updateShowForm}>Create List</button>
+                    </div>
+                    <div className="watchlist-div">
+                        {userWatchlistAll.length != 0 ?
+                            userWatchlistAll.map((list, index) => (
+                                <WatchList
+                                    key={index}
+                                    watchlist={list}
+                                    updateList={updateList}
+                                />
+                            ))
+                            :
+                            <h1>You don't have a watchlist yet</h1>
+                        }
+
+                    </div>
                 </div>
             </div>
         </>
