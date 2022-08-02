@@ -9,6 +9,7 @@ export default function ServicesCard({ service }) {
                     <img src={service.img} alt="" />
                 </div>
                 <p>{service.description}</p>
+                <p>Inquire Now</p>
             </div>
         </div>
     )

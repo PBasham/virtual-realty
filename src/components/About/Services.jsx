@@ -14,19 +14,19 @@ export default function Services() {
             id: 0,
             name: "Buy",
             img: "https://ibuyer.com/blog/wp-content/uploads/2020/10/sell-house-to-investor.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel orci porta non pulvinar neque laoreet suspendisse. Viverra mauris in aliquam sem fringilla ut. Pharetra pharetra massa massa ultricies. Nulla malesuada pellentesque elit eget gravida cum.",
+            description: "House-hunting made easier. Find and scroll through your ideal locations and homes all at your home. By connecting with one of our Real Estate agents, we’ll ensure you get the best price and rates!",
         },
         {
             id: 1,
             name: "Sell",
             img: "https://sayonadecor.com/wp-content/uploads/2022/03/s2.png",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempus imperdiet nulla malesuada pellentesque elit eget gravida cum sociis. Dignissim cras tincidunt lobortis feugiat vivamus at. Natoque penatibus et magnis dis parturient montes nascetur ridiculus. Leo a diam sollicitudin tempor id eu.",
+            description: "Not sure where to begin? Too many steps? We got you covered! We’ll walk  you through what needs to be done and how we’ll handle the process so that you can just sit, back, relax, and enjoy!",
         },
         {
             id: 2,
             name: "Concierge",
             img: "https://www.clevelandbankruptcyattorney.com/wp-content/uploads/2015/10/woman-holding-house-representing-estate.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet consectetur adipiscing elit duis. Faucibus interdum posuere lorem ipsum. Sapien et ligula ullamcorper malesuada proin libero. Morbi blandit cursus risus at ultrices mi tempus imperdiet.",
+            description: "Make sure your new home is not only your dream home, but the right home. We’ll connect you with the best inspectors, interior designers, plumbers, electricians, etc. in town and at the best best!",
         },
     ])
   return (

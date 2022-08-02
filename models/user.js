@@ -15,6 +15,7 @@ const userSchema = new Schema (
             type: String,
             required: true,
         },
+        name_middle: String,
         name_last: {
             type: String,
             required: true,
@@ -32,6 +33,14 @@ const userSchema = new Schema (
             minLength: 3,
             required: true,
         },
+        recently_viewed: [],
+        DOB: Date,
+        SNN: String,
+        phone_number: String,
+        address: String,
+        City: String,
+        State: String,
+        ZipCode: String,
     },
     {
         timestamps: true,
