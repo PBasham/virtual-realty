@@ -78,7 +78,7 @@ function App() {
                 subElement: [],
             },
             {
-                id: 3,
+                id: 4,
                 name: "MyProfile",
                 to: "/profile",
                 element: <UserProfilePage />,
@@ -150,6 +150,8 @@ function App() {
                                 element={<UserProfilePage
                                     navBarLinks={navBarLinks}
                                     setNavBarLinks={setNavBarLinks}
+                                    user={user}
+                                    setUser={setUser}
                                 />}
                             />
                             <Route
