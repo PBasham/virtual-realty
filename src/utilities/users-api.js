@@ -17,10 +17,15 @@ export function signUp(newUserData) {
 export function login(credentials) {
     return sendRequest(`${BASE_URL}/login`, "POST", credentials)
 }
+// get recemtly viewed list
+export function getUserRecentViewed(){
+    return sendRequest(`${BASE_URL}/recentlyviewed`)
+}
 // add to user recently viewed
 export function addToRecentlyViewed(listingId){
     return sendRequest(`${BASE_URL}/recentlyviewed/${listingId}`, "PUT")
 }
+
 // export function remove(credentials) {
 //     return sendRequest(`${BASE_URL}/delete`, "DELETE", credentials)
 // }

@@ -13,6 +13,7 @@ module.exports = {
     login,
     create,
     addToRecentlyViewed,
+    getUserRecentViewed,
     // remove
 }
 
@@ -27,10 +28,6 @@ function checkToken(req, res) {
 async function login(req, res) {
     try {
         const user = await User.findOne({ email: req.body.email })
-        console.log("Req.Body: ", req.body)
-
-        console.log("user :", user)
-
         if (!user) throw new Error()
         const match = await bcrypt.compare(req.body.password, user.password)
         console.log("match :", match)
@@ -43,8 +40,6 @@ async function login(req, res) {
 
 // create user function
 async function create(req, res) {
-    console.log("I've made it this far!")
-
     try {
         const user = await User.create(req.body)
         const token = createJWT(user)
@@ -52,6 +47,15 @@ async function create(req, res) {
     } catch (err) {
         res.status(400).json(err)
     }
+}
+
+async function getUserRecentViewed(req, res) {
+    const user = await User.findById(req.user._id)
+    console.log(user)
+    
+    const userRecentlyViewed = user.recently_viewed
+    console.log(userRecentlyViewed)
+    res.json(userRecentlyViewed)
 }
 
 async function addToRecentlyViewed(req, res) {

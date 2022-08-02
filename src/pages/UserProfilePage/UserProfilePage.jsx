@@ -15,10 +15,14 @@ import UserRecentlyViewed from "../../components/UserProfile/UserRecentlyViewed"
 import "./UserProfilePage.css"
 
 export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, setUser }) {
+
+    
     useEffect(function () {
         setNavBarLinks({ ...navBarLinks, activeNavLink: 4 })
     }, [])
 
+
+    
     const [userSections, setUserSections] = useState({
         activeSection: 0,
         allSections: [
@@ -36,7 +40,7 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
             },
             {
                 id: 3,
-                element: <UserRecentlyViewed user={user} setUser={setUser}/>,
+                element: <UserRecentlyViewed user={user} setUser={setUser} />,
             },
         ]
     })
@@ -44,8 +48,8 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
     const [userpageOptions, setUserpageOptions] = useState([
         "User Information",
         "Update Settings",
-        // "Watchlist",
-        // "Recently Viewed",
+        "Watchlist",
+        "Recently Viewed",
     ])
 
     const handleSectionChange = (index) => {

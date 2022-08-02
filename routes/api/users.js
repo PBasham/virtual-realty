@@ -14,6 +14,7 @@ router.post("/", usersCtrl.create)
 // User POST route for login
 router.post("/login", usersCtrl.login)
 // User POST route for login
+router.get("/recentlyviewed/", usersCtrl.getUserRecentViewed)
 router.put("/recentlyviewed/:listingId", usersCtrl.addToRecentlyViewed)
 // User GET route for JWT token logic
 router.get("/check-token", ensureLoggedIn, usersCtrl.checkToken)
