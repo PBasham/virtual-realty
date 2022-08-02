@@ -17,7 +17,9 @@ import ListingShowPhotos from "../../components/Explore/ListingShowPhotos.jsx"
         Import Styling
 ========================================*/
 import "./ListingShowPage.css"
-export default function ListingShowPage() {
+export default function ListingShowPage(
+    { navBarLinks, setNavBarLinks}
+) {
 
     
     const navigate = useNavigate()
@@ -44,6 +46,7 @@ export default function ListingShowPage() {
             await setUserWatchlistAll(userWatchlist)
             userWatchlist.length ? await setSelectedList({ listId: userWatchlist[0]._id }) : await setSelectedList(null)
         })()
+        setNavBarLinks({ ...navBarLinks, activeNavLink: 3 })
     }, [])
 
     useEffect(function () {
