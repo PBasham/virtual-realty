@@ -5,6 +5,8 @@ import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import * as listingsApi from "../../utilities/listings-api.js"
 import * as watchlistAPI from "../../utilities/watchlist-api.js"
+import * as userAPI from "../../utilities/users-api.js"
+
 /*========================================
         Import Compoennts
 ========================================*/
@@ -17,6 +19,7 @@ import ListingShowPhotos from "../../components/Explore/ListingShowPhotos.jsx"
 import "./ListingShowPage.css"
 export default function ListingShowPage() {
 
+    
     const navigate = useNavigate()
 
     const params = useParams()
@@ -74,6 +77,11 @@ export default function ListingShowPage() {
         })()
     }, [])
 
+    useEffect(() => {
+        (async function addToRecentlyViewed() {
+            const result = await userAPI.addToRecentlyViewed(params.id)
+        })()
+    }, [])
 
     /*========================================
             Functions
@@ -94,8 +102,6 @@ export default function ListingShowPage() {
             setAddToListMessage("Added to watchlist!")
             :
             setAddToListMessage("Already in watchlist.")
-
-        console.log(listingToAdd)
     }
 
     const handleCreateWatchlist = async () => {
@@ -103,13 +109,11 @@ export default function ListingShowPage() {
     }
 
     const addList = (newList) => {
-        console.log(newList);
         setSelectedList({ listId: newList._id })
         setUserWatchlistAll([...userWatchlistAll, newList])
     }
 
     const handleOptionChange = (e) => {
-        console.log("Change!", e.target.value)
         setSelectedList({ listId: e.target.value })
     }
     /* end functions */

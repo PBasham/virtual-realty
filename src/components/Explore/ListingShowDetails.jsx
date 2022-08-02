@@ -5,12 +5,12 @@ import { useState, useEffect } from "react"
 export default function ListingShowDetails({ price, baths, beds, sqft, year_build, tags }) {
 
     {
-        console.log(
-            baths,
-            beds,
-            sqft,
-            year_build,
-        )
+        // console.log(
+        //     baths,
+        //     beds,
+        //     sqft,
+        //     year_build,
+        // )
     }
     const calcMonthlyPrice = (months) => {
         const monthlyPayment = (price.replace(/\,/g, '') / months).toFixed(2)
@@ -20,7 +20,7 @@ export default function ListingShowDetails({ price, baths, beds, sqft, year_buil
 
 
     const handleYearChange = (e) => {
-        console.log(e.target.value)
+        // console.log(e.target.value)
         const months = e.target.value * 12
         setMonthlyCalc(calcMonthlyPrice(months))
     }

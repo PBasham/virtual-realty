@@ -12,6 +12,7 @@ module.exports = {
     checkToken,
     login,
     create,
+    addToRecentlyViewed,
     // remove
 }
 
@@ -51,6 +52,16 @@ async function create(req, res) {
     } catch (err) {
         res.status(400).json(err)
     }
+}
+
+async function addToRecentlyViewed(req,res){
+    console.log(": )")
+    const tempArr = User.findById(req.user._id)
+    console.log(tempArr)
+    console.log("Listing Id: ", req.params.listingId)
+    
+    // const user = await User.findByIdAndUpdate(req.user._id,{})
+    res.json(tempArr)
 }
 
 // // delete user function

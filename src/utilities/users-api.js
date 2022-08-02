@@ -11,17 +11,16 @@ const BASE_URL = "/api/users"
         users-api funcitons
 ========================================*/
 export function signUp(newUserData) {
-    console.log("step 1 - signup")
-
     return sendRequest(BASE_URL, "POST", newUserData)
 }
 
 export function login(credentials) {
-    console.log("step 1 - login")
-
     return sendRequest(`${BASE_URL}/login`, "POST", credentials)
 }
-
+// add to user recently viewed
+export function addToRecentlyViewed(listingId){
+    return sendRequest(`${BASE_URL}/recentlyviewed/${listingId}`)
+}
 // export function remove(credentials) {
 //     return sendRequest(`${BASE_URL}/delete`, "DELETE", credentials)
 // }

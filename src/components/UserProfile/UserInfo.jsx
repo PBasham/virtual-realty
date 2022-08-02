@@ -8,7 +8,7 @@ export default function UserInfo({ user, setUser }) {
                     <h3>Personal Information:</h3>
                     <fieldset>
                         <label>First name:</label> <input type="text" value={user.name_first}/>
-                        <label>Middle name (optional):</label> <input type="text" />
+                        <label>Middle name:</label> <input type="text" />
                         <label>Last name:</label> <input type="text" value={user.name_last}/>
                     </fieldset>
                     <fieldset>

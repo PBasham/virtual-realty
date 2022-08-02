@@ -1,3 +1,5 @@
+/* font-family: 'Cabin', sans-serif;
+font-family: 'Prompt', sans-serif; */
 :root {
     --color-blue: rgb(9, 9, 148);
     --color-blueTransparent: rgba(9, 9, 148,.8);
@@ -17,7 +19,7 @@
 }
 
 body {
-    
+    font-family: "Prompt";
 }
 .flex-hor-center {
     align-self: center;
@@ -27,4 +29,11 @@ body {
 }
 .text-black {
     color: black;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Cabin";
+}
+button {
+    font-family: "Prompt";
 }

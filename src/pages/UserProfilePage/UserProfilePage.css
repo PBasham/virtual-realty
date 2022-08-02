@@ -45,9 +45,14 @@
     margin: 10px 0 20px 0;
     border: none;
 }
+.userprofile-content fieldset {
+    font-size: 1em;
+}
 .userprofile-content fieldset input,
 .userprofile-content fieldset select {
         margin: 0 5px;
+        padding: 5px;
+        height: 20px;
 }
 .userprofile-content select {
     width: 100px;

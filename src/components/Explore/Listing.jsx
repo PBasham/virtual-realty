@@ -17,6 +17,9 @@ export default function Listing({
     city,
     state,
 }) {
+
+
+
     return (
             <Link to={`/explore/${_id}` }>
                 <div className="listing-preview">
