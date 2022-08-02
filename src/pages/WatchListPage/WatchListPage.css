@@ -50,7 +50,7 @@ WatchList
     position: relative;
     margin: 20px;
     min-height: 125px;
-    width: 200px;
+    width: 250px;
 }
 .watchlist-item-img {
     display: flex;
