@@ -16,6 +16,7 @@ import HomePage from "../../pages/HomePage/HomePage.jsx"
 import AboutPage from "../../pages/AboutPage/AboutPage.jsx"
 import WatchListPage from "../../pages/WatchListPage/WatchListPage.jsx"
 import ExplorePage from "../../pages/ExplorePage/ExplorePage.jsx"
+import UserProfilePage from "../UserProfilePage/UserProfilePage.jsx"
 import ListingShowPage from "../ListingShowPage/ListingShowPage.jsx"
 import Footer from "../../components/Footer/Footer.jsx"
 
@@ -76,6 +77,13 @@ function App() {
                 element: <ExplorePage />,
                 subElement: [],
             },
+            {
+                id: 3,
+                name: "MyProfile",
+                to: "/profile",
+                element: <UserProfilePage />,
+                subElement: [],
+            },
         ]
     })
 
@@ -133,6 +141,13 @@ function App() {
                             <Route
                                 path="/explore/:id"
                                 element={<ListingShowPage
+                                    navBarLinks={navBarLinks}
+                                    setNavBarLinks={setNavBarLinks}
+                                />}
+                            />
+                            <Route
+                                path="/profile/"
+                                element={<UserProfilePage
                                     navBarLinks={navBarLinks}
                                     setNavBarLinks={setNavBarLinks}
                                 />}
