@@ -19,7 +19,7 @@ export function login(credentials) {
 }
 // add to user recently viewed
 export function addToRecentlyViewed(listingId){
-    return sendRequest(`${BASE_URL}/recentlyviewed/${listingId}`)
+    return sendRequest(`${BASE_URL}/recentlyviewed/${listingId}`, "PUT")
 }
 // export function remove(credentials) {
 //     return sendRequest(`${BASE_URL}/delete`, "DELETE", credentials)
