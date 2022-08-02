@@ -39,7 +39,7 @@ export default function LoginForm({ setUser, updateShowLogin }) {
                     <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
                     <label>Password</label>
                     <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-                    <button type="submit">Log In</button>
+                    <button type="submit" className="btn">Log In</button>
                 </form>
             </div>
             <p>Not a user? <Link to="/signUp" onClick={handleFormChange}>Sign Up</Link></p>

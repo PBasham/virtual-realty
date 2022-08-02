@@ -8,6 +8,11 @@ import { useState } from "react"
 import LoginForm from "../../components/Auth/LoginForm.jsx"
 import SignUpForm from "../../components/Auth/SignUpForm.jsx"
 
+/*========================================
+        Import Styling
+========================================*/
+import "./AuthPage.css"
+
 export default function AuthPage({ setUser }) {
     const [showLogin, setShowLogin] = useState(true)
 

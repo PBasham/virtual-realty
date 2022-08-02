@@ -52,7 +52,7 @@ export default function SignUpForm({ setUser, updateShowLogin }) {
                     <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
                     <label>Confirm</label>
                     <input type="password" name="confirm" value={credentials.confirm} onChange={handleChange} required />
-                    <button type="submit">Sign Up</button>
+                    <button type="submit" className="btn" >Sign Up</button>
                 </form>
             </div>
             <p>Already a user ?

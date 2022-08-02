@@ -1,0 +1,28 @@
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+.form-wrapper h1{
+    margin-bottom: 20px;
+}
+
+.login-wrapper,
+.signup-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-wrapper form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+.form-wrapper form input {
+    margin-bottom: 20px;
+    width: 200px;
+}
