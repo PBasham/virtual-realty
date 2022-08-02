@@ -3,11 +3,11 @@
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    width: 70vw;
+    width: 80vw;
 }
 .userprofile-content-wrapper {
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 20% 80%;
     width: 100%;
     border: 3px dotted yellow;
 }
@@ -21,6 +21,20 @@
 .userprofile-content {
     border: 3px dotted rgb(105, 237, 237);
 
+}
+.userprofile-content fieldset {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 10px 0;
+    border: none;
+}
+.userprofile-content fieldset input,
+.userprofile-content fieldset select {
+        margin: 0 5px;
+}
+.userprofile-content select {
+    width: 100px;
 }
 .userprofile-manage-personal {}
 .userprofile-manage-account {}

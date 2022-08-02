@@ -67,10 +67,6 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                 <div className="userprofile-content">
                     {userSections.allSections[userSections.activeSection].element}
                 </div>
-                {/* <UserInfo />
-            <UserUpdate />
-            <UserWatchList />
-            <UserRecentlyViewed /> */}
             </div>
         </div>
     )
