@@ -35,6 +35,8 @@ app.use("/api/users", require("./routes/api/users"))
 
 // base route for listings
 app.use("/api/listings", require("./routes/api/listings.js"))
+// base route for filters
+app.use("/api/filters", require("./routes/api/filters.js"))
 
 // base route for watchlist
 app.use("/api/watchlist", require("./routes/api/watchlist.js"))

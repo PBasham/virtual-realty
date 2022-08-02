@@ -14,12 +14,22 @@ async function index(req, res) {
 // show 
 async function show(req, res) {
     const listing = await Listing.findById(req.params.id)
-    console.log(listing)
-
+    // console.log(listing)
     res.json(listing)
 }
 
 // search
+async function getFiltered(req, res) {
+    console.log("req.body :", req.body)
+    const listings = await Listing.find({ 
+        // $and: [
+        "location.address.city": req.body.city
+        // {"location.county.name": req.body.county},
+    // ]
+    })
+    console.log(req.body)
+    res.json(listings)
+}
 
 
 // showhouses
@@ -63,4 +73,5 @@ module.exports = {
     index,
     show,
     getSpotlightHouses,
+    getFiltered,
 }

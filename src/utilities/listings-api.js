@@ -18,3 +18,6 @@ export function spotlightHouses() {
     return sendRequest(`${BASE_URL}/showhouses`)
 }
 // get matching (future planner)
+export function getFiltered(filterData) {
+    return sendRequest(`${BASE_URL}/filtered`, "POST", filterData)
+}

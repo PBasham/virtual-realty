@@ -19,7 +19,7 @@
     width: 20%;
     border: 3px dotted lawngreen;
 }
-.filters-wrapper > div {
+.filters-wrapper > fieldset {
     text-align: center;
     width: 100%;
     min-height: 100px;
@@ -29,7 +29,19 @@
 .price-range {
     width: 50px;
 }
-.filters-city {}
+.filter-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.filter-section h3 {
+    align-self: center;
+}
+.filters-city {
+    
+}
+.filters-city input {
+}
 .filters-county {}
 .filters-tags {}
 
