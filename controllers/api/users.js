@@ -70,19 +70,24 @@ async function addToRecentlyViewed(req, res) {
     if (found) {
         res.json(userTemp)
     } else {
-
+        if(userTemp.recently_viewed.length >= 10) {
+            userTemp.recently_viewed.shift()
+            userTemp.recently_viewed.push({
+                listingId: recentlyViewed._id,
+                img: recentlyViewed.primary_photo.href,
+                line: recentlyViewed.location.address.line,
+            })
+        } else {
+            userTemp.recently_viewed.push({
+                listingId: recentlyViewed._id,
+                img: recentlyViewed.primary_photo.href,
+                line: recentlyViewed.location.address.line,
+            })
+        }
         const user = await User.findByIdAndUpdate(req.user._id,
             {
-                $push:
-                {
-                    recently_viewed: {
-                        listingId: recentlyViewed._id,
-                        img: recentlyViewed.primary_photo.href,
-                        line: recentlyViewed.location.address.line,
-                    }
-                }
+                    recently_viewed: userTemp.recently_viewed
             })
-
         res.json(user)
     }
 }
