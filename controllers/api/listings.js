@@ -21,12 +21,49 @@ async function show(req, res) {
 // search
 async function getFiltered(req, res) {
     console.log("req.body :", req.body)
-    const listings = await Listing.find({ 
+    // check if there is more then one condition
+    let filterCheck = {
+        count: 0,
+        filters: []
+    }
+    let multipleCondition = await function checkFilters() {
+        if(req.body.city) {
+            filterCheck.count += 1
+            filterCheck.filters.push({"location.address.city": req.body.city})
+        }
+        if(req.body.county) {
+            filterCheck.count += 1
+            filterCheck.filters.push({"location.county.name": req.body.county})
+        }
+        if(req.body.tags.length) {
+            filterCheck.count += 1
+            filterCheck.filters.push({"tags": req.body.tags})
+        }
+        console.log(filterCheck.filters)
+        console.log({ $and: [...filterCheck.filters]})
+        // console.log({and: {...filterCheck.filters}})
+        return filterCheck.count > 1 ? true : false
+    }
+    multipleCondition()
+    let listings = null
+
+    if( filterCheck.count) {
+        // multiple filters
+        if(filterCheck.count > 1) {
+            listings = await Listing.find({ $and: [...filterCheck.filters]})
+        } else {
+            // one filter
+            listings = await Listing.find(filterCheck.filters[0])
+        }
+
+    } else {
+        // no filters
+        listings = await Listing.find({})
+    }
+
         // $and: [
-        "location.address.city": req.body.city
-        // {"location.county.name": req.body.county},
-    // ]
-    })
+        //     {"location.county.name": { $exist: req.body.county}},
+        // ]
     console.log(req.body)
     res.json(listings)
 }
@@ -34,7 +71,7 @@ async function getFiltered(req, res) {
 
 // showhouses
 async function getSpotlightHouses(req, res) {
-    const showHouses = await Listing.find({ primary_photo: { $ne: null } }, {}, { sort: { '_id' : -1 }}).sort().limit(3)
+    const showHouses = await Listing.find({ primary_photo: { $ne: null } }, {}, { sort: { '_id': -1 } }).sort().limit(3)
     console.log("show houses to return: ", showHouses[0])
 
     const returnShowHouses = {
@@ -62,7 +99,7 @@ async function getSpotlightHouses(req, res) {
             },
         ]
     }
-    
+
     console.log("show houses to return: ", returnShowHouses)
     res.json(returnShowHouses)
 }

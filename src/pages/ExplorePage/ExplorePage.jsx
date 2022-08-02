@@ -38,8 +38,8 @@ export default function ExplorePage({ navBarLinks, setNavBarLinks }) {
     }, [])
 
 
-    const getFilteredListings = async (filterData) => {
-        const displayListings = await ListingsApi.getFiltered(filterData)
+    const getFilteredListings = async (formData) => {
+        const displayListings = await ListingsApi.getFiltered(formData)
         setListingsList(displayListings)
     }
 
