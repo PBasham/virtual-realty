@@ -9,7 +9,7 @@
 }
 .home-content-wrapper {
     margin: 20px auto;
-    width: 70vw;
+    width: clamp(600px, 80vw, 800px);
 }
 .home-content-wrapper > div {
     margin: 100px 0;
@@ -157,7 +157,7 @@
 .service-cards {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     text-align: center;
 }
