@@ -24,19 +24,19 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
         allSections: [
             {
                 id: 0,
-                element: <UserInfo />,
+                element: <UserInfo user={user} setUser={setUser}/>,
             },
             {
                 id: 1,
-                element: <UserUpdate />,
+                element: <UserUpdate user={user} setUser={setUser}/>,
             },
             {
                 id: 2,
-                element: <UserWatchList />,
+                element: <UserWatchList user={user} setUser={setUser}/>,
             },
             {
                 id: 3,
-                element: <UserRecentlyViewed />,
+                element: <UserRecentlyViewed user={user} setUser={setUser}/>,
             },
         ]
     })

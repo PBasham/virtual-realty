@@ -1,14 +1,15 @@
-export default function UserInfo() {
+export default function UserInfo({ user, setUser }) {
     return (
         <div>
+            {console.log(user)}
             <h2>Manage your personal information below</h2>
             <form>
                 <div className="personal-info">
                     <h3>Personal Information:</h3>
                     <fieldset>
-                        <label>First name:</label> <input type="text" />
+                        <label>First name:</label> <input type="text" value={user.name_first}/>
                         <label>Middle name (optional):</label> <input type="text" />
-                        <label>Last name:</label> <input type="text" />
+                        <label>Last name:</label> <input type="text" value={user.name_last}/>
                     </fieldset>
                     <fieldset>
                         <label>Date of Birth:</label> <input type="Date" />
@@ -33,7 +34,6 @@ export default function UserInfo() {
                         <label>Zip code:</label> <input type="text" />
                     </fieldset>
                 </div>
-
             </form>
         </div>
     )

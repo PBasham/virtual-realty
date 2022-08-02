@@ -20,13 +20,16 @@
 .userprofile-options-wrapper ul li{}
 .userprofile-content {
     border: 3px dotted rgb(105, 237, 237);
-
+    
+}
+.userprofile-content h2 {
+    margin-bottom: 20px;
 }
 .userprofile-content fieldset {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    margin: 10px 0;
+    margin: 10px 0 20px 0;
     border: none;
 }
 .userprofile-content fieldset input,
