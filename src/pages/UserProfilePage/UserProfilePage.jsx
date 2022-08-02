@@ -44,10 +44,9 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
     const [userpageOptions, setUserpageOptions] = useState([
         "User Information",
         "Update Settings",
-        "Watchlist",
-        "Recently Viewed",
+        // "Watchlist",
+        // "Recently Viewed",
     ])
-
 
     const handleSectionChange = (index) => {
         setUserSections({...userSections, activeSection: index})
@@ -60,7 +59,7 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                 <div className="userprofile-options-wrapper">
                     <ul>
                         {userpageOptions.map((selection, index) => (
-                            <li key={index} onClick={() => handleSectionChange(index)}>{selection}</li>
+                            <li key={index} className={`${userSections.activeSection === index ? "active" : ""}`} onClick={() => handleSectionChange(index)}>{selection}</li>
                         ))}
                     </ul>
                 </div>
