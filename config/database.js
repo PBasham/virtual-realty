@@ -11,7 +11,7 @@ const db = mongoose.connection
 /*========================================
         Connection to Local MongoDB & MongoAtlas
 ========================================*/
-const MONGODB_URI = process.env.MONGODB_URI
+const MONGO_URI = process.env.MONGO_URI
 
 const DATABASE_URL = process.env.DATABASE_URL
 
@@ -20,7 +20,7 @@ const CONFIG = {
     useUnifiedTopology: true,
 }
 
-mongoose.connect(DATABASE_URL, CONFIG)
+mongoose.connect(MONGO_URI, CONFIG)
 
 db.on("connected", () => {
     console.log(`Connected to ${db.name} at ${db.host}: ${db.port}`)
