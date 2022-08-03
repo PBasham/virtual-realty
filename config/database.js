@@ -11,7 +11,7 @@ const db = mongoose.connection
 /*========================================
         Connection to Local MongoDB & MongoAtlas
 ========================================*/
-const MONGODB_URI = process.env.MONGO_URI
+const MONGODB_URI = process.env.MONGODB_URI
 
 const DATABASE_URL = process.env.DATABASE_URL
 
