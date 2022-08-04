@@ -37,6 +37,16 @@ h1,h2,h3,h4,h5,h6 {
 button {
     font-family: "Prompt";
 }
+
+.btn-cancel {
+    color: white;
+    background-color: rgb(193, 50, 50);
+}
+.btn-cancel:hover,
+.btn-cancel:focus {
+    
+    background-color: rgb(213, 63, 63);
+}
 button:disabled {
     background-color: rgb(145, 145, 145);
 }
@@ -45,4 +55,7 @@ button:hover:disabled {
 }
 input {
     padding: 5px;
+}
+.no-margin-left {
+    margin-left: 0;
 }

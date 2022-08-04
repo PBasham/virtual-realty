@@ -16,27 +16,27 @@ import "./UserProfilePage.css"
 
 export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, setUser }) {
 
-    
+
     useEffect(function () {
         setNavBarLinks({ ...navBarLinks, activeNavLink: 4 })
     }, [])
 
 
-    
+
     const [userSections, setUserSections] = useState({
         activeSection: 0,
         allSections: [
             {
                 id: 0,
-                element: <UserInfo user={user} setUser={setUser}/>,
+                element: <UserInfo user={user} setUser={setUser} />,
             },
             {
                 id: 1,
-                element: <UserUpdate user={user} setUser={setUser}/>,
+                element: <UserUpdate user={user} setUser={setUser} />,
             },
             {
                 id: 2,
-                element: <UserWatchList user={user} setUser={setUser}/>,
+                element: <UserWatchList user={user} setUser={setUser} />,
             },
             {
                 id: 3,
@@ -44,6 +44,8 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
             },
         ]
     })
+
+    const [allowEdit, setAllowEdit] = useState(false)
 
     const [userpageOptions, setUserpageOptions] = useState([
         "User Information",
@@ -53,12 +55,22 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
     ])
 
     const handleSectionChange = (index) => {
-        setUserSections({...userSections, activeSection: index})
+        setUserSections({ ...userSections, activeSection: index })
     }
-    
+
+
+    const handleEdit = () => {
+        setAllowEdit(!allowEdit)
+    }
+
     return (
         <div className="userprofile-wrapper">
             <h2>Welcome, {user.name_first}</h2>
+            <button
+                className={`btn ${allowEdit ? "btn-cancel" : null}`}
+                onClick={handleEdit}>
+                {allowEdit ? "Cancel update" : "Edit Profile"}
+            </button>
             <div className="userprofile-content-wrapper">
                 <div className="userprofile-options-wrapper">
                     <ul>

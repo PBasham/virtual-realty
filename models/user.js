@@ -38,9 +38,9 @@ const userSchema = new Schema (
         SNN: String,
         phone_number: String,
         address: String,
-        City: String,
-        State: String,
-        ZipCode: String,
+        city: String,
+        state: String,
+        zipCode: String,
     },
     {
         timestamps: true,
