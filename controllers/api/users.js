@@ -40,8 +40,6 @@ async function login(req, res) {
 
 // create user function
 async function create(req, res) {
-    console.log("Here")
-    console.log(req)
     try {
         const user = await User.create(req.body)
         console.log(user)
