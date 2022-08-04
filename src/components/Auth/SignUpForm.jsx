@@ -47,7 +47,7 @@ export default function SignUpForm({ setUser, updateShowLogin }) {
                     <label>Last Name</label>
                     <input type="text" name="name_last" value={credentials.name_last} onChange={handleChange} required />
                     <label>Email</label>
-                    <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
+                    <input type="email" name="email" value={credentials.email} onChange={handleChange} required />
                     <label>Password</label>
                     <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
                     <label>Confirm</label>
