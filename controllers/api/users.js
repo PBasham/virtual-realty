@@ -42,8 +42,10 @@ async function login(req, res) {
 async function create(req, res) {
     try {
         const user = await User.create(req.body)
+        console.log(user)
         const token = createJWT(user)
         res.json(token)
+        console.log(token)
     } catch (err) {
         res.status(400).json(err)
     }
