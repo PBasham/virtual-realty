@@ -37,6 +37,12 @@ h1,h2,h3,h4,h5,h6 {
 button {
     font-family: "Prompt";
 }
+button:disabled {
+    background-color: rgb(145, 145, 145);
+}
+button:hover:disabled {
+    background-color: rgb(145, 145, 145);
+}
 input {
     padding: 5px;
 }

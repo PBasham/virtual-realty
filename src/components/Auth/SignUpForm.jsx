@@ -38,6 +38,8 @@ export default function SignUpForm({ setUser, updateShowLogin }) {
         }
     }
 
+    // variable to ensure password and confirm password match.
+    const disableBtn = credentials.password != credentials.confirm || credentials.password.trim() === ""
     return (
         <div className='signup-wrapper'>
             <div className="form-container" onSubmit={handleSubmit}>
@@ -52,7 +54,7 @@ export default function SignUpForm({ setUser, updateShowLogin }) {
                     <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
                     <label>Confirm</label>
                     <input type="password" name="confirm" value={credentials.confirm} onChange={handleChange} required />
-                    <button type="submit" className="btn" >Sign Up</button>
+                    <button type="submit" disabled={disableBtn} className="btn" >Sign Up</button>
                 </form>
             </div>
             <p>Already a user ?
