@@ -43,7 +43,7 @@ export default function SignUpForm({ setUser, updateShowLogin }) {
     return (
         <div className='signup-wrapper'>
             <div className="form-container" onSubmit={handleSubmit}>
-                <form autoComplete="off">
+                <form autoComplete="on">
                     <label>First Name</label>
                     <input type="text" name="name_first" value={credentials.name_first} onChange={handleChange} required />
                     <label>Last Name</label>

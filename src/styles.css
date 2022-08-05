@@ -19,7 +19,7 @@ font-family: 'Prompt', sans-serif; */
 }
 
 body {
-    font-family: "Prompt";
+    font-family: "Cabin";
 }
 .flex-hor-center {
     align-self: center;
@@ -32,10 +32,10 @@ body {
 }
 
 h1,h2,h3,h4,h5,h6 {
-    font-family: "Cabin";
+    font-family: "Prompt";
 }
 button {
-    font-family: "Prompt";
+    font-family: "Cabin";
 }
 
 .btn-cancel {

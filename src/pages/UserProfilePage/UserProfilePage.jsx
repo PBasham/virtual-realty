@@ -21,31 +21,14 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
         setNavBarLinks({ ...navBarLinks, activeNavLink: 4 })
     }, [])
 
+    const [allowEdit, setAllowEdit] = useState(false)
 
+    const [tempUserData, setTempUserData] = useState(user)
 
     const [userSections, setUserSections] = useState({
         activeSection: 0,
-        allSections: [
-            {
-                id: 0,
-                element: <UserInfo user={user} setUser={setUser} />,
-            },
-            {
-                id: 1,
-                element: <UserUpdate user={user} setUser={setUser} />,
-            },
-            {
-                id: 2,
-                element: <UserWatchList user={user} setUser={setUser} />,
-            },
-            {
-                id: 3,
-                element: <UserRecentlyViewed user={user} setUser={setUser} />,
-            },
-        ]
     })
 
-    const [allowEdit, setAllowEdit] = useState(false)
 
     const [userpageOptions, setUserpageOptions] = useState([
         "User Information",
@@ -59,18 +42,24 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
     }
 
 
-    const handleEdit = () => {
-        setAllowEdit(!allowEdit)
+    const handleEditClick = () => {
+        if (allowEdit) {
+            setAllowEdit(!allowEdit)
+            setTempUserData(user)
+        } else {
+            setAllowEdit(!allowEdit)
+        }
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log("user: ", user)
+        console.log("I'm being submitted!")
     }
 
     return (
         <div className="userprofile-wrapper">
             <h2>Welcome, {user.name_first}</h2>
-            <button
-                className={`btn ${allowEdit ? "btn-cancel" : null}`}
-                onClick={handleEdit}>
-                {allowEdit ? "Cancel update" : "Edit Profile"}
-            </button>
             <div className="userprofile-content-wrapper">
                 <div className="userprofile-options-wrapper">
                     <ul>
@@ -80,7 +69,42 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                     </ul>
                 </div>
                 <div className="userprofile-content">
-                    {userSections.allSections[userSections.activeSection].element}
+                    {userSections.activeSection === 0 ?
+                        <UserInfo
+                            tempUserData={tempUserData}
+                            setTempUserData={setTempUserData}
+                            allowEdit={allowEdit}
+                            setAllowEdit={setAllowEdit} />
+                        :
+                        null}
+                    {userSections.activeSection === 1 ?
+                        <UserUpdate
+                            tempUserData={tempUserData}
+                            setTempUserData={setTempUserData}
+                            allowEdit={allowEdit}
+                            setAllowEdit={setAllowEdit} />
+                        :
+                        null}
+                    {userSections.activeSection === 2 ?
+                        <UserWatchList
+                            tempUserData={tempUserData}
+                            setTempUserData={setTempUserData}
+                        />
+                        :
+                        null}
+                    {userSections.activeSection === 3 ?
+                        <UserRecentlyViewed
+                            tempUserData={tempUserData}
+                            setTempUserData={setTempUserData}
+                        />
+                        :
+                        null}
+                        <button
+                className={`btn ${allowEdit ? "btn-cancel" : null} no-margin-left`}
+                onClick={handleEditClick}>
+                {allowEdit ? "Cancel update" : "Edit Profile"}
+            </button>
+            {allowEdit? <button className="btn no-margin-left" onClick={handleSubmit} >Save changes</button> : null}
                 </div>
             </div>
         </div>

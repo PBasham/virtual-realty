@@ -34,13 +34,34 @@ const userSchema = new Schema (
             required: true,
         },
         recently_viewed: [],
-        DOB: Date,
-        SNN: String,
-        phone_number: String,
-        address: String,
-        city: String,
-        state: String,
-        zipCode: String,
+        DOB: {
+            type: Date,
+            default: null,
+        },
+        const [first, setfirst] = useState(second): {
+            type: String,
+            default: null,
+        },
+        phone_number: {
+            type: String,
+            default: null,
+        },
+        address: {
+            type: String,
+            default: null,
+        },
+        city: {
+            type: String,
+            default: null,
+        },
+        state: {
+            type: String,
+            default: null,
+        },
+        zipCode: {
+            type: String,
+            default: null,
+        },
     },
     {
         timestamps: true,

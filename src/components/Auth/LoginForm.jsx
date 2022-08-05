@@ -34,7 +34,7 @@ export default function LoginForm({ setUser, updateShowLogin }) {
     return (
         <div className='login-wrapper'>
             <div className="form-container" onSubmit={handleSubmit}>
-                <form autoComplete>
+                <form autoComplete="on">
                     <label>Email</label>
                     <input type="email" name="email" value={credentials.email} onChange={handleChange} required />
                     <label>Password</label>
