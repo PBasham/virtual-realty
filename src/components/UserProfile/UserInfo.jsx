@@ -3,13 +3,7 @@ export default function UserInfo({ tempUserData, setTempUserData, allowEdit, set
     /*========================================
             Functions
     ========================================*/
-    const updateUserData = () => {
-        console.log("I'm sending the updated Data!");
-
-    }
-
     const handleChange = (e) => {
-        console.log(`${e.target.name}: ${e.target.value}`)
         setTempUserData({
             ...tempUserData, [e.target.name]: e.target.value
         })
@@ -52,7 +46,7 @@ export default function UserInfo({ tempUserData, setTempUserData, allowEdit, set
                             disabled={!allowEdit}
                             name="DOB"
                             type="Date"
-                            value={tempUserData.DOB ? tempUserData.DOB : ""}
+                            value={tempUserData.DOB ? tempUserData.DOB : "yyyy-MM-dd"}
                         />
                         <label>SNN:</label> <input
                             onChange={handleChange}
