@@ -52,8 +52,8 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
         }
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = (UpdatedCredentials) => {
+        
         console.log("user: ", user)
         console.log("I'm being submitted!")
     }
@@ -75,7 +75,8 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                             tempUserData={tempUserData}
                             setTempUserData={setTempUserData}
                             allowEdit={allowEdit}
-                            setAllowEdit={setAllowEdit} />
+                            setAllowEdit={setAllowEdit} 
+                            handleSubmit={handleSubmit}/>
                         :
                         null}
                     {userSections.activeSection === 1 ?
@@ -83,20 +84,21 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                             tempUserData={tempUserData}
                             setTempUserData={setTempUserData}
                             allowEdit={allowEdit}
-                            setAllowEdit={setAllowEdit} />
+                            setAllowEdit={setAllowEdit} 
+                            handleSubmit={handleSubmit}/>
                         :
                         null}
                     {userSections.activeSection === 2 ?
                         <UserWatchList
-                            tempUserData={tempUserData}
-                            setTempUserData={setTempUserData}
+                            user={user}
+                            setUser={setUser}
                         />
                         :
                         null}
                     {userSections.activeSection === 3 ?
                         <UserRecentlyViewed
-                            tempUserData={tempUserData}
-                            setTempUserData={setTempUserData}
+                            user={user}
+                            setUser={setUser}
                         />
                         :
                         null}

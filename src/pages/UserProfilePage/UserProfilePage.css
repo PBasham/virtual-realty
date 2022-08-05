@@ -43,10 +43,8 @@
     flex-direction: row;
     justify-content: flex-start;
     margin: 10px 0 20px 0;
-    border: none;
-}
-.userprofile-content fieldset {
     font-size: 1em;
+    border: none;
 }
 .userprofile-content fieldset input,
 .userprofile-content fieldset select {
@@ -70,10 +68,31 @@
 .userprofile-content select {
     width: 100px;
 }
+/*----------------------------------------
+        Manage Personal
+-----------------------------------------*/
 .userprofile-manage-personal {}
+/*----------------------------------------
+        Manage Account
+-----------------------------------------*/
 .userprofile-manage-account {}
+.userprofile-content .account-info-login {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.userprofile-content .account-info-login label {
+}
+.account-delete-div {
+    min-height: 100px;
+}
+/*----------------------------------------
+        Manage Watchlist
+-----------------------------------------*/
 .userprofile-watchlist {}
-
+/*----------------------------------------
+        Manage Recent Viewed
+-----------------------------------------*/
 .userprofile-recent-wrapper {
 }
 .userprofile-recent-list {

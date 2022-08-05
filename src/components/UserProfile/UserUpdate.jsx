@@ -1,22 +1,39 @@
-export default function UserUpdate({ user, setUser }) {
-  return (
-    <div>
-        <h2>Manage your account information below</h2>
+export default function UserUpdate({ tempUserData, setTempUserData, allowEdit }) {
+
+    /*========================================
+            Functions
+    ========================================*/
+    const handleChange = (e) => {
+        setTempUserData({
+            ...tempUserData, [e.target.name]: e.target.value
+        })
+    }
+    // end functions
+
+    return (
+        <div>
+            <h2>Manage your account information below</h2>
             <form>
                 <div className="account-info">
                     <h3>Login</h3>
-                    <fieldset>
-                        <label>Email:</label> <input type="text" value={user.email} />
+                    <fieldset className="account-info-login">
+                        <label>Email:
+                            <input
+                                disabled={!allowEdit}
+                                type="text"
+                                value={tempUserData.email}
+                                name="email"
+                                onChange={handleChange}
+                            />
+                        </label>
+
                     </fieldset>
-                    {/* <fieldset>
-                        <label>Date of Birth:</label> <input type="Date" />
-                    </fieldset> */}
-                </div>
-                <div className="account-delete">
-                    <h3>Account</h3>
-                    <button className="btn">Delete</button>
                 </div>
             </form>
-    </div>
-  )
+            <h3>Account</h3>
+            <div className="account-delete-div">
+                {allowEdit ? <button className="btn no-margin-left" >Delete</button> : null}
+            </div>
+        </div>
+    )
 }
