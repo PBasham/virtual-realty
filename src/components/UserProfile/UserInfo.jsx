@@ -34,42 +34,41 @@ export default function UserInfo({ tempUserData, setTempUserData, allowEdit, set
                         <label>Middle name:</label> <input
                             onChange={handleChange}
                             disabled={!allowEdit}
-                            value={tempUserData.name_middle}
                             name="name_middle"
                             type="text"
+                            value={tempUserData.name_middle}
                         />
                         <label>Last name:</label> <input
                             onChange={handleChange}
                             disabled={!allowEdit}
-                            value={tempUserData.name_last}
                             name="name_last"
                             type="text"
-                            // value={user.name_last}
+                            value={tempUserData.name_last}
                         />
                     </fieldset>
                     <fieldset>
                         <label>Date of Birth:</label> <input
                             onChange={handleChange}
                             disabled={!allowEdit}
-                            value={tempUserData.DOB}
                             name="DOB"
                             type="Date"
+                            value={tempUserData.DOB ? tempUserData.DOB : ""}
                         />
                         <label>SNN:</label> <input
                             onChange={handleChange}
                             disabled={!allowEdit}
-                            value={tempUserData.SSN}
                             name="SSN"
                             type="text"
+                            value={tempUserData.SSN}
                         />
                     </fieldset>
                     <fieldset>
                         <label>Phone number:</label> <input
                             onChange={handleChange}
                             disabled={!allowEdit}
-                            value={tempUserData.phone_number}
                             name="phone_number"
                             type="text"
+                            value={tempUserData.phone_number}
                         />
                     </fieldset>
                 </div>
@@ -79,24 +78,26 @@ export default function UserInfo({ tempUserData, setTempUserData, allowEdit, set
                         <label>Current Address:</label> <input
                             onChange={handleChange}
                             disabled={!allowEdit}
-                            value={tempUserData.address}
                             name="address"
                             type="text"
+                            value={tempUserData.address}
                         />
                         <label>City:</label> <input
                             onChange={handleChange}
                             disabled={!allowEdit}
-                            value={tempUserData.city}
                             name="city"
                             type="text"
+                            value={tempUserData.city}
                         />
                     </fieldset>
                     <fieldset>
                         <label>State:</label> <select
                             onChange={handleChange}
                             disabled={!allowEdit}
+                            name="state" 
+                            id=""
                             value={tempUserData.state}
-                            name="state" id="">
+                            >
                             <option name="state" value=""></option>
                         </select>
                         <label>Zip code:</label> <input
@@ -104,6 +105,7 @@ export default function UserInfo({ tempUserData, setTempUserData, allowEdit, set
                             disabled={!allowEdit}
                             name="zipCode"
                             type="text"
+                            value={tempUserData.zipCode}
                         />
                     </fieldset>
                 </div>

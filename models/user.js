@@ -15,7 +15,10 @@ const userSchema = new Schema (
             type: String,
             required: true,
         },
-        name_middle: String,
+        name_middle: {
+            type: String,
+            default: "",
+        },
         name_last: {
             type: String,
             required: true,
@@ -36,31 +39,31 @@ const userSchema = new Schema (
         recently_viewed: [],
         DOB: {
             type: Date,
-            default: null,
+            default: "",
         },
-        const [first, setfirst] = useState(second): {
+        SSN: {
             type: String,
-            default: null,
+            default: "",
         },
         phone_number: {
             type: String,
-            default: null,
+            default: "",
         },
         address: {
             type: String,
-            default: null,
+            default: "",
         },
         city: {
             type: String,
-            default: null,
+            default: "",
         },
         state: {
             type: String,
-            default: null,
+            default: "",
         },
         zipCode: {
             type: String,
-            default: null,
+            default: "",
         },
     },
     {
