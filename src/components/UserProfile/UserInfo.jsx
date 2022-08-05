@@ -1,4 +1,4 @@
-export default function UserInfo({ tempUserData, setTempUserData, allowEdit, setAllowEdit }) {
+export default function UserInfo({ tempUserData, setTempUserData, allowEdit }) {
 
     /*========================================
             Functions
