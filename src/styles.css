@@ -59,3 +59,7 @@ input {
 .no-margin-left {
     margin-left: 0;
 }
+.no-margin-top-bot {
+    margin-top: 0;
+    margin-bottom: 0;
+}

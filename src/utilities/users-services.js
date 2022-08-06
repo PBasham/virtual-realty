@@ -51,6 +51,7 @@ export function getUser() {
     return token ? JSON.parse(window.atob(token.split(".")[1])).user : null
 }
 
+
 export function logOut() {
     localStorage.removeItem("token")
 }

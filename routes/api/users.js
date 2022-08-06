@@ -14,6 +14,10 @@ router.post("/", usersCtrl.create)
 // User POST route for login
 router.post("/login", usersCtrl.login)
 // update user
+router.post("/verify/email", usersCtrl.verifyEmail)
+// update user
+router.post("/verify/password", usersCtrl.verifyPassword)
+// update user
 router.put("/update", usersCtrl.updateUser)
 // GET user recently viewed
 router.get("/recentlyviewed/", usersCtrl.getUserRecentViewed)

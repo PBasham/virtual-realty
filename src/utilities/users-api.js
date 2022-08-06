@@ -30,6 +30,14 @@ export function updateUserData(updatedUserData){
     return sendRequest(`${BASE_URL}/update`, "PUT", updatedUserData)
 }
 
+export function verifyEmail(currentEmail) {
+    return sendRequest(`${BASE_URL}/verify/email`, "POST", currentEmail)
+}
+
+export function verifyPassword(currentPassword) {
+    return sendRequest(`${BASE_URL}/verify/password`, "POST", currentPassword)
+}
+
 
 // export function remove(credentials) {
 //     return sendRequest(`${BASE_URL}/delete`, "DELETE", credentials)

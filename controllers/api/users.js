@@ -15,6 +15,8 @@ module.exports = {
     addToRecentlyViewed,
     getUserRecentViewed,
     updateUser,
+    verifyEmail,
+    verifyPassword,
     // remove
 }
 
@@ -98,12 +100,29 @@ async function addToRecentlyViewed(req, res) {
     }
 }
 
+/*========================================
+Update user info
+========================================*/
 async function updateUser(req, res) {
     console.log("--- I've made it to updateUser")
     const updatedUser = await User.findByIdAndUpdate(req.user._id, req.body, {new: true})
     res.json(createJWT(updatedUser))
 }
+// verify that the data match to allow updating of it.
+async function verifyEmail(req,res) {
+    console.log("--- I've made it to verifyEmail")
+    const user = await User.findById(req.user._id)
+    const match = await user.email === req.body.currentEmail
+    res.json(match)
+}
+// verify that the data match to allow updating of it.
+async function verifyPassword(req,res) {
+    console.log("--- I've made it to verifyPassword")
+    const user = await User.findById(req.user._id)
+    const match = await bcrypt.compare(req.body.currentPassword, user.password)
+    res.json(match)
 
+}
 
 // delete user function
 // async function remove(req, res) {
