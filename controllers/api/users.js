@@ -22,13 +22,14 @@ module.exports = {
         User Functions
 ========================================*/
 function checkToken(req, res) {
-    console.log("req.user:", req.user)
     res.json(req.exp)
 }
 
 async function login(req, res) {
+    console.log("---I've reached login")
     try {
         const user = await User.findOne({ email: req.body.email })
+        console.log("user: ", user)
         if (!user) throw new Error()
         const match = await bcrypt.compare(req.body.password, user.password)
         console.log("match :", match)
@@ -43,9 +44,7 @@ async function login(req, res) {
 async function create(req, res) {
     try {
         const user = await User.create(req.body)
-        console.log("user: ", user)
         const token = createJWT(user)
-        console.log("token: ", token)
         res.json(token)
     } catch (err) {
         res.status(400).json(err)
@@ -101,10 +100,8 @@ async function addToRecentlyViewed(req, res) {
 
 async function updateUser(req, res) {
     console.log("--- I've made it to updateUser")
-    console.log("Updated User Data: ", req.body)
     const updatedUser = await User.findByIdAndUpdate(req.user._id, req.body, {new: true})
-    console.log("updatedUser: ", updatedUser)
-    res.json(updatedUser)
+    res.json(createJWT(updatedUser))
 }
 
 
@@ -124,6 +121,7 @@ async function updateUser(req, res) {
 ========================================*/
 // JWT creation
 function createJWT(user) {
+    console.log("---I've reached createJWT")
     return jwt.sign(
         { user },
         process.env.SECRET,

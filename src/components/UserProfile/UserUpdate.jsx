@@ -4,6 +4,12 @@
 import { useState } from "react"
 
 export default function UserUpdate({ tempUserData, setTempUserData, allowEdit }) {
+
+    const [verifyPassword, setVerifyPassword] = useState({
+        password: "",
+        passwordMatch: false,
+    })
+    
     /*========================================
             Functions
     ========================================*/
@@ -22,20 +28,35 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit })
     return (
         <div>
             <h2>Manage your account information below</h2>
-                <div className="account-info">
-                    <h3>Login</h3>
-                    <fieldset className="account-info-login">
-                        <label>Email:
-                            <input
-                                disabled={!allowEdit}
-                                type="text"
-                                value={tempUserData.email}
-                                name="email"
-                                onChange={handleChange}
-                            />
-                        </label>
-                        <h5>Change Password</h5>
-                        <label>Current Password:
+            <div className="account-info">
+                <h3>Login</h3>
+                <fieldset className="account-info-login">
+                    <label>Email:
+                        <input
+                            disabled={!allowEdit}
+                            type="text"
+                            value={tempUserData.email}
+                            name="email"
+                            onChange={handleChange}
+                        />
+                    </label>
+                    <h5>Change Password</h5>
+                    {!allowEdit ?
+                        <h6>Click "Update Account" to change password.</h6>
+                        :
+                        <>
+                            <label>Current Password:
+                            </label>
+                                <input
+                                    disabled={!allowEdit}
+                                    type="text"
+                                    // value={changePassword}
+                                    name="password"
+                                    onChange={handlePasswordChange}
+                                />
+                                <button className="btn">Verify</button>
+                            <label>New Password:
+                            </label>
                             <input
                                 disabled={!allowEdit}
                                 type="text"
@@ -43,10 +64,20 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit })
                                 name="password"
                                 onChange={handlePasswordChange}
                             />
-                        </label>
-                    </fieldset>
+                            <label>Confirm Password:
+                            </label>
+                            <input
+                                disabled={!allowEdit}
+                                type="text"
+                                // value={changePassword}
+                                name="password"
+                                onChange={handlePasswordChange}
+                            />
+                        </>
+                    }
+                </fieldset>
 
-                </div>
+            </div>
             <div className="account-delete-div">
                 {allowEdit ?
                     <>

@@ -3,6 +3,7 @@
 ========================================*/
 import { useState, useEffect } from "react"
 import * as userAPI from "../../utilities/users-api.js"
+import * as userServices from "../../utilities/users-services.js"
 /*========================================
         Import Components
 ========================================*/
@@ -60,7 +61,8 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
     }
 
     const handleSubmit = async () => {
-        const updateUser = await userAPI.updateUserData(tempUserData)
+        console.log("tempUserData: ", tempUserData)
+        const updateUser = userServices.updateUser(tempUserData)
         console.log("updateUser: ", updateUser)
         setUser(updateUser)
         setTempUserData(updateUser)
@@ -113,15 +115,17 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                         :
                         null}
                     {userSections.activeSection === 0 || userSections.activeSection === 1 ?
-                        <button
-                            className={`btn ${allowEdit ? "btn-cancel" : null} no-margin-left`}
-                            onClick={handleEditClick}>
-                            {allowEdit ? "Cancel update" : userSections.activeSection === 1 ? "Update Account" : "Edit Profile"}
-                        </button>
+                        <>
+                            <button
+                                className={`btn ${allowEdit ? "btn-cancel" : null} no-margin-left`}
+                                onClick={handleEditClick}>
+                                {allowEdit ? "Cancel update" : userSections.activeSection === 1 ? "Update Account" : "Edit Profile"}
+                            </button>
+                            {allowEdit && userSections.activeSection === 0 ? <button className="btn no-margin-left" onClick={handleSubmit} >Save changes</button> : null}
+                        </>
                         :
                         null
                     }
-                    {allowEdit ? <button className="btn no-margin-left" onClick={handleSubmit} >Save changes</button> : null}
                 </div>
             </div>
         </div>
