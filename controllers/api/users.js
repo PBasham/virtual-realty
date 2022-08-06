@@ -17,6 +17,8 @@ module.exports = {
     updateUser,
     verifyEmail,
     verifyPassword,
+    updatedEmail,
+    updatedPassword,
     // remove
 }
 
@@ -115,6 +117,12 @@ async function verifyEmail(req,res) {
     const match = await user.email === req.body.currentEmail
     res.json(match)
 }
+async function updatedEmail(req, res) {
+    console.log("--- I've made it to updatedEmail")
+    const user = await User.findByIdAndUpdate(req.user._id, {email: req.body.email}, {new: true} )
+    console.log("updatedUser: ", user)
+    res.json(createJWT(user))
+}
 // verify that the data match to allow updating of it.
 async function verifyPassword(req,res) {
     console.log("--- I've made it to verifyPassword")
@@ -122,6 +130,14 @@ async function verifyPassword(req,res) {
     const match = await bcrypt.compare(req.body.currentPassword, user.password)
     res.json(match)
 
+}
+async function updatedPassword(req, res) {
+    console.log("--- I've made it to updatedPassword")
+    const user = await User.findById(req.user._id)
+    user.password = req.body.password
+    await user.save()
+    console.log("updatedUser: ", user)
+    res.json(createJWT(user))
 }
 
 // delete user function

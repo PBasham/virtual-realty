@@ -18,9 +18,21 @@ export async function login(credentials) {
     return getUser();
 }
 
+/*========================================
+        Update User profile / account
+========================================*/
 export async function updateUser(updatedData) {
     const token = await usersAPI.updateUserData(updatedData)
     localStorage.setItem('token', token)
+    return getUser()
+}
+export async function updateUserEmail(updatedEmail) {
+    const token = await usersAPI.updateUserEmail(updatedEmail)
+    localStorage.setItem('token', token)
+    return getUser()
+}
+export async function updateUserPassword(updatedPassword) {
+    const token = await usersAPI.updateUserPassword(updatedPassword)
     return getUser()
 }
 

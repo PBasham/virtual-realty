@@ -4,40 +4,38 @@
 import { useState } from "react"
 import * as userAPI from "../../utilities/users-api.js"
 
-export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, verifyEmail, setVerifyEmail, verifyPassword, setVerifyPassword, }) {
+export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, verifyEmail, setVerifyEmail, verifyPassword, setVerifyPassword, handleEmailUpdate, handlePasswordUpdate}) {
 
     /*========================================
             Functions
     ========================================*/
     const handleEmailChange = (e) => {
+        console.log(e.target.name, e.target.value)
         setVerifyEmail({
             ...verifyEmail, [e.target.name]: e.target.value
         })
     }
     const handleEmailVerify = async (e) => {
         e.preventDefault()
+        console.log("verifyEmail: ", verifyEmail)
         const emailMatch = await userAPI.verifyEmail(verifyEmail)
         setVerifyEmail({ ...verifyEmail, emailMatch: emailMatch })
     }
-    const handleEmailUpdate = async (e) => {
-        e.preventDefault()
-        console.log("I will be submited!")
-    }
     const disableEmailBtn = (verifyEmail.email !== verifyEmail.confirmEmail || verifyEmail.email.trim() === "") || verifyEmail.email === verifyEmail.currentEmail
-
+    
     const handlePasswordChange = (e) => {
+        console.log("verifyPassword: ", verifyPassword)
         setVerifyPassword({
             ...verifyPassword, [e.target.name]: e.target.value
         })
     }
     const handlePasswordVerify = async (e) => {
         e.preventDefault()
+        console.log("verifyPassword: ", verifyPassword)
         const passwordMatch = await userAPI.verifyPassword(verifyPassword)
         setVerifyPassword({ ...verifyPassword, passwordMatch: passwordMatch })
     }
-    const handlePasswordUpdate = async () => {
-    }
-    const disablePasswordBtn = (verifyPassword.password !== verifyPassword.confirmPassword || verifyPassword.password.trim() === "") || verifyPassword.password === verifyPassword.currentPassword
+    const disablePasswordBtn = (verifyPassword.password !== verifyPassword.confirmPassword || verifyPassword.password.trim() === "" || verifyPassword.password === verifyPassword.currentPassword) || verifyPassword.password.trim().length < 3
     // end functions
 
     return (
@@ -98,31 +96,32 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
                         <h6>Click "Update Account" to change password.</h6>
                         :
                         <>
-                            <label>Current Password:
-                                <input
-                                    disabled={!allowEdit || verifyPassword.passwordMatch}
-                                    type="text"
-                                    // value={changePassword}
-                                    name="currentPassword"
-                                    onChange={handlePasswordChange}
-                                />
-                                {!verifyPassword.passwordMatch ?
-                                    <button
-                                        className="btn no-margin-top-bot"
-                                        onClick={handlePasswordVerify}
-                                    >Verify</button>
-                                    :
-                                    null
-                                }
-                            </label>
+                            <form onSubmit={handlePasswordVerify}>
+                                <label>Current Password:
+                                    <input
+                                        disabled={!allowEdit || verifyPassword.passwordMatch}
+                                        type="password"
+                                        value={verifyPassword.currentPassword}
+                                        name="currentPassword"
+                                        onChange={handlePasswordChange}
+                                    />
+                                    {!verifyPassword.passwordMatch ?
+                                        <button
+                                            className="btn no-margin-top-bot"
+                                        >Verify</button>
+                                        :
+                                        null
+                                    }
+                                </label>
+                            </form>
                             {verifyPassword.passwordMatch ?
-                                <>
+                                <form onSubmit={handlePasswordUpdate}>
                                     <label>New Password:
                                     </label>
                                     <input
                                         disabled={!allowEdit}
                                         type="text"
-                                        // value={changePassword}
+                                        value={verifyPassword.password}
                                         name="password"
                                         onChange={handlePasswordChange}
                                     />
@@ -131,7 +130,7 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
                                     <input
                                         disabled={!allowEdit}
                                         type="text"
-                                        // value={changePassword}
+                                        value={verifyPassword.confirmPassword}
                                         name="confirmPassword"
                                         onChange={handlePasswordChange}
                                     />
@@ -141,7 +140,7 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
                                         disabled={disablePasswordBtn}
                                     >Update</button>
 
-                                </>
+                                </form>
                                 :
                                 null
                             }

@@ -25,17 +25,26 @@ export function getUserRecentViewed(){
 export function addToRecentlyViewed(listingId){
     return sendRequest(`${BASE_URL}/recentlyviewed/${listingId}`, "PUT")
 }
+/*========================================
+        User Update / Verification
+========================================*/
+export function verifyEmail(currentEmail) {
+    return sendRequest(`${BASE_URL}/verify/email`, "POST", currentEmail)
+}
 // update user data
 export function updateUserData(updatedUserData){
     return sendRequest(`${BASE_URL}/update`, "PUT", updatedUserData)
 }
-
-export function verifyEmail(currentEmail) {
-    return sendRequest(`${BASE_URL}/verify/email`, "POST", currentEmail)
+export function updateUserEmail(updatedEmail) {
+    return sendRequest(`${BASE_URL}/update/email`, "PUT", updatedEmail)
 }
+
 
 export function verifyPassword(currentPassword) {
     return sendRequest(`${BASE_URL}/verify/password`, "POST", currentPassword)
+}
+export function updateUserPassword(updatedPassword) {
+    return sendRequest(`${BASE_URL}/update/password`, "PUT", updatedPassword)
 }
 
 

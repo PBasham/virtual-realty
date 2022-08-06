@@ -57,13 +57,16 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
         setUserSections({ ...userSections, activeSection: index })
     }
 
-    const resetVerifies = () => {
+
+    const resetVerifyEmail = (newEmail) => {
         setVerifyEmail({
-            currentEmail: tempUserData.email,
+            currentEmail: newEmail,
             email: "",
             confirmEmail: "",
             emailMatch: false,
         })
+    } 
+    const resetVerifyPassword = () => {
         setVerifyPassword({
             currentPassword: "",
             password: "",
@@ -76,7 +79,8 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
         if (allowEdit) {
             setAllowEdit(!allowEdit)
             setTempUserData(user)
-            resetVerifies()
+            resetVerifyEmail()
+            resetVerifyPassword()
         } else {
             setAllowEdit(!allowEdit)
         }
@@ -89,6 +93,20 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
         setUser(updateUser)
         setTempUserData(updateUser)
         setAllowEdit(false)
+    }
+
+    const handleEmailUpdate = async (e) => {
+        e.preventDefault()
+        const updatedEmail = await userServices.updateUserEmail(verifyEmail)
+        console.log("updatedEmail: ",updatedEmail)
+        setUser(updatedEmail)
+        setTempUserData(updatedEmail)
+        resetVerifyEmail(updatedEmail.email)
+    }
+    const handlePasswordUpdate = async (e) => {
+        e.preventDefault()
+        const updatedPassword = await userServices.updateUserPassword(verifyPassword)
+        resetVerifyPassword()
     }
 
 
@@ -124,6 +142,8 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                             setVerifyEmail={setVerifyEmail}
                             verifyPassword={verifyPassword}
                             setVerifyPassword={setVerifyPassword}
+                            handleEmailUpdate={handleEmailUpdate}
+                            handlePasswordUpdate={handlePasswordUpdate}
                         />
                         :
                         null}
