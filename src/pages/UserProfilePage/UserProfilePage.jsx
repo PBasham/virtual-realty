@@ -27,10 +27,17 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
 
     const [tempUserData, setTempUserData] = useState(user)
 
-    const [changePassword, setChangePassword] = useState({
-        oldPassword: "",
-        newPassword: "",
-        confirmNewPassword: "",
+    const [verifyEmail, setVerifyEmail] = useState({
+        currentEmail: tempUserData.email,
+        email: "",
+        confirmEmail: "",
+        emailMatch: false,
+    })
+    const [verifyPassword, setVerifyPassword] = useState({
+        currentPassword: "",
+        password: "",
+        confirmPassword: "",
+        passwordMatch: false,
     })
 
     const [userSections, setUserSections] = useState({
@@ -50,11 +57,26 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
         setUserSections({ ...userSections, activeSection: index })
     }
 
+    const resetVerifies = () => {
+        setVerifyEmail({
+            currentEmail: tempUserData.email,
+            email: "",
+            confirmEmail: "",
+            emailMatch: false,
+        })
+        setVerifyPassword({
+            currentPassword: "",
+            password: "",
+            confirmPassword: "",
+            passwordMatch: false,
+        })
+    }
 
     const handleEditClick = () => {
         if (allowEdit) {
             setAllowEdit(!allowEdit)
             setTempUserData(user)
+            resetVerifies()
         } else {
             setAllowEdit(!allowEdit)
         }
@@ -97,7 +119,12 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                             setTempUserData={setTempUserData}
                             allowEdit={allowEdit}
                             setAllowEdit={setAllowEdit}
-                            handleSubmit={handleSubmit} />
+                            handleSubmit={handleSubmit}
+                            verifyEmail={verifyEmail}
+                            setVerifyEmail={setVerifyEmail}
+                            verifyPassword={verifyPassword}
+                            setVerifyPassword={setVerifyPassword}
+                        />
                         :
                         null}
                     {userSections.activeSection === 2 ?

@@ -4,19 +4,7 @@
 import { useState } from "react"
 import * as userAPI from "../../utilities/users-api.js"
 
-export default function UserUpdate({ tempUserData, setTempUserData, allowEdit }) {
-    const [verifyEmail, setVerifyEmail] = useState({
-        currentEmail: tempUserData.email,
-        email: "",
-        confirmEmail: "",
-        emailMatch: false,
-    })
-    const [verifyPassword, setVerifyPassword] = useState({
-        currentPassword: "",
-        password: "",
-        confirmPassword: "",
-        passwordMatch: false,
-    })
+export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, verifyEmail, setVerifyEmail, verifyPassword, setVerifyPassword, }) {
 
     /*========================================
             Functions
@@ -26,21 +14,30 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit })
             ...verifyEmail, [e.target.name]: e.target.value
         })
     }
-    const handleEmailVerify = async () => {
+    const handleEmailVerify = async (e) => {
+        e.preventDefault()
         const emailMatch = await userAPI.verifyEmail(verifyEmail)
-        setVerifyEmail({...verifyEmail, match: emailMatch})
-        console.log("emailMatch: ", emailMatch)
+        setVerifyEmail({ ...verifyEmail, emailMatch: emailMatch })
     }
+    const handleEmailUpdate = async (e) => {
+        e.preventDefault()
+        console.log("I will be submited!")
+    }
+    const disableEmailBtn = (verifyEmail.email !== verifyEmail.confirmEmail || verifyEmail.email.trim() === "") || verifyEmail.email === verifyEmail.currentEmail
+
     const handlePasswordChange = (e) => {
         setVerifyPassword({
             ...verifyPassword, [e.target.name]: e.target.value
         })
     }
-    const handlePasswordVerify = async () => {
+    const handlePasswordVerify = async (e) => {
+        e.preventDefault()
         const passwordMatch = await userAPI.verifyPassword(verifyPassword)
-        setVerifyPassword({...verifyPassword, match: passwordMatch})
-        console.log("emailMatch: ", passwordMatch)
+        setVerifyPassword({ ...verifyPassword, passwordMatch: passwordMatch })
     }
+    const handlePasswordUpdate = async () => {
+    }
+    const disablePasswordBtn = (verifyPassword.password !== verifyPassword.confirmPassword || verifyPassword.password.trim() === "") || verifyPassword.password === verifyPassword.currentPassword
     // end functions
 
     return (
@@ -49,44 +46,49 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit })
             <div className="account-info">
                 <h3>Login</h3>
                 <fieldset className="account-info-login">
-                    <label>Email:
-                        <input
-                            disabled={!allowEdit}
-                            type="text"
-                            value={verifyEmail.currentEmail}
-                            name="currentEmail"
-                            onChange={handleEmailChange}
-                        />
-                        {allowEdit ?
-                            <button 
-                            className="btn no-margin-top-bot"
-                            onClick={handleEmailVerify}
-                            >Verify</button>
-                            :
-                            null
-                        }
-                    </label>
+                    <form onSubmit={handleEmailVerify}>
+                        <label>Email:
+                            <input
+                                disabled={!allowEdit || verifyEmail.emailMatch}
+                                type="text"
+                                value={verifyEmail.currentEmail}
+                                name="currentEmail"
+                                onChange={handleEmailChange}
+                            />
+                            {allowEdit && !verifyEmail.emailMatch ?
+                                <button
+                                    className="btn no-margin-top-bot"
+                                >Verify</button>
+                                :
+                                null
+                            }
+                        </label>
+                    </form>
                     {verifyEmail.emailMatch ?
-                        <>
+                        <form onSubmit={handleEmailUpdate}>
                             <label>New Email:
-                                <input
-                                    disabled={!allowEdit}
-                                    type="text"
-                                    value={verifyEmail.email}
-                                    name="email"
-                                    onChange={handleEmailChange}
-                                />
                             </label>
+                            <input
+                                disabled={!allowEdit}
+                                type="email"
+                                value={verifyEmail.email}
+                                name="email"
+                                onChange={handleEmailChange}
+                            />
                             <label>Confirm Email:
-                                <input
-                                    disabled={!allowEdit}
-                                    type="text"
-                                    value={verifyEmail.confirmEmail}
-                                    name="confirmEmail"
-                                    onChange={handleEmailChange}
-                                />
                             </label>
-                        </>
+                            <input
+                                disabled={!allowEdit}
+                                type="email"
+                                value={verifyEmail.confirmEmail}
+                                name="confirmEmail"
+                                onChange={handleEmailChange}
+                            />
+                            <button
+                                className="btn no-margin-left"
+                                disabled={disableEmailBtn}
+                            >Update</button>
+                        </form>
                         :
                         null
 
@@ -98,35 +100,51 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit })
                         <>
                             <label>Current Password:
                                 <input
-                                    disabled={!allowEdit}
+                                    disabled={!allowEdit || verifyPassword.passwordMatch}
                                     type="text"
                                     // value={changePassword}
                                     name="currentPassword"
                                     onChange={handlePasswordChange}
                                 />
-                                <button 
-                                className="btn no-margin-top-bot"
-                                onClick={handlePasswordVerify}
-                                >Verify</button>
+                                {!verifyPassword.passwordMatch ?
+                                    <button
+                                        className="btn no-margin-top-bot"
+                                        onClick={handlePasswordVerify}
+                                    >Verify</button>
+                                    :
+                                    null
+                                }
                             </label>
-                            {/* <label>New Password:
-                            </label>
-                            <input
-                                disabled={!allowEdit}
-                                type="text"
-                                // value={changePassword}
-                                name="password"
-                                onChange={handlePasswordChange}
-                            />
-                            <label>Confirm Password:
-                            </label>
-                            <input
-                                disabled={!allowEdit}
-                                type="text"
-                                // value={changePassword}
-                                name="password"
-                                onChange={handlePasswordChange}
-                            /> */}
+                            {verifyPassword.passwordMatch ?
+                                <>
+                                    <label>New Password:
+                                    </label>
+                                    <input
+                                        disabled={!allowEdit}
+                                        type="text"
+                                        // value={changePassword}
+                                        name="password"
+                                        onChange={handlePasswordChange}
+                                    />
+                                    <label>Confirm Password:
+                                    </label>
+                                    <input
+                                        disabled={!allowEdit}
+                                        type="text"
+                                        // value={changePassword}
+                                        name="confirmPassword"
+                                        onChange={handlePasswordChange}
+                                    />
+                                    <p className="text-italic text-small">password must be at least 3 characters long</p>
+                                    <button
+                                        className="btn no-margin-left"
+                                        disabled={disablePasswordBtn}
+                                    >Update</button>
+
+                                </>
+                                :
+                                null
+                            }
                         </>
                     }
                 </fieldset>
