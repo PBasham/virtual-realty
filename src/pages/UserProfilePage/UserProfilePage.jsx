@@ -70,7 +70,6 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
 
     return (
         <div className="userprofile-wrapper">
-            {console.log(user)}
             <h2>Welcome, {user.name_first}</h2>
             <div className="userprofile-content-wrapper">
                 <div className="userprofile-options-wrapper">

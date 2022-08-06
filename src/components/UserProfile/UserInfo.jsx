@@ -4,6 +4,7 @@ export default function UserInfo({ tempUserData, setTempUserData, allowEdit }) {
             Functions
     ========================================*/
     const handleChange = (e) => {
+        console.log(e.target.value)
         setTempUserData({
             ...tempUserData, [e.target.name]: e.target.value
         })
@@ -40,12 +41,13 @@ export default function UserInfo({ tempUserData, setTempUserData, allowEdit }) {
                         />
                     </fieldset>
                     <fieldset>
-                        <label>Date of Birth:</label> <input
+                        <label>Date of Birth:</label> 
+                        <input
                             onChange={handleChange}
                             disabled={!allowEdit}
                             name="DOB"
                             type="Date"
-                            value={tempUserData.DOB ? tempUserData.DOB : "yyyy-MM-dd"}
+                            value={tempUserData.DOB}
                         />
                         <label>SNN:</label> <input
                             onChange={handleChange}

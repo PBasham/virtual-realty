@@ -38,8 +38,8 @@ const userSchema = new Schema (
         },
         recently_viewed: [],
         DOB: {
-            type: Date,
-            default: "",
+            type: String,
+            default: undefined,
         },
         SSN: {
             type: String,
