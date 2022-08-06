@@ -26,6 +26,12 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
 
     const [tempUserData, setTempUserData] = useState(user)
 
+    const [changePassword, setChangePassword] = useState({
+        oldPassword: "",
+        newPassword: "",
+        confirmNewPassword: "",
+    })
+
     const [userSections, setUserSections] = useState({
         activeSection: 0,
     })
@@ -39,6 +45,7 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
     ])
 
     const handleSectionChange = (index) => {
+        if (allowEdit) handleEditClick()
         setUserSections({ ...userSections, activeSection: index })
     }
 
@@ -53,10 +60,11 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
     }
 
     const handleSubmit = (UpdatedCredentials) => {
-        
+
         console.log("user: ", user)
         console.log("I'm being submitted!")
     }
+
 
     return (
         <div className="userprofile-wrapper">
@@ -75,8 +83,8 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                             tempUserData={tempUserData}
                             setTempUserData={setTempUserData}
                             allowEdit={allowEdit}
-                            setAllowEdit={setAllowEdit} 
-                            handleSubmit={handleSubmit}/>
+                            setAllowEdit={setAllowEdit}
+                            handleSubmit={handleSubmit} />
                         :
                         null}
                     {userSections.activeSection === 1 ?
@@ -84,8 +92,8 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                             tempUserData={tempUserData}
                             setTempUserData={setTempUserData}
                             allowEdit={allowEdit}
-                            setAllowEdit={setAllowEdit} 
-                            handleSubmit={handleSubmit}/>
+                            setAllowEdit={setAllowEdit}
+                            handleSubmit={handleSubmit} />
                         :
                         null}
                     {userSections.activeSection === 2 ?
@@ -102,12 +110,16 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                         />
                         :
                         null}
+                    {userSections.activeSection === 0 || userSections.activeSection === 1 ?
                         <button
-                className={`btn ${allowEdit ? "btn-cancel" : null} no-margin-left`}
-                onClick={handleEditClick}>
-                {allowEdit ? "Cancel update" : "Edit Profile"}
-            </button>
-            {allowEdit? <button className="btn no-margin-left" onClick={handleSubmit} >Save changes</button> : null}
+                            className={`btn ${allowEdit ? "btn-cancel" : null} no-margin-left`}
+                            onClick={handleEditClick}>
+                            {allowEdit ? "Cancel update" : userSections.activeSection === 1 ? "Update Account" : "Edit Profile"}
+                        </button>
+                        :
+                        null
+                    }
+                    {allowEdit ? <button className="btn no-margin-left" onClick={handleSubmit} >Save changes</button> : null}
                 </div>
             </div>
         </div>
