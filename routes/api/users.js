@@ -13,8 +13,11 @@ const ensureLoggedIn = require("../../config/ensureLoggedIn")
 router.post("/", usersCtrl.create)
 // User POST route for login
 router.post("/login", usersCtrl.login)
-// User POST route for login
+// update user
+router.put("/update", usersCtrl.updateUser)
+// GET user recently viewed
 router.get("/recentlyviewed/", usersCtrl.getUserRecentViewed)
+// PUT and updated user recently viewed
 router.put("/recentlyviewed/:listingId", usersCtrl.addToRecentlyViewed)
 // User GET route for JWT token logic
 router.get("/check-token", ensureLoggedIn, usersCtrl.checkToken)

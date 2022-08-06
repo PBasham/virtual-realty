@@ -59,15 +59,18 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
         }
     }
 
-    const handleSubmit = (UpdatedCredentials) => {
-
-        console.log("user: ", user)
-        console.log("I'm being submitted!")
+    const handleSubmit = async () => {
+        const updateUser = await userAPI.updateUserData(tempUserData)
+        console.log("updateUser: ", updateUser)
+        setUser(updateUser)
+        setTempUserData(updateUser)
+        setAllowEdit(false)
     }
 
 
     return (
         <div className="userprofile-wrapper">
+            {console.log(user)}
             <h2>Welcome, {user.name_first}</h2>
             <div className="userprofile-content-wrapper">
                 <div className="userprofile-options-wrapper">

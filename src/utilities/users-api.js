@@ -25,6 +25,11 @@ export function getUserRecentViewed(){
 export function addToRecentlyViewed(listingId){
     return sendRequest(`${BASE_URL}/recentlyviewed/${listingId}`, "PUT")
 }
+// update user data
+export function updateUserData(updatedUserData){
+    return sendRequest(`${BASE_URL}/update`, "PUT", updatedUserData)
+}
+
 
 // export function remove(credentials) {
 //     return sendRequest(`${BASE_URL}/delete`, "DELETE", credentials)

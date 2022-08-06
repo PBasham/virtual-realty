@@ -12,7 +12,6 @@ export default function UserInfo({ tempUserData, setTempUserData, allowEdit }) {
 
     return (
         <div>
-            {console.log(tempUserData)}
             <h2>Manage your personal information below</h2>
             <form>
                 <div className="personal-info">

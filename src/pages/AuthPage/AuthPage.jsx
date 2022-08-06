@@ -21,7 +21,7 @@ export default function AuthPage({ setUser }) {
     }
     return (
         <div className="form-wrapper">
-            <h1>AuthPage</h1>
+            <h1>Welcome to <span className="text-blue">V</span>irtual<span className="text-blue">R</span>ealty</h1>
             {showLogin ?
                 <LoginForm
                     setUser={setUser}

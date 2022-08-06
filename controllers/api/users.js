@@ -14,6 +14,7 @@ module.exports = {
     create,
     addToRecentlyViewed,
     getUserRecentViewed,
+    updateUser,
     // remove
 }
 
@@ -44,7 +45,7 @@ async function create(req, res) {
         const user = await User.create(req.body)
         console.log("user: ", user)
         const token = createJWT(user)
-        console.log("token: ",token)
+        console.log("token: ", token)
         res.json(token)
     } catch (err) {
         res.status(400).json(err)
@@ -52,17 +53,17 @@ async function create(req, res) {
 }
 
 async function getUserRecentViewed(req, res) {
+    console.log("--- I've made it to getUserRecentViewed")
     const user = await User.findById(req.user._id)
     console.log(user)
-    
+
     const userRecentlyViewed = user.recently_viewed
     console.log(userRecentlyViewed)
     res.json(userRecentlyViewed)
 }
 
 async function addToRecentlyViewed(req, res) {
-    // console.log("User Id: ", req.user._id)
-    // console.log("Listing Id: ", req.params.listingId)
+    console.log("--- I've made it to addToRecentlyViewed")
     const recentlyViewed = await Listing.findById(req.params.listingId)
     const userTemp = await User.findById(req.user._id)
     let found = false
@@ -76,7 +77,7 @@ async function addToRecentlyViewed(req, res) {
     if (found) {
         res.json(userTemp)
     } else {
-        if(userTemp.recently_viewed.length >= 10) {
+        if (userTemp.recently_viewed.length >= 10) {
             userTemp.recently_viewed.shift()
             userTemp.recently_viewed.push({
                 listingId: recentlyViewed._id,
@@ -92,13 +93,22 @@ async function addToRecentlyViewed(req, res) {
         }
         const user = await User.findByIdAndUpdate(req.user._id,
             {
-                    recently_viewed: userTemp.recently_viewed
+                recently_viewed: userTemp.recently_viewed
             })
         res.json(user)
     }
 }
 
-// // delete user function
+async function updateUser(req, res) {
+    console.log("--- I've made it to updateUser")
+    console.log("Updated User Data: ", req.body)
+    const updatedUser = await User.findByIdAndUpdate(req.user._id, req.body, {new: true})
+    console.log("updatedUser: ", updatedUser)
+    res.json(updatedUser)
+}
+
+
+// delete user function
 // async function remove(req, res) {
 //     try {
 //         const user = await User.findOneAndDelete({ _id: req.body._id })
