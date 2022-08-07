@@ -21,7 +21,7 @@ export default function WatchList({ watchlist, updateList }) {
         <div className={`watchlist-list ${collapse ? "collapsed" : null}`}>
             <div className="watchlist-list-title">
                 <h2>{watchlist.WatchListName}</h2>
-                <button className="btn no-margin-top-bot" onClick={() => {setCollapse(!collapse)}}>
+                <button className="watchlist-btn" onClick={() => {setCollapse(!collapse)}}>
                     {collapse ? "See All" : "Collapse"}
                 </button>
             </div>

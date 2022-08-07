@@ -30,7 +30,14 @@
     padding: 10px 10px;
     font-size: 1em;
 }
-
+.watchlist-btn {
+    margin-left: .5em;
+    text-decoration: underline;
+    color: blue;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
 .close-btn {
     display: grid;
     place-items: center;
