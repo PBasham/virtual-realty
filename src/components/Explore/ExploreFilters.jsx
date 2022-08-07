@@ -47,12 +47,12 @@ export default function ExploreFilters({ filters,  getFilteredListings}) {
         <form onSubmit={handleSubmit} className="filter-section filters-wrapper">
             <h2>Filters</h2>
             <button className="filter-btn btn">Apply Filter</button>
-            <fieldset className="filter-price-range">
+            {/* <fieldset className="filter-price-range">
                 <h3>Range</h3>
                 <input name="low" className="price-range" type="number" />
                 -
                 <input name="high" className="price-range" type="number" />
-            </fieldset>
+            </fieldset> */}
             <fieldset className="filter-section filters-city">
                 <h3>City</h3>
                 {filters.cities.map((city, index) => (
@@ -61,22 +61,22 @@ export default function ExploreFilters({ filters,  getFilteredListings}) {
                     </label>
                 ))}
             </fieldset>
-            <fieldset className="filter-section filters-county">
+            {/* <fieldset className="filter-section filters-county">
                 <h3>County</h3>
                 {filters.counties.map((county, index) => (
                     <label key={index} htmlFor={`radioTwo-${county}`}>
                         <input onChange={handleChange} key={index} id={`radioTwo-${county}`} name="county" type="radio" value={county} />{county}
                     </label>
                 ))}
-            </fieldset>
-            <fieldset className="filter-section filters-tags">
+            </fieldset> */}
+            {/* <fieldset className="filter-section filters-tags">
                 <h3>Tags</h3>
                 {filters.tags.map((tag, index) => (
                     <label key={index} htmlFor={`checkbox-${tag}`}>
                         <input onChange={handleChange} key={index} id={`checkbox-${tag}`} name="tags" type="checkbox" value={tag} />{tag}
                     </label>
                 ))}
-            </fieldset>
+            </fieldset> */}
         </form>
     )
 }

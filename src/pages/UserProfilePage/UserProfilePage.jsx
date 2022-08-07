@@ -50,7 +50,7 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
     const [userpageOptions, setUserpageOptions] = useState([
         "User Information",
         "Update Settings",
-        // "Watchlist",
+        "Watchlist",
         "Recently Viewed",
     ])
 

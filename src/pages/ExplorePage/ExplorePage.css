@@ -35,14 +35,6 @@
 .filter-section h3 {
     align-self: center;
 }
-.filters-city {
-    
-}
-.filters-city input {
-}
-.filters-county {}
-.filters-tags {}
-
 /*----------------------------------------
         listings list
 -----------------------------------------*/
@@ -50,11 +42,11 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     width: 80%;
 }
 .listings-list a {
-    margin: 10px 0;
+    margin: 0 .5em .5em 0;
     height: 300px;
     aspect-ratio: 1.25;
     aspect-ratio: 1.25;
