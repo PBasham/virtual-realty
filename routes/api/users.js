@@ -33,6 +33,6 @@ router.put("/recentlyviewed/:listingId", usersCtrl.addToRecentlyViewed)
 // User GET route for JWT token logic
 router.get("/check-token", ensureLoggedIn, usersCtrl.checkToken)
 // User DELETE route for deling a user
-// router.delete("/delete", usersCtrl.remove)
+router.delete("/delete", usersCtrl.deleteUser)
 
 module.exports = router;

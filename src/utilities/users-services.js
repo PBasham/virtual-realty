@@ -36,10 +36,10 @@ export async function updateUserPassword(updatedPassword) {
     return getUser()
 }
 
-//   export async function remove(credentials) {
-//     const token = await usersAPI.remove(credentials);
-//     localStorage.removeItem(token)
-//   }
+  export async function deleteUser() {
+    const token = await usersAPI.deleteUser();
+    localStorage.removeItem(token)
+  }
 
 
 /*========================================

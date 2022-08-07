@@ -3,10 +3,11 @@
 ========================================*/
 import { useState } from "react"
 import * as userAPI from "../../utilities/users-api.js"
+import * as userServices from "../../utilities/users-services.js"
 import UserUpdateEmail from "./UserUpdateEmail.jsx"
 import UserUpdatePassword from "./UserUpdatePassword.jsx"
 
-export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, verifyEmail, setVerifyEmail, verifyPassword, setVerifyPassword, handleEmailUpdate, handlePasswordUpdate }) {
+export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, verifyEmail, setVerifyEmail, verifyPassword, setVerifyPassword, handleEmailUpdate, handlePasswordUpdate, deleteConfirm, setDeleteConfirm, setUser }) {
 
     /*========================================
             Functions
@@ -37,6 +38,21 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
         })
     }
     const disablePasswordBtn = (verifyPassword.password !== verifyPassword.confirmPassword || verifyPassword.password.trim() === "" || verifyPassword.password === verifyPassword.currentPassword) || verifyPassword.password.trim().length < 3
+
+
+
+    const handleDelete = async () => {
+        if(deleteConfirm){
+            // delete route
+            console.log("Delete Account")
+            const deleteAccount = await userServices.deleteUser()
+            setUser(null)
+
+        } else {
+            setDeleteConfirm(true)
+        }
+    }
+
     // end functions
 
     return (
@@ -66,12 +82,14 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
 
             </div>
             <div className="account-delete-div">
-                {allowEdit ?
-                    <>
-                        <h3>DELETE ACCOUNT</h3>
-                        <button className="btn no-margin-left" >Delete</button>
-                    </>
-                    : null}
+                <h3>DELETE ACCOUNT</h3>
+                <>
+                    <button
+                        className="btn no-margin-left"
+                        disabled={!allowEdit}
+                        onClick={handleDelete}
+                    >{deleteConfirm ? "Are you sure?" : 'Delete'}</button>
+                </>
             </div>
         </div>
     )

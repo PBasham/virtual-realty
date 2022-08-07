@@ -40,6 +40,8 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
         passwordMatch: false,
     })
 
+    const [deleteConfirm, setDeleteConfirm] = useState(false)
+    
     const [userSections, setUserSections] = useState({
         activeSection: 0,
     })
@@ -81,6 +83,7 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
             setTempUserData(user)
             resetVerifyEmail()
             resetVerifyPassword()
+            setDeleteConfirm(false)
         } else {
             setAllowEdit(!allowEdit)
         }
@@ -151,6 +154,7 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                             </button>
                             {allowEdit && userSections.activeSection === 0 ? <button className="btn no-margin-left" onClick={handleSubmit} >Save changes</button> : null}
                             <UserUpdate
+                                setUser={setUser}
                                 tempUserData={tempUserData}
                                 setTempUserData={setTempUserData}
                                 allowEdit={allowEdit}
@@ -162,6 +166,8 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                                 setVerifyPassword={setVerifyPassword}
                                 handleEmailUpdate={handleEmailUpdate}
                                 handlePasswordUpdate={handlePasswordUpdate}
+                                deleteConfirm={deleteConfirm}
+                                setDeleteConfirm={setDeleteConfirm}
                             />
                         </>
                         :

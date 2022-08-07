@@ -48,9 +48,9 @@ export function updateUserPassword(updatedPassword) {
 }
 
 
-// export function remove(credentials) {
-//     return sendRequest(`${BASE_URL}/delete`, "DELETE", credentials)
-// }
+export function deleteUser() {
+    return sendRequest(`${BASE_URL}/delete`, "DELETE")
+}
 
 export function checkToken() {
     return sendRequest(`${BASE_URL}/check-token`)
