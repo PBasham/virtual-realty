@@ -5,22 +5,18 @@ export default function UserUpdatePassword({ disablePasswordBtn, tempUserData, h
     return (
         <>
             <form onSubmit={handlePasswordVerify}>
-                <label>Current Password:
-                </label>
-                <input
-                    disabled={!allowEdit || verifyPassword.passwordMatch}
-                    type="password"
-                    value={verifyPassword.currentPassword}
-                    name="currentPassword"
-                    onChange={handlePasswordChange}
-                />
-                {/* {!verifyPassword.passwordMatch ?
-                    <button
-                        className="btn no-margin-top-bot"
-                    >Verify</button>
-                    :
-                    null
-                } */}
+                Current Password:
+                <div>
+
+                    <input
+                        disabled={!allowEdit}
+                        type="password"
+                        value={verifyPassword.currentPassword}
+                        name="currentPassword"
+                        onChange={handlePasswordChange}
+                    />
+                    <button className="btn no-margin-top-bot">Check</button>
+                </div>
             </form>
             <form onSubmit={handlePasswordUpdate}>
                 <label>New Password:

@@ -150,7 +150,6 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                                 {allowEdit ? "Cancel update" : userSections.activeSection === 1 ? "Update Account" : "Edit Profile"}
                             </button>
                             {allowEdit && userSections.activeSection === 0 ? <button className="btn no-margin-left" onClick={handleSubmit} >Save changes</button> : null}
-                            
                             <UserUpdate
                                 tempUserData={tempUserData}
                                 setTempUserData={setTempUserData}

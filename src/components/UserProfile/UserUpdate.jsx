@@ -25,17 +25,16 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
     }
     const disableEmailBtn = (verifyEmail.email !== verifyEmail.confirmEmail || verifyEmail.email.trim() === "") || verifyEmail.email === verifyEmail.currentEmail
 
-    const handlePasswordChange = (e) => {
-        console.log("verifyPassword: ", verifyPassword)
-        setVerifyPassword({
-            ...verifyPassword, [e.target.name]: e.target.value
-        })
-    }
     const handlePasswordVerify = async (e) => {
         e.preventDefault()
         console.log("verifyPassword: ", verifyPassword)
         const passwordMatch = await userAPI.verifyPassword(verifyPassword)
         setVerifyPassword({ ...verifyPassword, passwordMatch: passwordMatch })
+    }
+    const handlePasswordChange = (e) => {
+        setVerifyPassword({
+            ...verifyPassword, [e.target.name]: e.target.value
+        })
     }
     const disablePasswordBtn = (verifyPassword.password !== verifyPassword.confirmPassword || verifyPassword.password.trim() === "" || verifyPassword.password === verifyPassword.currentPassword) || verifyPassword.password.trim().length < 3
     // end functions

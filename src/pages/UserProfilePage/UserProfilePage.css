@@ -44,10 +44,6 @@
 /*----------------------------------------
         UserProfile Displayed Content General Styling
 -----------------------------------------*/
-.userprofile-content h2 {
-    margin-bottom: 20px;
-}
-
 .userprofile-content fieldset {
     display: flex;
     flex-direction: row;
