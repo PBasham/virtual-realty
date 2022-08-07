@@ -173,10 +173,13 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                         :
                         null}
                     {userSections.activeSection === 2 ?
+                        <>
+                        <h2>Organize and keep an eye out on your favorites</h2>
                         <UserWatchList
                             user={user}
                             setUser={setUser}
-                        />
+                            />
+                            </>
                         :
                         null}
                     {userSections.activeSection === 3 ?

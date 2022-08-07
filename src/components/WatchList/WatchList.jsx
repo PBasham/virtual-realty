@@ -1,7 +1,7 @@
 /*========================================
         Import Dependencies
 ========================================*/
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
 import * as watchlistAPI from "../../utilities/watchlist-api.js"
 /*========================================
         Import dependencies
@@ -14,13 +14,21 @@ export default function WatchList({ watchlist, updateList }) {
         await watchlistAPI.deleteList(watchlist._id)
         updateList()
     }
+
+    const [collapse, setCollapse] = useState(true)
+
     return (
-        <div className="watchlist-list">
-            <h2>{watchlist.WatchListName}</h2>
+        <div className={`watchlist-list ${collapse ? "collapsed" : null}`}>
+            <div className="watchlist-list-title">
+                <h2>{watchlist.WatchListName}</h2>
+                <button className="btn no-margin-top-bot" onClick={() => {setCollapse(!collapse)}}>
+                    {collapse ? "See All" : "Collapse"}
+                </button>
+            </div>
             <div className="watchlist-items-div">
                 {watchlist.listings.length ?
                     watchlist.listings.map((listing, index) => (
-                        <WatchListItem 
+                        <WatchListItem
                             key={index}
                             listing={listing}
                             updateList={updateList}
