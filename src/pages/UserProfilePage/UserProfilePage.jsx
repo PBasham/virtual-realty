@@ -65,7 +65,7 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
             confirmEmail: "",
             emailMatch: false,
         })
-    } 
+    }
     const resetVerifyPassword = () => {
         setVerifyPassword({
             currentPassword: "",
@@ -98,7 +98,7 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
     const handleEmailUpdate = async (e) => {
         e.preventDefault()
         const updatedEmail = await userServices.updateUserEmail(verifyEmail)
-        console.log("updatedEmail: ",updatedEmail)
+        console.log("updatedEmail: ", updatedEmail)
         setUser(updatedEmail)
         setTempUserData(updatedEmail)
         resetVerifyEmail(updatedEmail.email)
@@ -122,29 +122,49 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                     </ul>
                 </div>
                 <div className="userprofile-content">
+
                     {userSections.activeSection === 0 ?
-                        <UserInfo
-                            tempUserData={tempUserData}
-                            setTempUserData={setTempUserData}
-                            allowEdit={allowEdit}
-                            setAllowEdit={setAllowEdit}
-                            handleSubmit={handleSubmit} />
+                        <>
+                            <h2>Manage your personal information below</h2>
+                            <button
+                                className={`btn ${allowEdit ? "btn-cancel" : null} no-margin-left`}
+                                onClick={handleEditClick}>
+                                {allowEdit ? "Cancel update" : userSections.activeSection === 1 ? "Update Account" : "Edit Profile"}
+                            </button>
+                            {allowEdit && userSections.activeSection === 0 ? <button className="btn no-margin-left" onClick={handleSubmit} >Save changes</button> : null}
+                            <UserInfo
+                                tempUserData={tempUserData}
+                                setTempUserData={setTempUserData}
+                                allowEdit={allowEdit}
+                                setAllowEdit={setAllowEdit}
+                                handleSubmit={handleSubmit} />
+                        </>
                         :
                         null}
                     {userSections.activeSection === 1 ?
-                        <UserUpdate
-                            tempUserData={tempUserData}
-                            setTempUserData={setTempUserData}
-                            allowEdit={allowEdit}
-                            setAllowEdit={setAllowEdit}
-                            handleSubmit={handleSubmit}
-                            verifyEmail={verifyEmail}
-                            setVerifyEmail={setVerifyEmail}
-                            verifyPassword={verifyPassword}
-                            setVerifyPassword={setVerifyPassword}
-                            handleEmailUpdate={handleEmailUpdate}
-                            handlePasswordUpdate={handlePasswordUpdate}
-                        />
+                        <>
+                            <h2>Manage your account information below</h2>
+                            <button
+                                className={`btn ${allowEdit ? "btn-cancel" : null} no-margin-left`}
+                                onClick={handleEditClick}>
+                                {allowEdit ? "Cancel update" : userSections.activeSection === 1 ? "Update Account" : "Edit Profile"}
+                            </button>
+                            {allowEdit && userSections.activeSection === 0 ? <button className="btn no-margin-left" onClick={handleSubmit} >Save changes</button> : null}
+                            
+                            <UserUpdate
+                                tempUserData={tempUserData}
+                                setTempUserData={setTempUserData}
+                                allowEdit={allowEdit}
+                                setAllowEdit={setAllowEdit}
+                                handleSubmit={handleSubmit}
+                                verifyEmail={verifyEmail}
+                                setVerifyEmail={setVerifyEmail}
+                                verifyPassword={verifyPassword}
+                                setVerifyPassword={setVerifyPassword}
+                                handleEmailUpdate={handleEmailUpdate}
+                                handlePasswordUpdate={handlePasswordUpdate}
+                            />
+                        </>
                         :
                         null}
                     {userSections.activeSection === 2 ?
@@ -161,18 +181,6 @@ export default function UserProfilePage({ navBarLinks, setNavBarLinks, user, set
                         />
                         :
                         null}
-                    {userSections.activeSection === 0 || userSections.activeSection === 1 ?
-                        <>
-                            <button
-                                className={`btn ${allowEdit ? "btn-cancel" : null} no-margin-left`}
-                                onClick={handleEditClick}>
-                                {allowEdit ? "Cancel update" : userSections.activeSection === 1 ? "Update Account" : "Edit Profile"}
-                            </button>
-                            {allowEdit && userSections.activeSection === 0 ? <button className="btn no-margin-left" onClick={handleSubmit} >Save changes</button> : null}
-                        </>
-                        :
-                        null
-                    }
                 </div>
             </div>
         </div>

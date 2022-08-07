@@ -3,6 +3,8 @@
 ========================================*/
 import { useState } from "react"
 import * as userAPI from "../../utilities/users-api.js"
+import UserUpdateEmail from "./UserUpdateEmail.jsx"
+import UserUpdatePassword from "./UserUpdatePassword.jsx"
 
 export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, verifyEmail, setVerifyEmail, verifyPassword, setVerifyPassword, handleEmailUpdate, handlePasswordUpdate }) {
 
@@ -40,111 +42,28 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
 
     return (
         <div>
-            <h2>Manage your account information below</h2>
             <div className="account-info">
                 <h3>Login</h3>
-                {/* //! Start component userUpdateEmail */}
-                <fieldset className="account-info-login">
-                    <form onSubmit={handleEmailVerify}>
-                        <label>Email:
-                            <input
-                                disabled={!allowEdit || verifyEmail.emailMatch}
-                                type="text"
-                                value={verifyEmail.currentEmail}
-                                name="currentEmail"
-                                onChange={handleEmailChange}
-                            />
-                            {allowEdit && !verifyEmail.emailMatch ?
-                                <button
-                                    className="btn no-margin-top-bot"
-                                >Verify</button>
-                                :
-                                null
-                            }
-                        </label>
-                    </form>
-
-                    <form onSubmit={handleEmailUpdate}>
-                        <label>New Email:
-                        </label>
-                        <input
-                            disabled={!allowEdit}
-                            type="email"
-                            value={verifyEmail.email}
-                            name="email"
-                            onChange={handleEmailChange}
-                        />
-                        <label>Confirm Email:
-                        </label>
-                        <input
-                            disabled={!allowEdit}
-                            type="email"
-                            value={verifyEmail.confirmEmail}
-                            name="confirmEmail"
-                            onChange={handleEmailChange}
-                        />
-                        <button
-                            className="btn no-margin-left"
-                            disabled={disableEmailBtn}
-                        >Update</button>
-                    </form>
-
-                    {/* // !  End component userUpdateEmail */}
-                    <h5>Change Password</h5>
-                    {/* // !  Start component userUpdatePassword */}
-                    {!allowEdit ?
-                        <h6>Click "Update Account" to change password.</h6>
-                        :
-                        <>
-                            <form onSubmit={handlePasswordVerify}>
-                                <label>Current Password:
-                                    <input
-                                        disabled={!allowEdit || verifyPassword.passwordMatch}
-                                        type="password"
-                                        value={verifyPassword.currentPassword}
-                                        name="currentPassword"
-                                        onChange={handlePasswordChange}
-                                    />
-                                    {!verifyPassword.passwordMatch ?
-                                        <button
-                                            className="btn no-margin-top-bot"
-                                        >Verify</button>
-                                        :
-                                        null
-                                    }
-                                </label>
-                            </form>
-                            <form onSubmit={handlePasswordUpdate}>
-                                <label>New Password:
-                                </label>
-                                <input
-                                    disabled={!allowEdit}
-                                    type="text"
-                                    value={verifyPassword.password}
-                                    name="password"
-                                    onChange={handlePasswordChange}
-                                />
-                                <label>Confirm Password:
-                                </label>
-                                <input
-                                    disabled={!allowEdit}
-                                    type="text"
-                                    value={verifyPassword.confirmPassword}
-                                    name="confirmPassword"
-                                    onChange={handlePasswordChange}
-                                />
-                                <p className="text-italic text-small">password must be at least 3 characters long</p>
-                                <button
-                                    className="btn no-margin-left"
-                                    disabled={disablePasswordBtn}
-                                >Update</button>
-
-                            </form>
-                            {/* // !  Start component userUpdatePassword */}
-
-                        </>
-                    }
-                </fieldset>
+                <div className="userprofile-manage-account">
+                    <UserUpdateEmail
+                        disableEmailBtn={disableEmailBtn}
+                        tempUserData={tempUserData}
+                        handleEmailUpdate={handleEmailUpdate}
+                        allowEdit={allowEdit}
+                        verifyEmail={verifyEmail}
+                        handleEmailChange={handleEmailChange}
+                    />
+                    <h3>Change Password</h3>
+                    <UserUpdatePassword
+                        handlePasswordVerify={handlePasswordVerify}
+                        disablePasswordBtn={disablePasswordBtn}
+                        tempUserData={tempUserData}
+                        handlePasswordUpdate={handlePasswordUpdate}
+                        allowEdit={allowEdit}
+                        verifyPassword={verifyPassword}
+                        handlePasswordChange={handlePasswordChange}
+                    />
+                </div>
 
             </div>
             <div className="account-delete-div">
