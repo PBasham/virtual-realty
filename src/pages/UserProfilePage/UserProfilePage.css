@@ -55,6 +55,7 @@
 .userprofile-content input,
 .userprofile-content select {
     border: none;
+    background-color: rgb(212, 226, 231);
     box-shadow: inset 0 0 1px 1px black;
 }
 .userprofile-content input:disabled,
@@ -62,7 +63,6 @@
     background-color: transparent;
     -moz-appearance: none;
     -webkit-appearance: none;
-    box-shadow: none;
 }
 
 .userprofile-content select {

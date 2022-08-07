@@ -33,6 +33,7 @@ body {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: "Prompt";
+    font-weight: lighter;
 }
 button {
     font-family: "Cabin";
@@ -53,8 +54,10 @@ button:disabled {
 button:hover:disabled {
     background-color: rgb(145, 145, 145);
 }
-input {
+input,
+select {
     padding: 5px;
+    font-family: "Cabin";
 }
 .no-margin-left {
     margin-left: 0;

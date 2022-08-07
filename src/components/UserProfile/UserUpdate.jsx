@@ -4,7 +4,7 @@
 import { useState } from "react"
 import * as userAPI from "../../utilities/users-api.js"
 
-export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, verifyEmail, setVerifyEmail, verifyPassword, setVerifyPassword, handleEmailUpdate, handlePasswordUpdate}) {
+export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, verifyEmail, setVerifyEmail, verifyPassword, setVerifyPassword, handleEmailUpdate, handlePasswordUpdate }) {
 
     /*========================================
             Functions
@@ -22,7 +22,7 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
         setVerifyEmail({ ...verifyEmail, emailMatch: emailMatch })
     }
     const disableEmailBtn = (verifyEmail.email !== verifyEmail.confirmEmail || verifyEmail.email.trim() === "") || verifyEmail.email === verifyEmail.currentEmail
-    
+
     const handlePasswordChange = (e) => {
         console.log("verifyPassword: ", verifyPassword)
         setVerifyPassword({
@@ -43,6 +43,7 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
             <h2>Manage your account information below</h2>
             <div className="account-info">
                 <h3>Login</h3>
+                {/* //! Start component userUpdateEmail */}
                 <fieldset className="account-info-login">
                     <form onSubmit={handleEmailVerify}>
                         <label>Email:
@@ -62,36 +63,35 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
                             }
                         </label>
                     </form>
-                    {verifyEmail.emailMatch ?
-                        <form onSubmit={handleEmailUpdate}>
-                            <label>New Email:
-                            </label>
-                            <input
-                                disabled={!allowEdit}
-                                type="email"
-                                value={verifyEmail.email}
-                                name="email"
-                                onChange={handleEmailChange}
-                            />
-                            <label>Confirm Email:
-                            </label>
-                            <input
-                                disabled={!allowEdit}
-                                type="email"
-                                value={verifyEmail.confirmEmail}
-                                name="confirmEmail"
-                                onChange={handleEmailChange}
-                            />
-                            <button
-                                className="btn no-margin-left"
-                                disabled={disableEmailBtn}
-                            >Update</button>
-                        </form>
-                        :
-                        null
 
-                    }
+                    <form onSubmit={handleEmailUpdate}>
+                        <label>New Email:
+                        </label>
+                        <input
+                            disabled={!allowEdit}
+                            type="email"
+                            value={verifyEmail.email}
+                            name="email"
+                            onChange={handleEmailChange}
+                        />
+                        <label>Confirm Email:
+                        </label>
+                        <input
+                            disabled={!allowEdit}
+                            type="email"
+                            value={verifyEmail.confirmEmail}
+                            name="confirmEmail"
+                            onChange={handleEmailChange}
+                        />
+                        <button
+                            className="btn no-margin-left"
+                            disabled={disableEmailBtn}
+                        >Update</button>
+                    </form>
+
+                    {/* // !  End component userUpdateEmail */}
                     <h5>Change Password</h5>
+                    {/* // !  Start component userUpdatePassword */}
                     {!allowEdit ?
                         <h6>Click "Update Account" to change password.</h6>
                         :
@@ -114,36 +114,34 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
                                     }
                                 </label>
                             </form>
-                            {verifyPassword.passwordMatch ?
-                                <form onSubmit={handlePasswordUpdate}>
-                                    <label>New Password:
-                                    </label>
-                                    <input
-                                        disabled={!allowEdit}
-                                        type="text"
-                                        value={verifyPassword.password}
-                                        name="password"
-                                        onChange={handlePasswordChange}
-                                    />
-                                    <label>Confirm Password:
-                                    </label>
-                                    <input
-                                        disabled={!allowEdit}
-                                        type="text"
-                                        value={verifyPassword.confirmPassword}
-                                        name="confirmPassword"
-                                        onChange={handlePasswordChange}
-                                    />
-                                    <p className="text-italic text-small">password must be at least 3 characters long</p>
-                                    <button
-                                        className="btn no-margin-left"
-                                        disabled={disablePasswordBtn}
-                                    >Update</button>
+                            <form onSubmit={handlePasswordUpdate}>
+                                <label>New Password:
+                                </label>
+                                <input
+                                    disabled={!allowEdit}
+                                    type="text"
+                                    value={verifyPassword.password}
+                                    name="password"
+                                    onChange={handlePasswordChange}
+                                />
+                                <label>Confirm Password:
+                                </label>
+                                <input
+                                    disabled={!allowEdit}
+                                    type="text"
+                                    value={verifyPassword.confirmPassword}
+                                    name="confirmPassword"
+                                    onChange={handlePasswordChange}
+                                />
+                                <p className="text-italic text-small">password must be at least 3 characters long</p>
+                                <button
+                                    className="btn no-margin-left"
+                                    disabled={disablePasswordBtn}
+                                >Update</button>
 
-                                </form>
-                                :
-                                null
-                            }
+                            </form>
+                            {/* // !  Start component userUpdatePassword */}
+
                         </>
                     }
                 </fieldset>
