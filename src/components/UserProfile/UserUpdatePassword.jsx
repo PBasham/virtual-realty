@@ -1,7 +1,6 @@
 import React from 'react'
 
-export default function UserUpdatePassword({ disablePasswordBtn, tempUserData, handlePasswordUpdate, allowEdit, verifyPassword, handlePasswordChange, handlePasswordVerify,
-}) {
+export default function UserUpdatePassword({ disablePasswordBtn, tempUserData, handlePasswordUpdate, allowEdit, verifyPassword, handlePasswordChange, handlePasswordVerify, adminAccount,}) {
     return (
         <>
             <form onSubmit={handlePasswordVerify}>
@@ -9,9 +8,9 @@ export default function UserUpdatePassword({ disablePasswordBtn, tempUserData, h
                 <div>
 
                     <input
-                        disabled={!allowEdit}
+                        disabled={adminAccount ? true : !allowEdit}
                         type="password"
-                        value={verifyPassword.currentPassword}
+                        value={adminAccount ? "Cannot Edit Test User" : verifyPassword.currentPassword}
                         name="currentPassword"
                         onChange={handlePasswordChange}
                     />
@@ -22,7 +21,7 @@ export default function UserUpdatePassword({ disablePasswordBtn, tempUserData, h
                 <label>New Password:
                 </label>
                 <input
-                    disabled={!verifyPassword.passwordMatch}
+                    disabled={adminAccount ? true :!verifyPassword.passwordMatch}
                     type="text"
                     value={verifyPassword.password}
                     name="password"
@@ -31,7 +30,7 @@ export default function UserUpdatePassword({ disablePasswordBtn, tempUserData, h
                 <label>Confirm Password:
                 </label>
                 <input
-                    disabled={!verifyPassword.passwordMatch}
+                    disabled={adminAccount ? true :!verifyPassword.passwordMatch}
                     type="text"
                     value={verifyPassword.confirmPassword}
                     name="confirmPassword"

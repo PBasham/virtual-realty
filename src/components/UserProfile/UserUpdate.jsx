@@ -9,6 +9,8 @@ import UserUpdatePassword from "./UserUpdatePassword.jsx"
 
 export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, verifyEmail, setVerifyEmail, verifyPassword, setVerifyPassword, handleEmailUpdate, handlePasswordUpdate, deleteConfirm, setDeleteConfirm, setUser }) {
 
+    const [adminAccount, setAdminAccount] = useState(tempUserData._id === "62f02dd165243188c6de6407")
+
     /*========================================
             Functions
     ========================================*/
@@ -42,14 +44,19 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
 
 
     const handleDelete = async () => {
-        if(deleteConfirm){
-            // delete route
-            console.log("Delete Account")
-            const deleteAccount = await userServices.deleteUser()
-            setUser(null)
-
+        if (adminAccount) {
+            alert("Cannot change details of a test account.")
         } else {
-            setDeleteConfirm(true)
+
+            if (deleteConfirm) {
+                // delete route
+                console.log("Delete Account")
+                const deleteAccount = await userServices.deleteUser()
+                setUser(null)
+
+            } else {
+                setDeleteConfirm(true)
+            }
         }
     }
 
@@ -61,6 +68,7 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
                 <h3>Login</h3>
                 <div className="userprofile-manage-account">
                     <UserUpdateEmail
+                        adminAccount={adminAccount}
                         disableEmailBtn={disableEmailBtn}
                         tempUserData={tempUserData}
                         handleEmailUpdate={handleEmailUpdate}
@@ -70,6 +78,7 @@ export default function UserUpdate({ tempUserData, setTempUserData, allowEdit, v
                     />
                     <h3>Change Password</h3>
                     <UserUpdatePassword
+                        adminAccount={adminAccount}
                         handlePasswordVerify={handlePasswordVerify}
                         disablePasswordBtn={disablePasswordBtn}
                         tempUserData={tempUserData}

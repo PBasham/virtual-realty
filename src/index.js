@@ -4,11 +4,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from "react-router-dom";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop.jsx"
 /*========================================
-        import pages & components
+import pages & components
 ========================================*/
 import App from './pages/App/App';
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop.jsx"
 /*========================================
         import styles
 ========================================*/

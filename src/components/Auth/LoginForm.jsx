@@ -1,14 +1,15 @@
 /*========================================
         Import Dependencies
 ========================================*/
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as usersService from "../../utilities/users-services.js"
 
 export default function LoginForm({ setUser, updateShowLogin }) {
+
     const [credentials, setCredentials] = useState({
-        email: "",
-        password: "",
+        email: "McTestuser@gmail.com",
+        password: "123",
     });
     const [error, setError] = useState("");
 

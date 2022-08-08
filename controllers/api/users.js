@@ -107,11 +107,11 @@ Update user info
 ========================================*/
 async function updateUser(req, res) {
     console.log("--- I've made it to updateUser")
-    const updatedUser = await User.findByIdAndUpdate(req.user._id, req.body, {new: true})
+    const updatedUser = await User.findByIdAndUpdate(req.user._id, req.body, { new: true })
     res.json(createJWT(updatedUser))
 }
 // verify that the data match to allow updating of it.
-async function verifyEmail(req,res) {
+async function verifyEmail(req, res) {
     console.log("--- I've made it to verifyEmail")
     const user = await User.findById(req.user._id)
     const match = await user.email === req.body.currentEmail
@@ -119,12 +119,12 @@ async function verifyEmail(req,res) {
 }
 async function updatedEmail(req, res) {
     console.log("--- I've made it to updatedEmail")
-    const user = await User.findByIdAndUpdate(req.user._id, {email: req.body.email}, {new: true} )
+    const user = await User.findByIdAndUpdate(req.user._id, { email: req.body.email }, { new: true })
     console.log("updatedUser: ", user)
     res.json(createJWT(user))
 }
 // verify that the data match to allow updating of it.
-async function verifyPassword(req,res) {
+async function verifyPassword(req, res) {
     console.log("--- I've made it to verifyPassword")
     const user = await User.findById(req.user._id)
     const match = await bcrypt.compare(req.body.currentPassword, user.password)
@@ -146,7 +146,7 @@ async function deleteUser(req, res) {
         const user = await User.findOneAndDelete({ _id: req.user._id })
         console.log(user)
         res.json(user)
-    } catch (err){
+    } catch (err) {
         res.status(400).json(err)
     }
 }
