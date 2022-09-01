@@ -1,5 +1,5 @@
 # VirtualRealty
-Deployment ![link](https://pb-virtual-realty.herokuapp.com/home)
+[Deployment link](https://pb-virtual-realty.herokuapp.com/home)
 
 # Premise: 
 
