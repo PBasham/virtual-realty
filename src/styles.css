@@ -15,12 +15,20 @@
     box-sizing: border-box;
 }
 
-.App {
-    position: relative;
-}
 
 body {
     font-family: "Cabin";
+    background-color: red;
+}
+.App {
+    position: relative;
+    background-color: blue;
+}
+.content-wrapper {
+    background-color: wheat;
+}
+.content-wrapper > div div {
+    box-shadow: 0 0 1px 1px rgb(86, 170, 222);
 }
 .flex-hor-center {
     align-self: center;
