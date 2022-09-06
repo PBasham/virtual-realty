@@ -1,7 +1,7 @@
 # VirtualRealty
+[Deployment link](https://pb-virtual-realty.herokuapp.com/home)
 
 # Premise: 
-ß
 
 # The User Story:
 - I want to be able to sign up for an account.
