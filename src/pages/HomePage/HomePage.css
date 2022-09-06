@@ -116,13 +116,14 @@
     align-items: center;
 }
 .miniabout-wrapper > h1 {
-    margin-bottom: 10px; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+    font-size: 3rem;
 
 }
 .miniabout-content {
     display: flex;
     flex-direction: row;
-    height: 300px;
 }
 .miniabout-content > div {
     display: flex;
