@@ -221,7 +221,7 @@
     min-height: 300px;
 }
 .statistics-content > div{
-    width: min(400px, 80%);
+    width: min(400px, 90%);
 }
 .statistics-content-one p, 
 .statistics-content-one a {
