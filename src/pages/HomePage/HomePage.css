@@ -296,6 +296,10 @@
     .miniabout-wrapper > div {
         flex-direction: column-reverse;
     }
+    .miniabout-content > div {
+        width: 90%;
+        margin-bottom: 1em;
+    }
     .service-cards {
         flex-direction: column;
     }

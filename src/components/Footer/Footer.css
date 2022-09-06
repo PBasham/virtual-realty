@@ -30,4 +30,12 @@
         align-items: center;
         flex-direction: column;
     }
+    .footer-ul {
+        font-size: 1rem;
+        text-align: center;
+        background-color: blue;
+    }
+    .footer-ul h2 {
+        font-size: 2rem;
+    }
 }
