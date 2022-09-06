@@ -3,31 +3,82 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 50px;
+    width: 100vw;
+    height: 100vh;
+    font-size: 16px;
+    color: white;
+    background-image: 
+    linear-gradient(to bottom, rgba(0, 0, 30, 0.2), rgba(0, 0, 30, 0.2)),
+    url(https://greystone-on-hudson.com/uploads/img/10-image.jpg);
 }
 .form-wrapper h1{
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    font-size: 3rem;
 }
 
 .login-wrapper,
 .signup-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    position: relative;
+    padding: 20px;
+    min-width: 400px;
+    min-height: 500px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.647);
+}
+.form-swapper-div {
+    margin-top: auto;
+    text-align: center;
+}
+.form-swapper-div p {
+    margin-bottom: 5px;
 }
 .form-wrapper form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 300px;
+    height: 100%;
+}
+.form-wrapper form label {
+    font-size: 1.5em;
+    margin-bottom: .5em;
 }
 .form-wrapper form input {
-    margin-bottom: 20px;
-    width: 200px;
+    margin-bottom: 2em;
+    padding: 8px 15px;
+    font-size: 16px;
+    width: clamp(200px,20vw,400px);
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 15px;
+    outline: none;
+}
+
+.form-wrapper form input:focus {
+    transition: ease-in-out 250ms;
+    background-color: rgba(255, 255, 255, 0.86);
 }
 
 .form-wrapper p a {
     margin-left: 5px;
 }
 
+.auth-btn {
+    margin-bottom: 2em;
+    padding: 8px;
+    width: 85px;
+    color: white;
+    border: none;
+    background-color: rgb(17, 17, 121);
+    border-radius: 50px;
+    font-size: 16px;
+}
+
+.auth-btn:hover,
+.auth-btn:focus {
+    transition: ease-in-out 250ms;
+    background-color: var(--color-blue);
+}

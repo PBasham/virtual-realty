@@ -40,11 +40,13 @@ export default function LoginForm({ setUser, updateShowLogin }) {
                     <input type="email" name="email" value={credentials.email} onChange={handleChange} required />
                     <label>Password</label>
                     <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-                    <button type="submit" className="btn">Log In</button>
+                    <button type="submit" className="auth-btn">Log In</button>
                 </form>
             </div>
-            <p>Not a user? <Link to="/signUp" onClick={handleFormChange}>Sign Up</Link></p>
-            <p className="error-message">&nbsp;{error}</p>
+            <div className="form-swapper-div">
+                <p className="error-message">&nbsp;{error}</p>
+                <p>Not a user? <Link to="/signUp" onClick={handleFormChange}>Sign Up</Link></p>
+            </div>
         </div>
     )
 }

@@ -57,14 +57,17 @@ export default function SignUpForm({ setUser, updateShowLogin }) {
                     <button type="submit" disabled={disableBtn} className="btn" >Sign Up</button>
                 </form>
             </div>
-            <p>Already a user ?
-                <Link
-                    to="/Login"
-                    onClick={handleFormChange}>
-                    Log In
-                </Link>
-            </p>
-            <p className="error-message">&nbsp;{error}</p>
+            <div className="form-swapper-div">
+                <p className="error-message">&nbsp;{error}</p>
+
+                <p>Already a user ?
+                    <Link
+                        to="/Login"
+                        onClick={handleFormChange}>
+                        Log In
+                    </Link>
+                </p>
+            </div>
         </div>
     )
 }
