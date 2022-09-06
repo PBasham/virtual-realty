@@ -41,6 +41,7 @@ button {
 }
 
 .btn-cancel {
+    border-radius: 15px;
     color: white;
     background-color: rgb(193, 50, 50);
 }

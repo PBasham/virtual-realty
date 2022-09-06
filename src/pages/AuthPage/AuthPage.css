@@ -76,10 +76,10 @@
     background-color: rgb(17, 17, 121);
     border-radius: 50px;
     font-size: 16px;
+    transition: ease-in-out 250ms;
 }
 
 .auth-btn:hover,
 .auth-btn:focus {
-    transition: ease-in-out 250ms;
-    background-color: var(--color-blue);
+    background-color: rgb(25, 53, 214);
 }

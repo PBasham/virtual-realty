@@ -98,7 +98,12 @@ WatchList
 }
 
 .delete-list-btn.btn {
+    border-radius: 15px;
     background-color: var(--color-red);
+}
+.delete-list-btn.btn:hover,
+.delete-list-btn.btn:focus {
+    background-color: darkred;
 }
 
 .delete-listing-btn {
@@ -121,6 +126,9 @@ WatchList
     border: none;
     background-color: transparent;
     z-index: 51;
+}
+.delete-listing-btn:hover {
+    color: white;
 }
 .watchlist-list-title {
     display: flex;
