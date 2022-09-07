@@ -11,10 +11,12 @@
     font-size: 1.1em;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.693), rgba(0, 0, 0, 0.256));
 }
+
 .background-black {
     position: sticky;
     background-color: black;
 }
+
 .nav-logo,
 .nav-btns,
 .nav-user {
@@ -37,6 +39,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
 }
 
 .nav-btn {
@@ -51,4 +57,88 @@
     margin-left: 20px;
     color: white;
     text-decoration: none;
+}
+
+.mobile-nav {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 50px;
+    background-color: black;
+    z-index: 100;
+}
+
+.hamburger-menu {
+    position: absolute;
+    margin-left: 1em;
+    left: 0;
+    width: 40px;
+    height: 8px;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.mobile-nav-modal {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.828);
+    z-index: 100;
+    transition: 500ms ease-in-out;
+}
+
+.mobile-nav-open {
+    width: 90%;
+    z-index: 100;
+}
+
+.mobile-nav-modal .nav-btns {
+    flex-direction: column;
+    height: 70vh;
+    justify-content: space-evenly;
+}
+
+.mobile-nav-modal .nav-btn {
+    opacity: 1;
+    font-size: 2rem;
+    transition: opacity 200ms ease-in-out 200ms;
+}
+
+.mobile-nav-modal .nav-user {
+    opacity: 1;
+}
+.mobile-nav-modal .nav-user.hidden, 
+.mobile-nav-modal .nav-btn.hidden{
+    opacity: 0;
+    transition: opacity 100ms ease-in 100ms;
+}
+.mobile-nav-modal .nav-user-div {}
+
+/*----------------------------------------
+        Mobile Styling
+-----------------------------------------*/
+@media (max-width: 800px) {
+    .nav-bar {
+        display: none;
+    }
+
+    .nav-logo {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .mobile-nav {
+        display: flex;
+    }
+    .mobile-nav-modal {
+    }
+
 }

@@ -6,13 +6,14 @@
     width: min(90vw, 1000px);
     min-height: 400px;
 }
-.about-wrapper > div {
+
+.about-wrapper>div {
     margin-bottom: 40px;
 
 }
-.mission-wrapper {
 
-}
+.mission-wrapper {}
+
 .team-members {
     display: flex;
     justify-content: space-between;
@@ -34,7 +35,7 @@
     height: 100%;
 }
 
-.team-member:nth-of-type(2) img{
+.team-member:nth-of-type(2) img {
     position: absolute;
     width: 100%;
 }
@@ -43,15 +44,18 @@
     display: flex;
     flex-direction: row;
 }
-.team-details > div {
+
+.team-details>div {
     margin: 1.5em;
     width: 40%;
 }
-.about-wrapper h2, 
-.about-wrapper h3, 
+
+.about-wrapper h2,
+.about-wrapper h3,
 .about-wrapper p {
     margin-bottom: 10px;
 }
+
 .team-detail-img {
     display: grid;
     place-items: center;
@@ -59,57 +63,93 @@
     aspect-ratio: 1;
     overflow: hidden;
 }
+
 .team-detail-img img {
     position: absolute;
     height: 100%;
 }
+
 .services-wrapper {}
+
 .services-list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+
 .service-list-card {
     text-align: center;
     width: 250px;
     min-height: 100px;
 }
+
 .service-list-card h4 {
     margin-bottom: 20px;
 }
+
 .service-card-detail-img {
     position: relative;
     margin-bottom: 10px;
     min-height: 125px;
     overflow: hidden;
 }
-.service-card-detail-img img{
+
+.service-card-detail-img img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
 }
+
 .next-step-wrapper {}
 
 @media (max-width: 800px) {
+
+    /*----------------------------------------
+            Team Members
+    -----------------------------------------*/
     .team-members {
         justify-content: space-evenly;
         gap: 2px;
     }
+
     .team-member {
         margin-bottom: .5em;
         width: 30%;
     }
+
     .team-details {
         align-items: center;
         flex-direction: column;
     }
-    .team-details > div {
+
+    .team-details>div {
         width: 100%;
         font-size: 1.3rem;
+
+    }
+
+    .team-details>.team-detail-img {
+        width: 80%;
+    }
+
+    /*----------------------------------------
+            Services
+    -----------------------------------------*/
+    .services-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    .services-list {
+        flex-direction: column;
         
     }
-    .team-details > .team-detail-img {
-        width: 80%;
+    .service-list-card {
+        width: 100%;
+        /* height: 250px; */
+    }
+    .service-card-detail-img {
+        height: 250px;
+        margin: 0;
     }
 }
