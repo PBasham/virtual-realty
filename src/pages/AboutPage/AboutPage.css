@@ -3,11 +3,14 @@
     flex-direction: column;
     margin: 0 auto;
     padding: 50px 0;
-    width: clamp(600px, 80vw, 800px);
+    width: min(90vw, 1000px);
     min-height: 400px;
+    box-shadow: inset 0 0 1px 3px hotpink;
 }
 .about-wrapper > div {
     margin-bottom: 40px;
+    box-shadow: inset 0 0 1px 3px blanchedalmond;
+
 }
 .mission-wrapper {
 
@@ -15,7 +18,9 @@
 .team-members {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     position: relative;
+    box-shadow: inset 0 0 1px 3px pink;
 }
 
 .team-member {
@@ -88,3 +93,32 @@
     width: 100%;
 }
 .next-step-wrapper {}
+
+@media (max-width: 800px) {
+    .team-members {
+        justify-content: space-evenly;
+        gap: 2px;
+    }
+    .team-member {
+        margin-bottom: .5em;
+        width: 30%;
+    }
+    .team-details {
+        align-items: center;
+        flex-direction: column;
+    }
+    .team-details > div {
+        width: 80%;
+    }
+    .team-detail-img {
+        /* display: grid;
+        place-items: center;
+        position: relative;
+        aspect-ratio: 1;
+        overflow: hidden; */
+    }
+    .team-detail-img img {
+        /* position: absolute;
+        height: 100%; */
+    }
+}
