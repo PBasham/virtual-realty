@@ -11,7 +11,7 @@ import "./NavBar.css"
 
 export default function NavBar({ user, setUser, navBarLinks, setNavBarLinks }) {
 
-    const [mobileMenueOpen, setMobileMenueOpen] = useState(false)
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     const handleLogout = async () => {
         logOut()
@@ -19,25 +19,29 @@ export default function NavBar({ user, setUser, navBarLinks, setNavBarLinks }) {
     }
 
     const handleClickMoblieMenu = () => {
-        setMobileMenueOpen(!mobileMenueOpen)
+        setMobileMenuOpen(!mobileMenuOpen)
+    }
+    const handleMobileNavClick = () => {
+        setMobileMenuOpen(false)
     }
     return (
         <>
-            <div className={`mobile-nav-modal ${mobileMenueOpen ? `mobile-nav-open` : null}`}>
+            <div className={`mobile-nav-modal ${mobileMenuOpen ? `mobile-nav-open` : null}`}>
             <div className="nav-btns">
                     {navBarLinks.navLinks.map((link) => (
                         <Link
                             key={link.id}
                             to={link.to}
                             element={link.element}
-                            className={`nav-btn ${!mobileMenueOpen ? `hidden` : null}`}
+                            className={`nav-btn ${!mobileMenuOpen ? `hidden` : null}`}
+                            onClick={handleMobileNavClick}
                         >
                             {link.name}
                         </Link>
                     ))}
                 </div>
                 <div className="nav-user-div">
-                    <button className={`nav-user nav-btn ${!mobileMenueOpen ? `hidden` : null}`} onClick={handleLogout}>LogOut</button>
+                    <button className={`nav-user nav-btn ${!mobileMenuOpen ? `hidden` : null}`} onClick={handleLogout}>LogOut</button>
                 </div>
             </div>
             <div className="mobile-nav">
@@ -65,7 +69,7 @@ export default function NavBar({ user, setUser, navBarLinks, setNavBarLinks }) {
                     ))}
                 </div>
                 <div className="nav-user-div">
-                    <button className="nav-user" onClick={handleLogout}>LogOut</button>
+                    <button className="nav-user nav-btn" onClick={handleLogout}>LogOut</button>
                 </div>
             </div>
         </>

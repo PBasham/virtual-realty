@@ -81,10 +81,13 @@
     text-align: center;
     width: 250px;
     min-height: 100px;
+    margin-bottom: 2em;
+    font-size: 1rem;
 }
 
 .service-list-card h4 {
-    margin-bottom: 20px;
+    margin-bottom: .25em;
+    font-size: 1.3rem;
 }
 
 .service-card-detail-img {
@@ -104,7 +107,9 @@
 .next-step-wrapper {}
 
 @media (max-width: 800px) {
-
+    .about-wrapper {
+        padding-top: 5em;
+    }
     /*----------------------------------------
             Team Members
     -----------------------------------------*/

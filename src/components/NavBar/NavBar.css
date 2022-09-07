@@ -89,7 +89,7 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.828);
     z-index: 100;
-    transition: 500ms ease-in-out;
+    transition: 250ms ease-in;
 }
 
 .mobile-nav-open {
@@ -106,7 +106,7 @@
 .mobile-nav-modal .nav-btn {
     opacity: 1;
     font-size: 2rem;
-    transition: opacity 200ms ease-in-out 200ms;
+    transition: opacity 100ms ease-in-out 100ms;
 }
 
 .mobile-nav-modal .nav-user {
