@@ -24,8 +24,8 @@
     align-items: center;
     position: relative;
     padding: 20px;
-    min-width: 400px;
-    min-height: 500px;
+    width: min(400px, 100%);
+    min-height: 100px;
     border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.647);
 }
@@ -82,4 +82,30 @@
 .auth-btn:hover,
 .auth-btn:focus {
     background-color: rgb(25, 53, 214);
+}
+/*----------------------------------------
+        Mobile Styling
+-----------------------------------------*/
+@media screen and (max-width: 800px) {
+    .form-wrapper {
+        justify-content: flex-start;
+        text-align: center;
+        padding: 1em;
+    }
+    .form-wrapper h1 {
+        margin-bottom: .5em;
+    }
+    .form-container form label,
+    .form-container form  label{
+        font-size: 1.1rem;
+    }
+    .form-container form input,
+    .form-container form  input{
+        margin-bottom: 1em;
+        width: 80vw;
+    }
+    .login-wrapper,
+    .signup-wrapper {
+
+    }
 }
