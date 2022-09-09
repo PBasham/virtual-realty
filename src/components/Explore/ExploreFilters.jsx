@@ -3,7 +3,7 @@
 ========================================*/
 import { useState } from 'react'
 
-export default function ExploreFilters({ filters,  getFilteredListings}) {
+export default function ExploreFilters({ filters, getFilteredListings }) {
 
     const [formData, setFormData] = useState({
         city: null,
@@ -15,11 +15,11 @@ export default function ExploreFilters({ filters,  getFilteredListings}) {
         if (e.target.name === "tags") {
             // tags
             if (e.target.checked) {
-                    setFormData({
-                        ...formData,
-                        [e.target.name]: [...formData.tags, e.target.value]
-                    })
-                } else {
+                setFormData({
+                    ...formData,
+                    [e.target.name]: [...formData.tags, e.target.value]
+                })
+            } else {
                 let tempArr = formData.tags
                 let tempIndex = tempArr.indexOf(e.target.value)
                 tempArr.splice(tempIndex, 1)
@@ -44,17 +44,19 @@ export default function ExploreFilters({ filters,  getFilteredListings}) {
         getFilteredListings(formData)
     }
     return (
-        <form onSubmit={handleSubmit} className="filter-section filters-wrapper">
-            <h2>Filters</h2>
-            <button className="filter-btn btn">Apply Filter</button>
+        <form onSubmit={handleSubmit} className="filters-wrapper">
+            <div className="filter-header-div">
+                <h2>Filters</h2>
+                <button className="filter-btn btn">Apply Filter</button>
+            </div>
             {/* <fieldset className="filter-price-range">
                 <h3>Range</h3>
                 <input name="low" className="price-range" type="number" />
                 -
                 <input name="high" className="price-range" type="number" />
             </fieldset> */}
+            <h3>City</h3>
             <fieldset className="filter-section filters-city">
-                <h3>City</h3>
                 {filters.cities.map((city, index) => (
                     <label key={index} htmlFor={`radio-${city}`}>
                         <input onChange={handleChange} key={index} id={`radio-${city}`} name="city" type="radio" value={city} />{city}
