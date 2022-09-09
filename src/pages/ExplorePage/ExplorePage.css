@@ -4,6 +4,9 @@
     margin: 0 auto;
     width: clamp(600px,80vw, 1920px);
 }
+.explore-page h1 {
+    margin: 1.5em 0 2.5em 0;
+}
 .explore-page-content {
     display: flex;
     flex-direction: row;
