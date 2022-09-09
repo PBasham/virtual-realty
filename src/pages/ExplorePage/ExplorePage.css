@@ -5,13 +5,15 @@
     width: clamp(600px,80vw, 1920px);
 }
 .explore-page h1 {
-    margin: 1.5em 0 2.5em 0;
+    margin: 1.5em 0 1em 0;
+}
+.explore-page hr {
+    margin-bottom: 2.5em;
 }
 .explore-page-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: rgba(250, 235, 215, 0.571);
 }
 /*----------------------------------------
         Listing Filters
@@ -47,16 +49,22 @@
 /*----------------------------------------
         listings list
 -----------------------------------------*/
+.listing-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    width: 80%;
+}
 .listings-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    width: 80%;
-    background-color: rgba(0, 255, 255, 0.214);
+    justify-content: center;
+    gap: .5em;
 }
 .listings-list a {
-    margin: 0 .5em .5em 0;
+    /* margin: 0 .5em .5em 0; */
     height: 300px;
     aspect-ratio: 1.25;
 }

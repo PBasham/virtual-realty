@@ -46,6 +46,7 @@ export default function ExplorePage({ navBarLinks, setNavBarLinks }) {
     return (
         <div className="explore-page">
             <h1>Take a scroll through our beautiful homes</h1>
+            <hr />
             <div className="explore-page-content">
                 <ExploreFilters filters={filters} getFilteredListings={getFilteredListings}/>
                 <Listings listingsList={listingsList} />
