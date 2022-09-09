@@ -1,7 +1,7 @@
 .explore-page {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: 0 auto 4em auto;
     width: clamp(600px,80vw, 1920px);
 }
 .explore-page h1 {
@@ -10,6 +10,8 @@
 .explore-page-content {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(250, 235, 215, 0.571);
 }
 /*----------------------------------------
         Listing Filters
@@ -18,7 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 20%;
+    width: 200px;
 }
 .filters-wrapper > fieldset {
     text-align: center;
@@ -34,6 +36,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: .5em;
+}
+.filter-section label input {
+    margin-right: .25em;
 }
 .filter-section h3 {
     align-self: center;
@@ -47,11 +53,11 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     width: 80%;
+    background-color: rgba(0, 255, 255, 0.214);
 }
 .listings-list a {
     margin: 0 .5em .5em 0;
     height: 300px;
-    aspect-ratio: 1.25;
     aspect-ratio: 1.25;
 }
 .listing-preview {
