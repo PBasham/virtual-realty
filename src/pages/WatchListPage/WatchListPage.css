@@ -1,4 +1,6 @@
-.watchlist-page {}
+.watchlist-page {
+    padding-top: 5em;
+}
 
 /* width for page!!! */
 /* width: min(90vw, 1000px); */
@@ -8,7 +10,7 @@ WatchList
 .watchlist-wrapper {
     display: flex;
     flex-direction: column;
-    margin: 40px auto;
+    margin: 0 auto;
     width: 80vw;
     min-height: 400px;
 
@@ -24,7 +26,7 @@ WatchList
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 20px;
+    /* padding: 30px 20px; */
     min-height: 400px;
 }
 
@@ -140,4 +142,12 @@ WatchList
     height: 225px;
     overflow: hidden;
     transition: 250ms ease-in;
+}
+/*----------------------------------------
+        Mobile Styling
+-----------------------------------------*/
+@media screen and (max-width: 800px) {
+    .watchlist-page-header {
+        flex-direction: column;
+    }
 }
