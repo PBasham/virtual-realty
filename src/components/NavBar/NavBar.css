@@ -105,17 +105,15 @@
 
 .mobile-nav-modal .nav-btn {
     opacity: 1;
+    width: auto;
     font-size: 2rem;
-    transition: opacity 100ms ease-in-out 100ms;
-}
-
-.mobile-nav-modal .nav-user {
-    opacity: 1;
+    transition: 100ms ease-in-out 100ms;
 }
 .mobile-nav-modal .nav-user.hidden, 
 .mobile-nav-modal .nav-btn.hidden{
+    transform: scale(0, 1);
     opacity: 0;
-    transition: opacity 100ms ease-in 100ms;
+    transition: 50ms ease-in 50ms;
 }
 .mobile-nav-modal .nav-user-div {}
 
