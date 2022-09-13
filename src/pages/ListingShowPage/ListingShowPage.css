@@ -285,19 +285,43 @@
         flex-direction: column;
         justify-content: space-between;
         padding: 1em;
-        width: 100%;
     }
     .watchlist-btn-div .inner-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        /* justify-content: space-between; */
         width: 100%;
-        background-color: rebeccapurple;
+    }
+    .watchlist-btn-div .inner-wrapper button,
+    .watchlist-btn-div .inner-wrapper select{
+        height: 50px;
     }
     
     .listing-wrapper {
         flex-direction: column;
-        background-color: red;
+        padding: 0;
         width: 100%;
+    }
+    .listing-photos-wrapper {
+        width: 100%;
+    }
+    .listing-photos img {
+
+        width: 100%;
+    }
+    .listing-details-other ul {
+        width: 100%;
+    }
+    .listing-details-wrapper {
+        width: 100%;
+    }
+    .listing-details-wrapper>div {
+        margin: 0;
+        padding: 1em;
+    }
+    .listing-detail-estimate-calc {
+        text-align: center;
+    }
+    .listing-details-tags {
+        justify-content: center;
     }
 }
