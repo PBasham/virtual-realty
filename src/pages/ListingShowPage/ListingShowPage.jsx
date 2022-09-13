@@ -18,10 +18,10 @@ import ListingShowPhotos from "../../components/Explore/ListingShowPhotos.jsx"
 ========================================*/
 import "./ListingShowPage.css"
 export default function ListingShowPage(
-    { navBarLinks, setNavBarLinks}
+    { navBarLinks, setNavBarLinks }
 ) {
 
-    
+
     const navigate = useNavigate()
 
     const params = useParams()
@@ -36,7 +36,7 @@ export default function ListingShowPage(
         listId: "",
     })
 
-    const [ addToListMessage, setAddToListMessage] = useState("")
+    const [addToListMessage, setAddToListMessage] = useState("")
 
     let objListing = {}
 
@@ -101,7 +101,7 @@ export default function ListingShowPage(
             line: listing.line,
             location: `${listing.city} ${listing.state}`,
         })
-        listingToAdd ? 
+        listingToAdd ?
             setAddToListMessage("Added to watchlist!")
             :
             setAddToListMessage("Already in watchlist.")
@@ -136,35 +136,38 @@ export default function ListingShowPage(
                     <h2>{listing.line}</h2>
                     <a href={`${listing.street_view_url}`} target="_blank">{listing.long_address}</a>
                     <div className="watchlist-btn-div">
-                    {userWatchlistAll.length ?
-                                <>
+                        {userWatchlistAll.length ?
+                            <>
+                                <div className="inner-wrapper">
+
                                     <button className="watchlist-add-btn btn" onClick={handleAddToWatchlist}>Add To Watchlist</button>
                                     <select name="userListings" onChange={handleOptionChange}>
                                         {userWatchlistAll.map((list, index) => (
                                             < option value={list._id}>{list.WatchListName}</option>
                                         ))}
                                     </select>
-                                    <p>{addToListMessage}</p>
-                                </>
-                                :
-                                <button className="watchlist-add-btn btn" onClick={handleCreateWatchlist}>Create Watchlist</button>
-                            }
-                        
+                                </div>
+                                <p>{addToListMessage}</p>
+                            </>
+                            :
+                            <button className="watchlist-add-btn btn" onClick={handleCreateWatchlist}>Create Watchlist</button>
+                        }
+
                     </div>
                 </div>
                 <div className="listing-wrapper">
-                        <ListingShowPhotos 
-                            primary_photo={listing.primary_photo}
-                            photos={listing.photos}
-                        />
-                        <ListingShowDetails 
-                            price={listing.price}
-                            baths={listing.baths}
-                            beds={listing.beds}
-                            sqft={listing.sqft}
-                            year_build={listing.year_build}
-                            tags={listing.tags}
-                        />
+                    <ListingShowPhotos
+                        primary_photo={listing.primary_photo}
+                        photos={listing.photos}
+                    />
+                    <ListingShowDetails
+                        price={listing.price}
+                        baths={listing.baths}
+                        beds={listing.beds}
+                        sqft={listing.sqft}
+                        year_build={listing.year_build}
+                        tags={listing.tags}
+                    />
                 </div>
             </div>
         </>
