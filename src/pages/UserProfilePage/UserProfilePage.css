@@ -8,10 +8,8 @@
     align-items: center;
     margin-inline: auto;
     padding-top: 4em;
-    width: 80vw;
-    /* width: min(90vw, 1000px); */
+    width: min(90vw, 1000px);
     min-height: 500px;
-    /* background-color: aquamarine; */
 }
 
 .userprofile-wrapper h2 {
@@ -23,7 +21,6 @@
     grid-template-columns: 20% 80%;
     margin-top: 20px;
     width: 100%;
-    /* background-color: aqua; */
 }
 
 .userprofile-options-wrapper {}
@@ -114,6 +111,7 @@
     flex-direction: row;
     justify-content: flex-start;
     flex-wrap: wrap;
+    width: 100%;
 
 }
 
@@ -123,7 +121,7 @@
     position: relative;
     margin: 5px;
     width: 250px;
-    aspect-ratio: 1;
+    height: 250px;
     overflow: hidden;
     z-index: 25;
 }
@@ -203,5 +201,16 @@
     .account-delete-div {
         min-height: 100px;
         text-align: left;
+    }
+    .userprofile-recent-wrapper {
+        width: 100%;
+    }
+    .userprofile-recent-list {
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+    .userprofile-recent-listing {
+        width: 100%;
     }
 }
