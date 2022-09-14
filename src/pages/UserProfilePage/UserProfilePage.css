@@ -6,7 +6,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 40px auto;
+    margin-inline: auto;
+    padding-top: 4em;
     width: 80vw;
     /* width: min(90vw, 1000px); */
     min-height: 500px;
@@ -143,4 +144,65 @@
     color: white;
     background-color: rgba(0, 0, 0, 0.26);
     z-index: 50;
+}
+
+@media screen and (max-width: 800px) {
+    .userprofile-wrapper {
+        flex-direction: column;
+        padding-left: 1em;
+        padding-right: 1em;
+        width: 100vw;
+    }
+
+    .userprofile-wrapper h2 {
+        width: 100%;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .userprofile-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .userprofile-options-wrapper {
+        background-color: antiquewhite;
+    }
+
+    .userprofile-options-wrapper ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2em;
+        font-size: 1.2rem;
+    }
+
+    .userprofile-options-wrapper ul li {
+        /* margin: 0; */
+        text-decoration: underline;
+    }
+    .userprofile-content {
+    }
+    .userprofile-content fieldset { 
+        margin: 0;
+        padding: 1em 0;
+        flex-direction: column;
+        font-size: 1.2rem;
+        width: 100%;
+    }
+    .userprofile-content fieldset .btn{ 
+        align-self: center;
+    }
+    .userprofile-content input,
+    .userprofile-content select {
+        height: 30px;
+        font-size: 1.2rem;
+        margin: .5em 0;
+    }
+    .account-delete-div {
+        min-height: 100px;
+        text-align: left;
+    }
 }
