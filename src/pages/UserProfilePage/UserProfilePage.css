@@ -1,13 +1,16 @@
 /*----------------------------------------
         UserProfile General styling
 -----------------------------------------*/
+/* width: min(90vw, 1000px); */
 .userprofile-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 40px auto;
     width: 80vw;
+    /* width: min(90vw, 1000px); */
     min-height: 500px;
+    /* background-color: aquamarine; */
 }
 
 .userprofile-wrapper h2 {
@@ -19,6 +22,7 @@
     grid-template-columns: 20% 80%;
     margin-top: 20px;
     width: 100%;
+    /* background-color: aqua; */
 }
 
 .userprofile-options-wrapper {}
@@ -62,12 +66,14 @@
     background-color: rgb(212, 226, 231);
     box-shadow: inset 0 0 1px 1px black;
 }
+
 .userprofile-content input:disabled,
 .userprofile-content select:disabled {
     background-color: transparent;
     -moz-appearance: none;
     -webkit-appearance: none;
 }
+
 .userprofile-content select {
     width: 100px;
 }
@@ -81,6 +87,7 @@
         Manage Account
 -----------------------------------------*/
 .userprofile-manage-account {}
+
 .userprofile-manage-account form {
     display: flex;
     flex-direction: column;
