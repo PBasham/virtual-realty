@@ -1,13 +1,16 @@
 import React from 'react'
+import { Link } from "react-router-dom"
+
+import AboutPage from "../../pages/AboutPage/AboutPage"
 
 export default function ServiceCard({ title, img, desc }) {
     return (
         <div className="service-card">
             <div className="service-card-desc">
                 <p>{desc}</p>
-                <a href="/about">
+                <Link to="/about" element={<AboutPage/>}>
                     Click To Learn More
-                </a>
+                </Link>
             </div>
             <div className="service-card-img">
                 <img src={img} alt="" />
