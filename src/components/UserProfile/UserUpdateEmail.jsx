@@ -1,6 +1,6 @@
 export default function UserUpdateEmail({ handleEmailUpdate, allowEdit, verifyEmail, handleEmailChange, disableEmailBtn, tempUserData, adminAccount, }) {
     return (
-        <form onSubmit={handleEmailUpdate}>
+        <form className="update-settings" onSubmit={handleEmailUpdate}>
             <fieldset>
                 <h4>Email: {tempUserData.email}</h4>
                 <label>New Email:

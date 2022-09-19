@@ -3,7 +3,7 @@ import React from 'react'
 export default function UserUpdatePassword({ disablePasswordBtn, tempUserData, handlePasswordUpdate, allowEdit, verifyPassword, handlePasswordChange, handlePasswordVerify, adminAccount, }) {
     return (
         <>
-            <form onSubmit={handlePasswordVerify}>
+            <form className="update-settings" onSubmit={handlePasswordVerify}>
                 <fieldset>
                     Current Password:
                     <div>
